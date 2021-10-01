@@ -1,22 +1,82 @@
-import { useRouter } from 'next/dist/client/router';
-import useFetch from '../../hooks/useFetch';
+import Background from '../../components/Background';
+import Link from 'next/link';
+import getData from '../../adapters/getData';
+import openFullscreen from '../../utilities/openFullscreen';
 
-const Movie = () => {
-  const router = useRouter();
-  const { id } = router.query;
-  const [movie] = useFetch('movie/' + id);
+export async function getServerSideProps(context) {
+  const id = context.params.id;
+  const data = await getData(
+    `movie/${id}`,
+    '&append_to_response=credits,videos'
+  );
+  return { props: { data } };
+}
 
-  if (movie === null) {
-    return <div>Loading...</div>;
-  }
-
-  if (movie === undefined) {
-    return <div>no data</div>;
-  }
-
+const Movie = ({ data }) => {
   return (
-    <div>
-      <Details movie={movie} />
+    <div style={{ fontSize: 150, color: 'white', maxWidth: 1920 }}>
+      <Background path={data?.backdrop_path} />
+      <button onClick={openFullscreen}>FULLSCREEN</button>
+      <Details movie={data} />
+      <Link href={`/movie/550988`} disabled={true}>
+        <a>title</a>
+      </Link>
+      <br />
+      <Link href={`/movie/809968`}>
+        <a>title</a>
+      </Link>
+      <br />
+      <Link href={`/movie/589754`}>
+        <a>title</a>
+      </Link>
+      <br />
+      <Link href={`/movie/703771`}>
+        <a>title</a>
+      </Link>
+      <br />
+      <Link href={`/movie/618353`}>
+        <a>title</a>
+      </Link>
+      <br />
+      <Link href={`/movie/618353`}>
+        <a>title</a>
+      </Link>
+      <br />
+      <Link href={`/movie/618353`}>
+        <a>title</a>
+      </Link>
+      <br />
+      <Link href={`/movie/618353`}>
+        <a>title</a>
+      </Link>
+      <br />
+      <Link href={`/movie/618353`}>
+        <a>title</a>
+      </Link>
+      <br />
+      <Link href={`/movie/618353`}>
+        <a>title</a>
+      </Link>
+      <br />
+      <Link href={`/movie/446130`}>
+        <a>title</a>
+      </Link>
+      <br />
+      <Link href={`/movie/428495`}>
+        <a>title</a>
+      </Link>
+      <br />
+      <Link href={`/movie/21575`}>
+        <a>title</a>
+      </Link>
+      <br />
+      <Link href={`/movie/446289`}>
+        <a>title</a>
+      </Link>
+      <br />
+      <Link href={`/movie/618353`}>
+        <a>title</a>
+      </Link>
     </div>
   );
 };
@@ -26,32 +86,40 @@ export default Movie;
 const Details = ({ movie }) => {
   const {
     adult,
-    original_title,
+    title,
     backdrop_path,
+    poster_path,
     belongs_to_collection,
     budget,
     genres,
     homepage,
   } = movie;
 
-  console.log(movie);
-
   return (
-    <div>
-      <h3>{original_title}</h3>
+    <div style={{ color: 'white', padding: '100px', fontSize: 18 }}>
+      <h3 style={{ fontSize: 40, padding: 20 }}>{title}</h3>
       <div>{adult ? '18+' : 'all'}</div>
-      {backdrop_path && <div>{backdrop_path}</div>}
+
       <div>
         {belongs_to_collection ? belongs_to_collection.name : 'no collection'}
       </div>
-      <div>{budget && budget.toLocaleString()}</div>
+      <div>
+        {budget > 0
+          ? budget.toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD',
+            })
+          : '-'}
+      </div>
       <div>
         {genres &&
           genres.map((item, index) => <span key={index}>{item.name}, </span>)}
       </div>
       {homepage && (
         <div>
-          <a href={homepage}>homepage</a>
+          <a target="_blank" href={homepage} rel="noopener noreferrer">
+            homepage
+          </a>
         </div>
       )}
     </div>
