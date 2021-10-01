@@ -1,8 +1,9 @@
-import Background from '../../components/DualBackground';
+import DualBackground from '../../components/DualBackground';
 import Link from 'next/link';
 import getData from '../../adapters/getData';
-import openFullscreen from '../../utilities/openFullscreen';
-import { useEffect } from 'react';
+
+import FullscreenToggler from '../../components/FullscreenToggler';
+import FullHeightHero from '../../components/FullHeightHero';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -15,70 +16,84 @@ export async function getServerSideProps(context) {
 
 const Movie = ({ data }) => {
   return (
-    <div style={{ fontSize: 150, color: 'white', maxWidth: 1920 }}>
-      <Background path={data?.backdrop_path} />
-      <button onClick={openFullscreen}>FULLSCREEN</button>
-      <Details movie={data} />
-      <Link href={`/movie/550988`}>
-        <a>title</a>
-      </Link>
-      <br />
-      <Link href={`/movie/809968`}>
-        <a>title</a>
-      </Link>
-      <br />
-      <Link href={`/movie/550989`}>
-        <a>title</a>
-      </Link>
-      <br />
-      <Link href={`/movie/703771`}>
-        <a>title</a>
-      </Link>
-      <br />
-      <Link href={`/movie/618353`}>
-        <a>title</a>
-      </Link>
-      <br />
-      <Link href={`/movie/618353`}>
-        <a>title</a>
-      </Link>
-      <br />
-      <Link href={`/movie/618353`}>
-        <a>title</a>
-      </Link>
-      <br />
-      <Link href={`/movie/618353`}>
-        <a>title</a>
-      </Link>
-      <br />
-      <Link href={`/movie/618353`}>
-        <a>title</a>
-      </Link>
-      <br />
-      <Link href={`/movie/618353`}>
-        <a>title</a>
-      </Link>
-      <br />
-      <Link href={`/movie/446130`}>
-        <a>title</a>
-      </Link>
-      <br />
-      <Link href={`/movie/428495`}>
-        <a>title</a>
-      </Link>
-      <br />
-      <Link href={`/movie/21575`}>
-        <a>title</a>
-      </Link>
-      <br />
-      <Link href={`/movie/446289`}>
-        <a>title</a>
-      </Link>
-      <br />
-      <Link href={`/movie/618353`}>
-        <a>title</a>
-      </Link>
-    </div>
+    <>
+      <FullHeightHero style={{ display: 'flex', alignItems: 'center' }}>
+        <DualBackground path={data?.backdrop_path} />
+        <FullscreenToggler />
+      </FullHeightHero>
+      <div style={{ fontSize: 150, color: 'white' }}>
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            position: 'relative',
+            border: '2px solid green',
+          }}
+        ></div>
+
+        <Details movie={data} />
+
+        <Link href={`/movie/550988`}>
+          <a>title</a>
+        </Link>
+        <br />
+        <Link href={`/movie/809968`}>
+          <a>title</a>
+        </Link>
+        <br />
+        <Link href={`/movie/550989`}>
+          <a>title</a>
+        </Link>
+        <br />
+        <Link href={`/movie/703771`}>
+          <a>title</a>
+        </Link>
+        <br />
+        <Link href={`/movie/618353`}>
+          <a>title</a>
+        </Link>
+        <br />
+        <Link href={`/movie/618353`}>
+          <a>title</a>
+        </Link>
+        <br />
+        <Link href={`/movie/618353`}>
+          <a>title</a>
+        </Link>
+        <br />
+        <Link href={`/movie/618353`}>
+          <a>title</a>
+        </Link>
+        <br />
+        <Link href={`/movie/618353`}>
+          <a>title</a>
+        </Link>
+        <br />
+        <Link href={`/movie/618353`}>
+          <a>title</a>
+        </Link>
+        <br />
+        <Link href={`/movie/446130`}>
+          <a>title</a>
+        </Link>
+        <br />
+        <Link href={`/movie/428495`}>
+          <a>title</a>
+        </Link>
+        <br />
+        <Link href={`/movie/21575`}>
+          <a>title</a>
+        </Link>
+        <br />
+        <Link href={`/movie/446289`}>
+          <a>title</a>
+        </Link>
+        <br />
+        <Link href={`/movie/618353`}>
+          <a>title</a>
+        </Link>
+      </div>
+    </>
   );
 };
 

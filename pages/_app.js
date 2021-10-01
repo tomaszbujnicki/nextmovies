@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
+import { scrollRestoration } from '../initialAppConfig';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    window.history.scrollRestoration = 'manual';
-    return () => {};
+    scrollRestoration();
   }, []);
+
   return <Component {...pageProps} />;
 }
 

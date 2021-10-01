@@ -56,7 +56,6 @@ const Background = ({ src, show, handleLoad }) => (
       height: '100%',
       position: 'absolute',
       zIndex: '-1',
-      margin: 'auto',
       opacity: show ? 1 : 0,
       transition: 'opacity 2s ease-in 0.5s',
     }}
