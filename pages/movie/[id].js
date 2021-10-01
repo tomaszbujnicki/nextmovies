@@ -1,7 +1,8 @@
-import Background from '../../components/Background';
+import Background from '../../components/DualBackground';
 import Link from 'next/link';
 import getData from '../../adapters/getData';
 import openFullscreen from '../../utilities/openFullscreen';
+import { useEffect } from 'react';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -18,7 +19,7 @@ const Movie = ({ data }) => {
       <Background path={data?.backdrop_path} />
       <button onClick={openFullscreen}>FULLSCREEN</button>
       <Details movie={data} />
-      <Link href={`/movie/550988`} disabled={true}>
+      <Link href={`/movie/550988`}>
         <a>title</a>
       </Link>
       <br />
@@ -26,7 +27,7 @@ const Movie = ({ data }) => {
         <a>title</a>
       </Link>
       <br />
-      <Link href={`/movie/589754`}>
+      <Link href={`/movie/550989`}>
         <a>title</a>
       </Link>
       <br />
