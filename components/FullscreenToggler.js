@@ -4,10 +4,8 @@ const FullscreenToggler = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
-    console.log('FullscreenToggler useEffect');
     document.addEventListener('fullscreenchange', handleFullscreen);
     return () => {
-      console.log('FullscreenToggler cleanup');
       document.removeEventListener('fullscreenchange', handleFullscreen);
     };
   }, []);

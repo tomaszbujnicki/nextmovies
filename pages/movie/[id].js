@@ -1,9 +1,7 @@
-import DualBackground from '../../components/DualBackground';
 import Link from 'next/link';
 import getData from '../../adapters/getData';
-
 import FullscreenToggler from '../../components/FullscreenToggler';
-import FullHeightHero from '../../components/FullHeightHero';
+import DualBackground from '../../components/DualBackground';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -11,16 +9,26 @@ export async function getServerSideProps(context) {
     `movie/${id}`,
     '&append_to_response=credits,videos'
   );
-  return { props: { data } };
+  return { props: { data, id } };
 }
 
-const Movie = ({ data }) => {
+const Movie = ({ data, id }) => {
   return (
     <>
-      <FullHeightHero style={{ display: 'flex', alignItems: 'center' }}>
-        <DualBackground path={data?.backdrop_path} />
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          width: '100%',
+          height: '100vh',
+          position: 'relative',
+        }}
+      >
+        <DualBackground path={data?.backdrop_path} id={id} type="backdrop" />
+
         <FullscreenToggler />
-      </FullHeightHero>
+        <Details movie={data} />
+      </div>
       <div style={{ fontSize: 150, color: 'white' }}>
         <div
           style={{
@@ -30,8 +38,6 @@ const Movie = ({ data }) => {
             border: '2px solid green',
           }}
         ></div>
-
-        <Details movie={data} />
 
         <Link href={`/movie/550988`}>
           <a>title</a>
@@ -111,8 +117,18 @@ const Details = ({ movie }) => {
     homepage,
   } = movie;
 
+  const bob = {
+    color: 'white',
+    padding: '10px',
+    fontSize: 18,
+    //border: 'solid 1px gray',
+    '&:hover': {
+      backgroundColor: 'rgba(0,0,0,0.2)',
+    },
+  };
+
   return (
-    <div style={{ color: 'white', padding: '100px', fontSize: 18 }}>
+    <div style={bob}>
       <h3 style={{ fontSize: 40, padding: 20 }}>{title}</h3>
       <div>{adult ? '18+' : 'all'}</div>
 
