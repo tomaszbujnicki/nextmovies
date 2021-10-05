@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import getData from '../../adapters/getData';
 import FullscreenToggler from '../../components/FullscreenToggler';
-import DualBackground from '../../components/DualBackground';
+import DualBackground from '../../containers/DualBackground';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -117,18 +117,8 @@ const Details = ({ movie }) => {
     homepage,
   } = movie;
 
-  const bob = {
-    color: 'white',
-    padding: '10px',
-    fontSize: 18,
-    //border: 'solid 1px gray',
-    '&:hover': {
-      backgroundColor: 'rgba(0,0,0,0.2)',
-    },
-  };
-
   return (
-    <div style={bob}>
+    <div>
       <h3 style={{ fontSize: 40, padding: 20 }}>{title}</h3>
       <div>{adult ? '18+' : 'all'}</div>
 

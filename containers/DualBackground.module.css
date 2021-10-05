@@ -1,0 +1,104 @@
+.animationIn {
+  z-index: 9999 !important;
+}
+.animationOut, .animationIn {
+  animation-delay: 0.75s;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+.reverse {
+  animation-direction: reverse;
+}
+
+.zoomIn {
+  animation-name: zoomIn;
+}
+.fadeIn {
+  animation-name: fadeIn;
+}
+.slideInRight {
+  animation-name: slideInRight;
+}
+.slideOutRight {
+  animation-name: slideOutRight;
+}
+.flipInX {
+  animation-name: flipInX;
+}
+.flipInY {
+  animation-name: flipInY;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes slideInTop {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 0;
+  }
+}
+
+@keyframes slideOutTop {
+  from {
+    top: 0;
+  }
+  to {
+    top: 100%;
+  }
+}
+
+@keyframes flipInX {
+  from {
+    transform: rotateX(-90deg);
+  }
+  to {
+    transform: rotateX(0);
+  }
+}
+
+@keyframes flipInY {
+  from {
+    transform: rotateY(-180deg);
+  }
+  to {
+    transform: rotateY(0);
+  }
+}

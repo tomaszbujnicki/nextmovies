@@ -1,8 +1,16 @@
 import Image from 'next/image';
 
-const Background = ({ src, style, handleLoad }) => {
+const Background = ({
+  src,
+  style,
+  className,
+  handleLoad,
+  handleAnimationEnd,
+}) => {
   return (
     <div
+      className={className}
+      onAnimationEnd={handleAnimationEnd}
       style={{
         width: '100%',
         height: '100%',
@@ -16,6 +24,8 @@ const Background = ({ src, style, handleLoad }) => {
           <Image
             layout="fill"
             objectFit="cover"
+            quality="100"
+            unoptimized={true}
             src={src}
             alt=""
             onLoad={(e) => {
