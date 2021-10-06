@@ -1,16 +1,8 @@
 import Image from 'next/image';
 
-const Background = ({
-  src,
-  style,
-  className,
-  handleLoad,
-  handleAnimationEnd,
-}) => {
+const Background = ({ src, style, handleLoad, ...rest }) => {
   return (
     <div
-      className={className}
-      onAnimationEnd={handleAnimationEnd}
       style={{
         width: '100%',
         height: '100%',
@@ -18,6 +10,7 @@ const Background = ({
         zIndex: '-1',
         ...style,
       }}
+      {...rest}
     >
       <div style={{ position: 'relative', width: '100%', height: '100%' }}>
         {src && (

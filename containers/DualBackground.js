@@ -1,22 +1,38 @@
-import { useEffect, useState } from 'react';
-import { getImgSrc } from '../utilities';
+import { useCallback, useEffect, useState } from 'react';
+import { getImgSrc, getRandomIntInclusive } from '../utilities';
 import Background from '../components/Background';
 
 import styles from './DualBackground.module.css';
 
-const DualBackground = ({
-  path,
-  type,
-  id,
-  size,
-  animationName = 'slideInRight',
-}) => {
+const ANIMATIONS = [
+  'zoom',
+  'fade',
+  'slideLeft',
+  'slideBottom',
+  'flipX',
+  'flipY',
+];
+const randomAnimation = () =>
+  ANIMATIONS[getRandomIntInclusive(0, ANIMATIONS.length - 1)];
+
+const DualBackground = ({ path, type, id, size, animationName = 'flipY' }) => {
   const [bg, setBg] = useState([
-    { src: null, id: null, display: true },
-    { src: null, id: null, display: false },
+    { key: 0, src: null, id: null, className: '', display: true },
+    { key: 1, src: null, id: null, className: '', display: false },
   ]);
-  const [className, setClassName] = useState([null, null]);
-  const [isAnimates, setIsAnimates] = useState(false);
+  const [isRunning, setIsRunning] = useState(false);
+
+  const animate = useCallback(() => {
+    setIsRunning(true);
+
+    const entrance = `${styles.animationIn} ${styles[animationName + 'In']}`;
+    const exit = `${styles.animationOut} ${styles[animationName + 'Out']}`;
+
+    setBg((state) => [
+      { ...state[0], className: bg[0].id === id ? entrance : exit },
+      { ...state[1], className: bg[1].id === id ? entrance : exit },
+    ]);
+  }, [animationName, bg, id]);
 
   useEffect(() => {
     const updateImage = () => {
@@ -27,39 +43,27 @@ const DualBackground = ({
       });
 
       if (bg[0].display) {
-        setBg((prev) => [
-          { ...prev[0], display: false },
-          { src: src, id: id, display: true },
+        setBg((state) => [
+          { ...state[0], display: false },
+          { ...state[1], src: src, id: id, display: true },
         ]);
       } else {
-        setBg((prev) => [
-          { src: src, id: id, display: true },
-          { ...prev[1], display: false },
+        setBg((state) => [
+          { ...state[0], src: src, id: id, display: true },
+          { ...state[1], display: false },
         ]);
       }
     };
 
     const toggleDisplay = () => {
-      setBg((prev) => [
-        { ...prev[0], display: !prev[0].display },
-        { ...prev[1], display: !prev[1].display },
+      setBg((state) => [
+        { ...state[0], display: !state[0].display },
+        { ...state[1], display: !state[1].display },
       ]);
-      if (bg[0].id === id) {
-        setIsAnimates(true);
-        setClassName([
-          styles.animationIn + ' ' + styles[animationName],
-          styles.animationOut,
-        ]);
-      } else {
-        setIsAnimates(true);
-        setClassName([
-          styles.animationOut,
-          styles.animationIn + ' ' + styles[animationName],
-        ]);
-      }
+      animate();
     };
 
-    if (!isAnimates) {
+    if (!isRunning) {
       if (bg[0].id !== id && bg[1].id !== id) {
         updateImage();
       } else if (
@@ -69,8 +73,8 @@ const DualBackground = ({
         toggleDisplay();
       }
     }
-  }, [path, type, id, size, animationName, isAnimates, bg]);
-
+  }, [path, type, id, size, animationName, isRunning, bg, animate]);
+  console.log(Math.random());
   return (
     <div
       style={{
@@ -81,34 +85,19 @@ const DualBackground = ({
         zIndex: '-1',
       }}
     >
-      <Background
-        className={className[0]}
-        handleAnimationEnd={() => setIsAnimates(false)}
-        src={bg[0]?.src}
-        handleLoad={() => {
-          if (bg[0].id === id) {
-            setIsAnimates(true);
-            setClassName([
-              styles.animationIn + ' ' + styles[animationName],
-              styles.animationOut,
-            ]);
-          }
-        }}
-      />
-      <Background
-        className={className[1]}
-        handleAnimationEnd={() => setIsAnimates(false)}
-        src={bg[1]?.src}
-        handleLoad={() => {
-          if (bg[1].id === id) {
-            setIsAnimates(true);
-            setClassName([
-              styles.animationOut,
-              styles.animationIn + ' ' + styles[animationName],
-            ]);
-          }
-        }}
-      />
+      {bg.map((bg) => (
+        <Background
+          key={bg.key}
+          className={bg.className}
+          onAnimationEnd={() => setIsRunning(false)}
+          src={bg.src}
+          handleLoad={() => {
+            if (bg.id === id) {
+              animate();
+            }
+          }}
+        />
+      ))}
     </div>
   );
 };

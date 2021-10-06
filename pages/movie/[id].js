@@ -118,7 +118,7 @@ const Details = ({ movie }) => {
   } = movie;
 
   return (
-    <div>
+    <div style={{ color: 'white' }}>
       <h3 style={{ fontSize: 40, padding: 20 }}>{title}</h3>
       <div>{adult ? '18+' : 'all'}</div>
 

@@ -1,11 +1,13 @@
 .animationIn {
   z-index: 9999 !important;
 }
-.animationOut, .animationIn {
+.animationOut,
+.animationIn {
   animation-delay: 0.75s;
   animation-duration: 3s;
   animation-iteration-count: 1;
   animation-fill-mode: both;
+  animation-timing-function: ease-out;
 }
 
 .reverse {
@@ -18,17 +20,24 @@
 .fadeIn {
   animation-name: fadeIn;
 }
-.slideInRight {
-  animation-name: slideInRight;
+.slideLeftIn {
+  animation-name: slideLeftIn;
 }
-.slideOutRight {
-  animation-name: slideOutRight;
+.slideLeftOut {
+  animation-name: slideLeftOut;
 }
-.flipInX {
-  animation-name: flipInX;
+.slideBottomIn {
+  animation-name: slideBottomIn;
 }
-.flipInY {
-  animation-name: flipInY;
+.slideBottomOut {
+  animation-name: slideBottomOut;
+}
+.flipXIn {
+  animation-name: flipXIn;
+}
+.flipYIn {
+  animation-name: flipYIn;
+  transform-origin: left
 }
 
 @keyframes zoomIn {
@@ -49,7 +58,7 @@
   }
 }
 
-@keyframes slideInRight {
+@keyframes slideLeftIn {
   from {
     left: 100%;
   }
@@ -58,7 +67,7 @@
   }
 }
 
-@keyframes slideOutRight {
+@keyframes slideLeftOut {
   from {
     left: 0;
   }
@@ -67,7 +76,7 @@
   }
 }
 
-@keyframes slideInTop {
+@keyframes slideBottomIn {
   from {
     top: -100%;
   }
@@ -76,7 +85,7 @@
   }
 }
 
-@keyframes slideOutTop {
+@keyframes slideBottomOut {
   from {
     top: 0;
   }
@@ -85,7 +94,7 @@
   }
 }
 
-@keyframes flipInX {
+@keyframes flipXIn {
   from {
     transform: rotateX(-90deg);
   }
@@ -94,7 +103,7 @@
   }
 }
 
-@keyframes flipInY {
+@keyframes flipYIn {
   from {
     transform: rotateY(-180deg);
   }
