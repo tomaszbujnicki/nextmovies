@@ -17,8 +17,8 @@ const randomAnimation = () =>
 
 const DualBackground = ({ path, type, id, size, animationName = 'fade' }) => {
   const [bg, setBg] = useState([
-    { key: 0, src: null, id: null, className: '', display: true },
-    { key: 1, src: null, id: null, className: '', display: false },
+    { key: 0, src: null, id: null, className: styles.hidden, display: true },
+    { key: 1, src: null, id: null, className: styles.hidden, display: false },
   ]);
   const [isRunning, setIsRunning] = useState(false);
 
@@ -74,7 +74,7 @@ const DualBackground = ({ path, type, id, size, animationName = 'fade' }) => {
       }
     }
   }, [path, type, id, size, animationName, isRunning, bg, animate]);
-  console.log(Math.random());
+
   return (
     <div
       style={{
