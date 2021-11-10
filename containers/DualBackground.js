@@ -15,7 +15,7 @@ const ANIMATIONS = [
 const randomAnimation = () =>
   ANIMATIONS[getRandomIntInclusive(0, ANIMATIONS.length - 1)];
 
-const DualBackground = ({ path, type, id, size, animationName = 'flipY' }) => {
+const DualBackground = ({ path, type, id, size, animationName = 'fade' }) => {
   const [bg, setBg] = useState([
     { key: 0, src: null, id: null, className: '', display: true },
     { key: 1, src: null, id: null, className: '', display: false },

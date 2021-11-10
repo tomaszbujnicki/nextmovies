@@ -2,6 +2,12 @@
   color-scheme: dark;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html,
 body {
   padding: 0;
@@ -10,9 +16,12 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   scroll-behavior: smooth;
 }
+
 body {
   min-height: 100%;
   background: #000;
+  color: #fff;
+  overflow-y: scroll;
 }
 
 a {
@@ -21,11 +30,10 @@ a {
 }
 
 a:hover {
-  color: brown;
+  color: red;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+button {
+  cursor: pointer;
+  border: none;
 }
