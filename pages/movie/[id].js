@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import getData from '../../adapters/getData';
-import FullscreenToggler from '../../components/FullscreenToggler';
 import DualBackground from '../../containers/DualBackground';
+import Head from 'next/head';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -15,6 +15,11 @@ export async function getServerSideProps(context) {
 const Movie = ({ data, id }) => {
   return (
     <>
+      <Head>
+        <title>
+          {data.title} ({data.release_date.slice(0, 4)}) - NextMovies
+        </title>
+      </Head>
       <div
         style={{
           display: 'flex',
@@ -26,16 +31,15 @@ const Movie = ({ data, id }) => {
       >
         <DualBackground path={data?.backdrop_path} id={id} type="backdrop" />
 
-        <FullscreenToggler />
         <Details movie={data} />
       </div>
+
       <div style={{ fontSize: 150, color: 'white' }}>
         <div
           style={{
             width: '100%',
             height: '100%',
             position: 'relative',
-            border: '2px solid green',
           }}
         ></div>
 
