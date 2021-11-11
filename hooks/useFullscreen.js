@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useFullscreenToggler = () => {
+const useFullscreen = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
@@ -54,4 +54,4 @@ const useFullscreenToggler = () => {
   return [isFullscreen, toggleFullscreen];
 };
 
-export default useFullscreenToggler;
+export default useFullscreen;
