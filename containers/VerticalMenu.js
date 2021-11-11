@@ -1,14 +1,23 @@
 import React from 'react';
 import Link from 'next/link';
 import Button from '../components/Button';
-import { Home, ExitFullscreen, EnterFullscreen } from '../assets/SvgButtons';
+import useToggle from '../hooks/useToggle';
 
-import useFullscreenToggler from '../hooks/useFullscreenToggler';
+import {
+  Home,
+  ExitFullscreen,
+  EnterFullscreen,
+  Backdrop,
+  BackdropPlus,
+} from '../assets/SvgButtons';
+
+import useFullscreen from '../hooks/useFullscreen';
 
 import styles from './VerticalMenu.module.css';
 
 const VerticalMenu = () => {
-  const [isFullscreen, toggleFullscreen] = useFullscreenToggler();
+  const [isFullscreen, toggleFullscreen] = useFullscreen();
+  const [isDetailsDisplayed, toggleDisplay] = useToggle(true);
 
   return (
     <div className={styles.container}>
@@ -17,6 +26,15 @@ const VerticalMenu = () => {
           <Home style={styles.svg} />
         </a>
       </Link>
+
+      <Button onClick={toggleDisplay} className={styles.button}>
+        {isDetailsDisplayed ? (
+          <Backdrop style={styles.svg} />
+        ) : (
+          <BackdropPlus style={styles.svg} />
+        )}
+      </Button>
+
       <Button onClick={toggleFullscreen} className={styles.button}>
         {isFullscreen ? (
           <ExitFullscreen style={styles.svg} />
