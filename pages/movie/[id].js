@@ -1,18 +1,21 @@
 import Link from 'next/link';
+import Head from 'next/head';
 import getData from '../../adapters/getData';
 import DualBackground from '../../containers/DualBackground';
-import Head from 'next/head';
+
+import styles from './movie.module.css';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
   const data = await getData(
     `movie/${id}`,
-    '&append_to_response=credits,videos'
+    '&append_to_response=credits,videos,recommendations'
   );
   return { props: { data, id } };
 }
 
 const Movie = ({ data, id }) => {
+  console.log(data);
   return (
     <>
       <Head>
@@ -32,6 +35,8 @@ const Movie = ({ data, id }) => {
         <DualBackground path={data?.backdrop_path} id={id} type="backdrop" />
 
         <Details movie={data} />
+
+        <Recommendations data={data?.recommendations?.results} />
       </div>
 
       <div style={{ fontSize: 150, color: 'white' }}>
@@ -42,72 +47,29 @@ const Movie = ({ data, id }) => {
             position: 'relative',
           }}
         ></div>
-
-        <Link href={`/movie/550988`}>
-          <a>title</a>
-        </Link>
-        <br />
-        <Link href={`/movie/809968`}>
-          <a>title</a>
-        </Link>
-        <br />
-        <Link href={`/movie/550989`}>
-          <a>title</a>
-        </Link>
-        <br />
-        <Link href={`/movie/703771`}>
-          <a>title</a>
-        </Link>
-        <br />
-        <Link href={`/movie/618353`}>
-          <a>title</a>
-        </Link>
-        <br />
-        <Link href={`/movie/618353`}>
-          <a>title</a>
-        </Link>
-        <br />
-        <Link href={`/movie/618353`}>
-          <a>title</a>
-        </Link>
-        <br />
-        <Link href={`/movie/618353`}>
-          <a>title</a>
-        </Link>
-        <br />
-        <Link href={`/movie/618353`}>
-          <a>title</a>
-        </Link>
-        <br />
-        <Link href={`/movie/618353`}>
-          <a>title</a>
-        </Link>
-        <br />
-        <Link href={`/movie/446130`}>
-          <a>title</a>
-        </Link>
-        <br />
-        <Link href={`/movie/428495`}>
-          <a>title</a>
-        </Link>
-        <br />
-        <Link href={`/movie/21575`}>
-          <a>title</a>
-        </Link>
-        <br />
-        <Link href={`/movie/446289`}>
-          <a>title</a>
-        </Link>
-        <br />
-        <Link href={`/movie/618353`}>
-          <a>title</a>
-        </Link>
       </div>
     </>
   );
 };
 
 export default Movie;
+
+const Recommendations = ({ data }) => {
+  if (!Array.isArray(data)) return null;
+  return (
+    <div>
+      <ul>
+        {data.map((movie) => (
+          <li key={movie.id}>
+            <Link href={`/movie/${movie.id}`}>
+              <a>{movie.original_title}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 const Details = ({ movie }) => {
   const {
@@ -122,7 +84,7 @@ const Details = ({ movie }) => {
   } = movie;
 
   return (
-    <div style={{ color: 'white' }}>
+    <div className={styles.details}>
       <h3 style={{ fontSize: 40, padding: 20 }}>{title}</h3>
       <div>{adult ? '18+' : 'all'}</div>
 
