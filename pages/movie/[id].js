@@ -10,7 +10,7 @@ import styles from './movie.module.css';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
-  if (!isIdCorrect) return redirect();
+  if (!isIdCorrect(id)) return redirect();
 
   const data = await getData(
     `movie/${id}`,
