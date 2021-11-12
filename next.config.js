@@ -6,4 +6,13 @@ module.exports = {
   images: {
     domains: ['image.tmdb.org'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/movie/:id(.*\\D+.*)',
+        destination: '/bob',
+        permanent: false,
+      },
+    ];
+  },
 };

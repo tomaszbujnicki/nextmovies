@@ -4,13 +4,11 @@ import getData from '../../adapters/getData';
 import DualBackground from '../../containers/DualBackground';
 
 import redirect from '../../utilities/redirect';
-import isIdCorrect from '../../utilities/isIdCorrect';
 
 import styles from './movie.module.css';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
-  if (!isIdCorrect(id)) return redirect();
 
   const data = await getData(
     `movie/${id}`,
