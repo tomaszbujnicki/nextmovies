@@ -11,7 +11,18 @@ export async function getServerSideProps(context) {
     `movie/${id}`,
     '&append_to_response=credits,videos,recommendations'
   );
-  return { props: { data, id } };
+
+  if (data) {
+    return { props: { data, id } };
+  }
+
+  return {
+    redirect: {
+      destination: '/',
+      permanent: false,
+    },
+    props: {},
+  };
 }
 
 const Movie = ({ data, id }) => {
@@ -20,7 +31,7 @@ const Movie = ({ data, id }) => {
     <>
       <Head>
         <title>
-          {data.title} ({data.release_date.slice(0, 4)}) - NextMovies
+          {data.title} ({data.release_date?.slice(0, 4)}) - NextMovies
         </title>
       </Head>
       <div
@@ -32,11 +43,11 @@ const Movie = ({ data, id }) => {
           position: 'relative',
         }}
       >
-        <DualBackground path={data?.backdrop_path} id={id} type="backdrop" />
+        <DualBackground path={data.backdrop_path} id={id} type="backdrop" />
 
         <Details movie={data} />
 
-        <Recommendations data={data?.recommendations?.results} />
+        <Recommendations data={data.recommendations?.results} />
       </div>
 
       <div style={{ fontSize: 150, color: 'white' }}>
