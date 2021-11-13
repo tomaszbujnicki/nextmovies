@@ -1,0 +1,47 @@
+.container {
+  color: white;
+  background-color: var(--purple-04);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin: 1rem;
+  transition: background-color 0.5s;
+  max-width: 50rem;
+}
+
+.container:hover {
+  background-color: var(--purple);
+}
+
+.title {
+  font-size: 2.5rem;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.genres {
+  display: flex;
+  margin: 0.5rem 0;
+}
+
+.genresItem {
+  margin-right: 1.5rem;
+}
+
+.rating {
+  background-color: var(--white-04);
+  border: var(--white) solid 1px;
+  height: 1rem;
+  width: 10rem;
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.ratingInside {
+  background-color: var(--white);
+  height: 100%;
+  width: 0;
+  transition: width 1s;
+}

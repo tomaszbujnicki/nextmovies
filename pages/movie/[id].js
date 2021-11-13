@@ -5,7 +5,7 @@ import DualBackground from '../../containers/DualBackground';
 
 import redirect from '../../utilities/redirect';
 
-import styles from './movie.module.css';
+import ProductionInfo from './ProductionInfo';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -16,14 +16,13 @@ export async function getServerSideProps(context) {
   );
 
   if (data) {
-    return { props: { data, id } };
+    return { props: { data } };
   }
 
   return redirect();
 }
 
-const Movie = ({ data, id }) => {
-  console.log(id);
+const Movie = ({ data }) => {
   return (
     <>
       <Head>
@@ -40,9 +39,13 @@ const Movie = ({ data, id }) => {
           position: 'relative',
         }}
       >
-        <DualBackground path={data.backdrop_path} id={id} type="backdrop" />
+        <DualBackground
+          path={data.backdrop_path}
+          id={data.id}
+          type="backdrop"
+        />
 
-        <Details movie={data} />
+        <ProductionInfo movie={data} />
 
         <Recommendations data={data.recommendations?.results} />
       </div>
@@ -70,54 +73,11 @@ const Recommendations = ({ data }) => {
         {data.map((movie) => (
           <li key={movie.id}>
             <Link href={`/movie/${movie.id}`}>
-              <a>{movie.original_title}</a>
+              <a>{movie.title}</a>
             </Link>
           </li>
         ))}
       </ul>
-    </div>
-  );
-};
-
-const Details = ({ movie }) => {
-  const {
-    adult,
-    title,
-    backdrop_path,
-    poster_path,
-    belongs_to_collection,
-    budget,
-    genres,
-    homepage,
-  } = movie;
-
-  return (
-    <div className={styles.details}>
-      <h3 style={{ fontSize: 40, padding: 20 }}>{title}</h3>
-      <div>{adult ? '18+' : 'all'}</div>
-
-      <div>
-        {belongs_to_collection ? belongs_to_collection.name : 'no collection'}
-      </div>
-      <div>
-        {budget > 0
-          ? budget.toLocaleString('en-US', {
-              style: 'currency',
-              currency: 'USD',
-            })
-          : '-'}
-      </div>
-      <div>
-        {genres &&
-          genres.map((item, index) => <span key={index}>{item.name}, </span>)}
-      </div>
-      {homepage && (
-        <div>
-          <a target="_blank" href={homepage} rel="noopener noreferrer">
-            homepage
-          </a>
-        </div>
-      )}
     </div>
   );
 };
