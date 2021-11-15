@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import ProgressBar from '../../components/ProgressBar';
+
 import styles from './ProductionInfo.module.css';
 
 const Title = ({ title }) => {
@@ -21,19 +23,6 @@ const Genres = ({ genres }) => {
   );
 };
 
-const Rating = ({ rating }) => {
-  const [width, setWidth] = useState(0);
-  useEffect(() => {
-    let id = setTimeout(() => setWidth(rating), 3000);
-    return () => clearTimeout(id);
-  }, [rating]);
-  return (
-    <div className={styles.rating}>
-      <div className={styles.ratingInside} style={{ width: `${width}%` }}></div>
-    </div>
-  );
-};
-
 const Timer = ({ time }) => {
   if (!time > 0) return null;
   return <p className={styles.timer}>{time}</p>;
@@ -45,6 +34,7 @@ const Overview = ({ overview }) => {
 
 const ProductionInfo = ({ movie }) => {
   const {
+    id,
     title,
     tagline,
     backdrop_path,
@@ -63,7 +53,7 @@ const ProductionInfo = ({ movie }) => {
       <Title title={title} />
       <Tagline tagline={tagline} />
       <Genres genres={genres} />
-      <Rating rating={vote_average * 10} />
+      <ProgressBar end={vote_average * 10} id={id} />
       <Timer time={runtime} />
       <Overview overview={overview} />
 

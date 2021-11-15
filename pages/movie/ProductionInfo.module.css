@@ -30,18 +30,4 @@
   margin-right: 1.5rem;
 }
 
-.rating {
-  background-color: var(--white-04);
-  border: var(--white) solid 1px;
-  height: 1rem;
-  width: 10rem;
-  position: relative;
-  margin: 1.5rem 0;
-}
 
-.ratingInside {
-  background-color: var(--white);
-  height: 100%;
-  width: 0;
-  transition: width 1s;
-}
