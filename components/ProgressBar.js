@@ -1,55 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 
 import styles from './ProgressBar.module.css';
 
-const ProgressBar = ({ start = 0, end = 100, id, childStyle, ...rest }) => {
-  const [now, setNow] = useState(start);
+const ProgressBar = ({ end, id }) => {
+  const [now, setNow] = useState(0);
   const [delay, setDelay] = useState(20);
-  const [valueToAdd, setValueToAdd] = useState(1.1);
-  const [intervalId, setIntervalId] = useState(null);
-  const remaining = end - now;
+
+  const progress = useCallback(() => {
+    setNow((now) => {
+      const add = Math.max((end - now) / 50, 0.2);
+      return (now += add);
+    });
+  }, [end]);
 
   useEffect(() => {
-    setNow(start);
+    setNow(0);
     setDelay(20);
-    setValueToAdd(1.1);
-  }, [id, start]);
+  }, [id]);
 
   useEffect(() => {
-    console.log('useEffect first');
-    const interval = setInterval(() => {
-      setNow((now) => now + valueToAdd);
-    }, delay);
-    setIntervalId(interval);
+    if (!delay) {
+      return;
+    }
+
+    const interval = setInterval(progress, delay);
+
     return () => {
-      console.log('clear');
       clearInterval(interval);
     };
-  }, [delay, valueToAdd]);
+  }, [delay, progress]);
 
-  if (remaining <= 0) {
-    console.log(1, 'CLOSE');
-    clearInterval(intervalId);
-    console.log(2);
-  } else if (remaining <= 4 && remaining > 0 && valueToAdd !== 0.1) {
-    console.log(3);
-    //setDelay(120);
-    setValueToAdd(0.1);
-    console.log(4);
-  } else if (remaining <= 12 && remaining > 4 && valueToAdd !== 0.3) {
-    console.log(5);
-    //setDelay(60);
-    setValueToAdd(0.3);
-    console.log(6);
+  if (now >= end && delay !== 0) {
+    setDelay(0);
   }
 
   return (
-    <div className={styles.container} {...rest}>
-      <div className={styles.label}>{now.toFixed(1)}%</div>
-      <div
-        className={styles.progress}
-        style={{ ...childStyle, width: `${now}%` }}
-      ></div>
+    <div className={styles.container}>
+      <div className={styles.label}>{now.toFixed()}%</div>
+      <div className={styles.progress} style={{ width: `${now}%` }}></div>
     </div>
   );
 };
