@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ProgressBar from '../../components/ProgressBar';
+import Rating from '../../containers/Rating';
 
 import styles from './ProductionInfo.module.css';
 
@@ -53,7 +53,7 @@ const ProductionInfo = ({ movie }) => {
       <Title title={title} />
       <Tagline tagline={tagline} />
       <Genres genres={genres} />
-      <ProgressBar end={vote_average * 10} id={id} />
+      <Rating end={vote_average * 10} id={id} />
       <Timer time={runtime} />
       <Overview overview={overview} />
 
