@@ -1,10 +1,10 @@
 .container {
   color: white;
-  background-color: var(--purple-04);
+  background-color: var(--purple-opacity);
   padding: 1rem;
   border-radius: 1rem;
   margin: 1rem;
-  transition: background-color 0.5s;
+  transition: background-color 0.5s, opacity 2s;
   max-width: 50rem;
 }
 

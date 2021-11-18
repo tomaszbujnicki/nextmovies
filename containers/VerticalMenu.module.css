@@ -9,8 +9,8 @@
   position: fixed;
   right: 0;
   top: 0;
-  background: var(--black-04);
-  background: linear-gradient(270deg, var(--black-04) -20%, transparent 100%);
+  background: var(--black-opacity);
+  background: linear-gradient(270deg, var(--black-opacity) -20%, transparent 100%);
 }
 
 .container::before {
@@ -18,7 +18,7 @@
   height: 100vh;
   width: 0;
   position: fixed;
-  background-color: var(--violet-04);
+  background-color: var(--violet-opacity);
   z-index: -9999 !important;
   transition: width 0.5s;
   right: 0;
@@ -34,7 +34,7 @@
 }
 
 .svg {
-  fill: var(--white-04);
+  fill: var(--white-opacity);
   transition: fill 0.5s;
 }
 

@@ -1,5 +1,5 @@
 .container {
-  background-color: var(--white-04);
+  background-color: var(--white-opacity);
   border: var(--white) solid 1px;
   height: 1.25rem;
   width: 10rem;
