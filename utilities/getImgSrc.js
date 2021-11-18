@@ -16,17 +16,16 @@ const defaultImages = {
 };
 
 const DOMAIN_ROOT = 'http://image.tmdb.org/t/p/';
-const STATIC_ROOT = '/default-img/';
+const STATIC_ROOT = '/placeholder/';
 const DEFAULT_IMG = '/default.jpg';
 
-const getImgSrc = ({ path, type, id, size = 'original' }) => {
+const getImgSrc = ({ path, type, size = 'original' }) => {
   if (typeof path === 'string') {
-    return DOMAIN_ROOT + size + path;
+    return DOMAIN_ROOT + 'original' + path;
   }
 
   if (type in defaultImages) {
-    const int = defaultImages[type] <= id[0] ? id[0] : 1;
-    return `${STATIC_ROOT}${type}${int}.jpg`;
+    return `${STATIC_ROOT}${type}.svg`;
   }
 
   return DEFAULT_IMG;

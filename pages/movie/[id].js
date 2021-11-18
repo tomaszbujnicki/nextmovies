@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import getData from '../../adapters/getData';
-import DualBackground from '../../containers/DualBackground';
-
 import redirect from '../../utilities/redirect';
-
 import ProductionInfo from './ProductionInfo';
 import { getImgSrc } from '../../utilities';
+import Cast from '../../containers/Cast';
+import Background from '../../components/Background';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -27,7 +26,6 @@ const Movie = ({ data }) => {
   const src = getImgSrc({
     path: data.backdrop_path,
     type: 'backdrop',
-    id: data.id,
   });
 
   console.log(data);
@@ -47,12 +45,13 @@ const Movie = ({ data }) => {
           position: 'relative',
         }}
       >
-        <DualBackground src={src} />
+        <Background src={src} />
 
         <ProductionInfo movie={data} />
 
         <Recommendations data={data.recommendations?.results} />
       </div>
+      <Cast cast={data.credits.cast} />
       <Recommendations data={data.recommendations?.results} />
     </>
   );

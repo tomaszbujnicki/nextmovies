@@ -1,15 +1,9 @@
-import { useEffect } from 'react';
-import { scrollRestoration } from '../initialAppConfig';
 import Head from 'next/head';
 import VerticalMenu from '../containers/VerticalMenu';
 
 import '../styles/styles.scss';
 
 function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    scrollRestoration();
-  }, []);
-
   return (
     <>
       <Head>

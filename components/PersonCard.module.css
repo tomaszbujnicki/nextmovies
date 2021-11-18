@@ -1,0 +1,29 @@
+.root {
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: var(--purple);
+  color: var(--white);
+  margin: 1rem;
+  width: 185px;
+}
+
+.root:hover {
+  color: var(--orange);
+}
+
+.container {
+  display: block;
+  flex-direction: column;
+}
+
+.body {
+  padding: 0.75rem;
+}
+
+.name {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.character {
+  font-size: 1rem;
+}

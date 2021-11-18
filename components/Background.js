@@ -23,7 +23,7 @@ const Background = ({ src, style, handleLoad, ...rest }) => {
             alt=""
             onLoad={(e) => {
               if (e.target.src.indexOf('data:image/gif;base64') < 0) {
-                handleLoad();
+                if (handleLoad) handleLoad();
               }
             }}
           />

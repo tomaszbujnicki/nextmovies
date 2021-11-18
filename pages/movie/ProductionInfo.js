@@ -33,32 +33,14 @@ const Overview = ({ overview }) => {
 };
 
 const ProductionInfo = ({ movie }) => {
-  const [state, setState] = useState(null);
-  const [opacity, setOpacity] = useState(0);
-
-  useEffect(() => {
-    const id = setTimeout(() => {
-      setOpacity(1);
-      setState({ ...movie });
-    }, 5000);
-    return () => {
-      clearTimeout(id);
-      setOpacity(0);
-    };
-  }, [movie]);
-
   return (
-    <div className={styles.container} style={{ opacity }}>
-      {state && (
-        <>
-          <Title title={state.title} />
-          <Tagline tagline={state.tagline} />
-          <Genres genres={state.genres} />
-          <Rating end={state.vote_average * 10} id={state.id} />
-          <Timer time={state.runtime} />
-          <Overview overview={state.overview} />
-        </>
-      )}
+    <div className={styles.container}>
+      <Title title={movie.title} />
+      <Tagline tagline={movie.tagline} />
+      <Genres genres={movie.genres} />
+      <Rating end={movie.vote_average * 10} id={movie.id} />
+      <Timer time={movie.runtime} />
+      <Overview overview={movie.overview} />
 
       {/* <div>
         {belongs_to_collection ? belongs_to_collection.name : 'no collection'}
