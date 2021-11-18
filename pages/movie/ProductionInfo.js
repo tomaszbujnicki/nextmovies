@@ -33,31 +33,34 @@ const Overview = ({ overview }) => {
 };
 
 const ProductionInfo = ({ movie }) => {
-  const {
-    id,
-    title,
-    tagline,
-    backdrop_path,
-    poster_path,
-    belongs_to_collection,
-    budget,
-    genres,
-    overview,
-    vote_average,
-    runtime,
-    homepage,
-  } = movie;
+  const [state, setState] = useState(null);
+  const [opacity, setOpacity] = useState(0);
+
+  useEffect(() => {
+    const id = setTimeout(() => {
+      setOpacity(1);
+      setState({ ...movie });
+    }, 5000);
+    return () => {
+      clearTimeout(id);
+      setOpacity(0);
+    };
+  }, [movie]);
 
   return (
-    <div className={styles.container}>
-      <Title title={title} />
-      <Tagline tagline={tagline} />
-      <Genres genres={genres} />
-      <Rating end={vote_average * 10} id={id} />
-      <Timer time={runtime} />
-      <Overview overview={overview} />
+    <div className={styles.container} style={{ opacity }}>
+      {state && (
+        <>
+          <Title title={state.title} />
+          <Tagline tagline={state.tagline} />
+          <Genres genres={state.genres} />
+          <Rating end={state.vote_average * 10} id={state.id} />
+          <Timer time={state.runtime} />
+          <Overview overview={state.overview} />
+        </>
+      )}
 
-      <div>
+      {/* <div>
         {belongs_to_collection ? belongs_to_collection.name : 'no collection'}
       </div>
       <div>
@@ -74,7 +77,7 @@ const ProductionInfo = ({ movie }) => {
             homepage
           </a>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

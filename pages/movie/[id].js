@@ -6,6 +6,7 @@ import DualBackground from '../../containers/DualBackground';
 import redirect from '../../utilities/redirect';
 
 import ProductionInfo from './ProductionInfo';
+import { getImgSrc } from '../../utilities';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -23,6 +24,13 @@ export async function getServerSideProps(context) {
 }
 
 const Movie = ({ data }) => {
+  const src = getImgSrc({
+    path: data.backdrop_path,
+    type: 'backdrop',
+    id: data.id,
+  });
+
+  console.log(data);
   return (
     <>
       <Head>
@@ -33,32 +41,19 @@ const Movie = ({ data }) => {
       <div
         style={{
           display: 'flex',
-          alignItems: 'center',
+          alignItems: 'flex-end',
           width: '100%',
           height: '100vh',
           position: 'relative',
         }}
       >
-        <DualBackground
-          path={data.backdrop_path}
-          id={data.id}
-          type="backdrop"
-        />
+        <DualBackground src={src} />
 
         <ProductionInfo movie={data} />
 
         <Recommendations data={data.recommendations?.results} />
       </div>
-
-      <div style={{ fontSize: 150, color: 'white' }}>
-        <div
-          style={{
-            width: '100%',
-            height: '100%',
-            position: 'relative',
-          }}
-        ></div>
-      </div>
+      <Recommendations data={data.recommendations?.results} />
     </>
   );
 };
@@ -69,7 +64,7 @@ const Recommendations = ({ data }) => {
   if (!Array.isArray(data)) return null;
   return (
     <div>
-      <ul>
+      <ul style={{ color: 'transparent' }}>
         {data.map((movie) => (
           <li key={movie.id}>
             <Link href={`/movie/${movie.id}`}>

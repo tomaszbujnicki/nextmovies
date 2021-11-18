@@ -1,24 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
-import { getImgSrc, getRandomIntInclusive } from '../utilities';
 import Background from '../components/Background';
 
 import styles from './DualBackground.module.css';
 
-const ANIMATIONS = [
-  'zoom',
-  'fade',
-  'slideLeft',
-  'slideBottom',
-  'flipX',
-  'flipY',
-];
-const randomAnimation = () =>
-  ANIMATIONS[getRandomIntInclusive(0, ANIMATIONS.length - 1)];
-
-const DualBackground = ({ path, type, id, size, animationName = 'fade' }) => {
+const DualBackground = ({ src, animationName = 'fade' }) => {
   const [bg, setBg] = useState([
-    { key: 0, src: null, id: null, className: styles.hidden, display: true },
-    { key: 1, src: null, id: null, className: styles.hidden, display: false },
+    { key: 0, src: null, className: styles.hidden, display: true },
+    { key: 1, src: null, className: styles.hidden, display: false },
   ]);
   const [isRunning, setIsRunning] = useState(false);
 
@@ -29,27 +17,21 @@ const DualBackground = ({ path, type, id, size, animationName = 'fade' }) => {
     const exit = `${styles.animationOut} ${styles[animationName + 'Out']}`;
 
     setBg((state) => [
-      { ...state[0], className: bg[0].id === id ? entrance : exit },
-      { ...state[1], className: bg[1].id === id ? entrance : exit },
+      { ...state[0], className: bg[0].src === src ? entrance : exit },
+      { ...state[1], className: bg[1].src === src ? entrance : exit },
     ]);
-  }, [animationName, bg, id]);
+  }, [animationName, bg, src]);
 
   useEffect(() => {
     const updateImage = () => {
-      const src = getImgSrc({
-        path: path,
-        type: type,
-        id: id,
-      });
-
       if (bg[0].display) {
         setBg((state) => [
           { ...state[0], display: false },
-          { ...state[1], src: src, id: id, display: true },
+          { ...state[1], src: src, display: true },
         ]);
       } else {
         setBg((state) => [
-          { ...state[0], src: src, id: id, display: true },
+          { ...state[0], src: src, display: true },
           { ...state[1], display: false },
         ]);
       }
@@ -64,16 +46,16 @@ const DualBackground = ({ path, type, id, size, animationName = 'fade' }) => {
     };
 
     if (!isRunning) {
-      if (bg[0].id !== id && bg[1].id !== id) {
+      if (bg[0].src !== src && bg[1].src !== src) {
         updateImage();
       } else if (
-        (bg[0].id === id && !bg[0].display) ||
-        (bg[1].id === id && !bg[1].display)
+        (bg[0].src === src && !bg[0].display) ||
+        (bg[1].src === src && !bg[1].display)
       ) {
         toggleDisplay();
       }
     }
-  }, [path, type, id, size, animationName, isRunning, bg, animate]);
+  }, [src, animationName, isRunning, bg, animate]);
 
   return (
     <div
@@ -92,7 +74,7 @@ const DualBackground = ({ path, type, id, size, animationName = 'fade' }) => {
           onAnimationEnd={() => setIsRunning(false)}
           src={bg.src}
           handleLoad={() => {
-            if (bg.id === id) {
+            if (bg.src === src) {
               animate();
             }
           }}
