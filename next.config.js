@@ -10,7 +10,12 @@ module.exports = {
     return [
       {
         source: '/movie/:id(.*\\D+.*)',
-        destination: '/bob',
+        destination: '/404',
+        permanent: false,
+      },
+      {
+        source: '/person/:id(.*\\D+.*)',
+        destination: '/404',
         permanent: false,
       },
     ];

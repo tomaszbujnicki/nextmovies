@@ -1,7 +1,7 @@
 const redirect = ({ destination, props } = {}) => {
   return {
     redirect: {
-      destination: destination ?? '/',
+      destination: destination ?? '/404',
       permanent: false,
     },
     props: props ?? {},

@@ -1,9 +1,8 @@
+import Head from '../../components/Head';
 import Link from 'next/link';
-import Head from 'next/head';
 import getData from '../../adapters/getData';
 import redirect from '../../utilities/redirect';
 import ProductionInfo from './ProductionInfo';
-import { getImgSrc } from '../../utilities';
 import Cast from '../../containers/Cast';
 import Background from '../../components/Background';
 
@@ -12,7 +11,7 @@ export async function getServerSideProps(context) {
 
   const data = await getData(
     `movie/${id}`,
-    '&append_to_response=credits,videos,recommendations'
+    '&append_to_response=credits,videos,recommendations,images&include_image_language=null'
   );
 
   if (data) {
@@ -23,19 +22,9 @@ export async function getServerSideProps(context) {
 }
 
 const Movie = ({ data }) => {
-  const src = getImgSrc({
-    path: data.backdrop_path,
-    type: 'backdrop',
-  });
-
-  console.log(data);
   return (
     <>
-      <Head>
-        <title>
-          {data.title} ({data.release_date?.slice(0, 4)}) - NextMovies
-        </title>
-      </Head>
+      <Head title={data.release_date?.slice(0, 4)} />
       <div
         style={{
           display: 'flex',
@@ -45,7 +34,7 @@ const Movie = ({ data }) => {
           position: 'relative',
         }}
       >
-        <Background src={src} />
+        <Background path={data.backdrop_path} />
 
         <ProductionInfo movie={data} />
 

@@ -1,6 +1,9 @@
 import Image from 'next/image';
 
-const Background = ({ src, style, handleLoad, ...rest }) => {
+const URL = 'http://image.tmdb.org/t/p/';
+
+const Background = ({ path, style, handleLoad, ...rest }) => {
+  const src = path ? `${URL}original${path}` : null;
   return (
     <div
       style={{

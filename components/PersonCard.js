@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import MyImage from './MyImage';
+import Image from './Image';
 import styles from './PersonCard.module.css';
 
 const PersonCard = ({ person }) => {
@@ -8,7 +8,7 @@ const PersonCard = ({ person }) => {
     <div className={styles.root}>
       <Link href={`/person/${person.id}`}>
         <a className={styles.container}>
-          <MyImage
+          <Image
             path={person.profile_path}
             type={`profile${person.gender}`}
             size="w185"
