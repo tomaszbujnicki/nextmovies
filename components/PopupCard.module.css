@@ -23,6 +23,6 @@
   stroke: var(--orange);
 }
 
-.button:hover .svg{
+.button:hover .svg {
   fill: var(--black);
 }

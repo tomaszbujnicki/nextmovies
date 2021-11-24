@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Rating from '../../containers/Rating';
+import Rating from '../../components/Rating';
 
 import styles from './ProductionInfo.module.css';
 

@@ -3,9 +3,9 @@ import Link from 'next/link';
 import getData from '../../adapters/getData';
 import redirect from '../../utilities/redirect';
 import ProductionInfo from './ProductionInfo';
-import Cast from '../../containers/Cast';
+import Cast from '../../components/Cast';
 import Background from '../../components/Background';
-import Recommendations from '../../containers/Recommendations';
+import Recommendations from '../../components/Recommendations';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Menu from '../containers/Menu';
+import Menu from '../components/Menu';
 
 import '../styles/styles.scss';
 

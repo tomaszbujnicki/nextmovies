@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import PersonCard from '../components/PersonCard';
-import PopupCard from '../components/PopupCard';
-import Section from '../components/Section';
-import Button from './../components/Button';
+import PersonCard from './PersonCard';
+import PopupCard from './PopupCard';
+import Section from './Section';
+import Button from './Button';
 import styles from './Cast.module.css';
 
 const Cast = ({ cast }) => {
