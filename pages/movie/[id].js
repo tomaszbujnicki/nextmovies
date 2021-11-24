@@ -2,7 +2,7 @@ import Head from '../../components/Head';
 import Link from 'next/link';
 import getData from '../../adapters/getData';
 import redirect from '../../utilities/redirect';
-import ProductionInfo from './ProductionInfo';
+import ProductionInfo from '../../components/ProductionInfo';
 import Cast from '../../components/Cast';
 import Background from '../../components/Background';
 import Recommendations from '../../components/Recommendations';

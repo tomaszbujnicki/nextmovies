@@ -3,7 +3,7 @@ import PersonCard from './PersonCard';
 import PopupCard from './PopupCard';
 import Section from './Section';
 import Button from './Button';
-import styles from './Cast.module.css';
+import styles from './styles/Cast.module.css';
 
 const Cast = ({ cast }) => {
   const [isPopupCardOpen, setIsPopupCardOpen] = useState(false);

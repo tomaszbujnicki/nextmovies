@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import Background from '../components/Background';
 
-import styles from './DualBackground.module.css';
+import styles from './styles/DualBackground.module.css';
 
 const DualBackground = ({ src, animationName = 'fade' }) => {
   const [bg, setBg] = useState([

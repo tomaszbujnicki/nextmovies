@@ -1,4 +1,4 @@
-.container {
+.root {
   padding: 2rem;
   border-bottom: solid 1px var(--violet);
 }
@@ -8,6 +8,6 @@
   letter-spacing: 0.2rem;
   padding: 0 0 1rem 3rem;
   position: relative;
-  color: var(--violet);
+  color: var(--white-opacity);
   font-weight: 700;
 }

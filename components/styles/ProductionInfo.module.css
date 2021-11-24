@@ -1,4 +1,4 @@
-.container {
+.root {
   color: white;
   background-color: var(--violet-opacity);
   padding: 1rem;
@@ -9,7 +9,7 @@
   border: solid 2px transparent;
 }
 
-.container:hover {
+.root:hover {
   background-color: var(--violet);
   border: solid 2px var(--orange);
 }

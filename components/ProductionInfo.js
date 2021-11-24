@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Rating from '../../components/Rating';
+import Rating from './Rating';
 
-import styles from './ProductionInfo.module.css';
+import styles from './styles/ProductionInfo.module.css';
 
 const Title = ({ title }) => {
   return <h1 className={styles.title}>{title}</h1>;
@@ -34,7 +34,7 @@ const Overview = ({ overview }) => {
 
 const ProductionInfo = ({ movie }) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.root}>
       <Title title={movie.title} />
       <Tagline tagline={movie.tagline} />
       <Genres genres={movie.genres} />

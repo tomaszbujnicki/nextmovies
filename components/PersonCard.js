@@ -1,13 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from './Image';
-import styles from './PersonCard.module.css';
+import styles from './styles/PersonCard.module.css';
 
 const PersonCard = ({ person }) => {
   return (
     <div className={styles.root}>
       <Link href={`/person/${person.id}`}>
-        <a className={styles.container}>
+        <a>
           <Image
             path={person.profile_path}
             type={`profile${person.gender}`}

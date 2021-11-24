@@ -12,13 +12,13 @@ import {
 
 import useFullscreen from '../hooks/useFullscreen';
 
-import styles from './Menu.module.css';
+import styles from './styles/Menu.module.css';
 
 const Menu = () => {
   const [isFullscreen, toggleFullscreen] = useFullscreen();
 
   return (
-    <div className={styles.container}>
+    <div className={styles.root}>
       <Link href={`/`}>
         <a className={styles.button}>
           <Home style={styles.svg} />
