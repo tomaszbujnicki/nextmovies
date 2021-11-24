@@ -5,6 +5,7 @@ import redirect from '../../utilities/redirect';
 import ProductionInfo from './ProductionInfo';
 import Cast from '../../containers/Cast';
 import Background from '../../components/Background';
+import Recommendations from '../../containers/Recommendations';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -46,20 +47,3 @@ const Movie = ({ data }) => {
 };
 
 export default Movie;
-
-const Recommendations = ({ data }) => {
-  if (!Array.isArray(data)) return null;
-  return (
-    <div>
-      <ul style={{ color: 'transparent' }}>
-        {data.map((movie) => (
-          <li key={movie.id}>
-            <Link href={`/movie/${movie.id}`}>
-              <a>{movie.title}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};

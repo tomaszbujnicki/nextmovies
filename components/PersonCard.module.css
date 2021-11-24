@@ -7,7 +7,7 @@
 }
 
 .root:hover {
-  color: var(--orange);
+  background-color: var(--magenta);
 }
 
 .container {

@@ -150,3 +150,26 @@ export const BackdropPlus = ({ style }) => (
     </g>
   </svg>
 );
+
+export const Close = ({ style }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 48 48"
+    aria-labelledby="Close"
+  >
+    <g
+      stroke="var(--orange)"
+      strokeWidth="2"
+      strokeLinejoin="round"
+      strokeLinecap="round"
+      fill="var(--magenta)"
+      className={style}
+    >
+      <path d="M24,47c12.7,0,23-10.3,23-23S36.7,1,24,1S1,11.3,1,24S11.3,47,24,47z" />
+      <path d="M29.7,18.3L18.3,29.7" />
+      <path d="M18.3,18.3l11.3,11.3" />
+    </g>
+  </svg>
+);
+//fill="var(--magenta)"
+//    viewBox="0 0 48 48"
