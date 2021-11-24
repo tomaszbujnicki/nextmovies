@@ -1,0 +1,19 @@
+.container {
+  left: 5%;
+  right: 5%;
+  top: 5%;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: var(--violet);
+  position: fixed;
+}
+
+.button {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: var(--orange);
+}

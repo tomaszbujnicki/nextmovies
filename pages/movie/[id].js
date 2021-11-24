@@ -22,9 +22,10 @@ export async function getServerSideProps(context) {
 }
 
 const Movie = ({ data }) => {
+  console.log(data);
   return (
     <>
-      <Head title={data.release_date?.slice(0, 4)} />
+      <Head title={`${data.title} (${data.release_date?.slice(0, 4)})`} />
       <div
         style={{
           display: 'flex',
@@ -37,8 +38,6 @@ const Movie = ({ data }) => {
         <Background path={data.backdrop_path} />
 
         <ProductionInfo movie={data} />
-
-        <Recommendations data={data.recommendations?.results} />
       </div>
       <Cast cast={data.credits.cast} />
       <Recommendations data={data.recommendations?.results} />

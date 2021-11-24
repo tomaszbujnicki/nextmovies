@@ -8,16 +8,14 @@ import {
   ExitFullscreen,
   EnterFullscreen,
   Backdrop,
-  BackdropPlus,
 } from '../assets/SvgButtons';
 
 import useFullscreen from '../hooks/useFullscreen';
 
-import styles from './VerticalMenu.module.css';
+import styles from './Menu.module.css';
 
-const VerticalMenu = () => {
+const Menu = () => {
   const [isFullscreen, toggleFullscreen] = useFullscreen();
-  const [isDetailsDisplayed, toggleDisplay] = useToggle(true);
 
   return (
     <div className={styles.container}>
@@ -27,12 +25,8 @@ const VerticalMenu = () => {
         </a>
       </Link>
 
-      <Button onClick={toggleDisplay} className={styles.button}>
-        {isDetailsDisplayed ? (
-          <Backdrop style={styles.svg} />
-        ) : (
-          <BackdropPlus style={styles.svg} />
-        )}
+      <Button className={styles.button}>
+        <Backdrop style={styles.svg} />
       </Button>
 
       <Button onClick={toggleFullscreen} className={styles.button}>
@@ -46,4 +40,4 @@ const VerticalMenu = () => {
   );
 };
 
-export default VerticalMenu;
+export default Menu;

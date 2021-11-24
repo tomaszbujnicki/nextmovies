@@ -1,6 +1,6 @@
 .container {
   color: white;
-  background-color: var(--purple-opacity);
+  background-color: var(--violet-opacity);
   padding: 1rem;
   border-radius: 1rem;
   margin: 1rem;
@@ -9,7 +9,7 @@
 }
 
 .container:hover {
-  background-color: var(--purple);
+  background-color: var(--violet);
 }
 
 .title {

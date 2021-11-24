@@ -16,6 +16,18 @@ export default function Home() {
         <a>Candyman</a>
       </Link>
       <br />
+      <Link href={`/movie/512195`}>
+        <a>Red Notice</a>
+      </Link>
+      <br />
+      <Link href={`/movie/68718`}>
+        <a>Django Unchained</a>
+      </Link>
+      <br />
+      <Link href={`/movie/595743`}>
+        <a>SAS: Red Notice</a>
+      </Link>
+      <br />
       <Link href={`/movie/497698`}>
         <a>Black Widow</a>
       </Link>
