@@ -4,12 +4,14 @@
   padding: 1rem;
   border-radius: 1rem;
   margin: 1rem;
-  transition: background-color 0.5s, opacity 2s;
+  transition: background-color 1s, border 1s;
   max-width: 50rem;
+  border: solid 2px transparent;
 }
 
 .container:hover {
   background-color: var(--violet);
+  border: solid 2px var(--orange);
 }
 
 .title {

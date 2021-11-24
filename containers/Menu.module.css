@@ -8,15 +8,6 @@
   position: fixed;
   right: 0;
   top: 0;
-  transition: background-color 0.5s;
-}
-
-.container::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 4rem;
   background: var(--black-opacity);
   background: linear-gradient(
     180deg,
@@ -25,8 +16,19 @@
   );
 }
 
-.container:hover {
+.container::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 0;
+  transition: height 0.5s;
   background: var(--violet);
+  top: 0;
+}
+
+.container:hover::before {
+  height: 4rem;
 }
 
 .container:hover .svg {
