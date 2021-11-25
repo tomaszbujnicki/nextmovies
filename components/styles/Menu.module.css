@@ -33,10 +33,12 @@
 
 .root:hover .svg {
   fill: var(--white);
+  stroke: var(--white);
 }
 
 .svg {
   fill: var(--white-opacity);
+  stroke: var(--white-opacity);
   transition: fill 1s;
 }
 

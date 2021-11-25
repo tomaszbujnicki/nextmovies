@@ -1,0 +1,39 @@
+.root {
+  position: relative;
+  padding: 0 50px;
+}
+
+.item {
+  padding-left: 5px;
+}
+
+.right,
+.left {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 40px;
+}
+
+.left {
+  left: 0;
+}
+
+.right:not(.disable):hover .svg,
+.left:not(.disable):hover .svg {
+  fill: var(--orange);
+}
+
+.svg {
+  fill: var(--violet);
+  transition: opacity 1s, fill 0.5s;
+}
+
+.disable {
+  cursor: default;
+}
+
+.disable .svg {
+  opacity: 0.2;
+}

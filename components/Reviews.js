@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles/Revievs.module.css';
+import styles from './styles/Reviews.module.css';
 import Section from './Section';
 
 const Reviews = () => {

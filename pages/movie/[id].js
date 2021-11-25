@@ -6,6 +6,9 @@ import ProductionInfo from '../../components/ProductionInfo';
 import Cast from '../../components/Cast';
 import Background from '../../components/Background';
 import Recommendations from '../../components/Recommendations';
+import Reviews from '../../components/Reviews';
+import Videos from '../../components/Videos';
+import Details from '../../components/Details';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -40,7 +43,10 @@ const Movie = ({ data }) => {
 
         <ProductionInfo movie={data} />
       </div>
+      <Details />
+      <Videos data={data.videos?.results} />
       <Cast cast={data.credits.cast} />
+      <Reviews />
       <Recommendations data={data.recommendations?.results} />
     </>
   );

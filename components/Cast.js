@@ -3,6 +3,7 @@ import PersonCard from './PersonCard';
 import PopupCard from './PopupCard';
 import Section from './Section';
 import Button from './Button';
+import { CardCarousel } from './Carousel';
 import styles from './styles/Cast.module.css';
 
 const Cast = ({ cast }) => {
@@ -15,12 +16,12 @@ const Cast = ({ cast }) => {
   if (!cast) return null;
   return (
     <Section title="Cast">
-      <CastPreview cast={cast.slice(0, 12)} />
+      <Preview cast={cast.slice(0, 12)} />
 
-      <FullCastButton clickHandler={() => setIsPopupCardOpen(true)} />
+      <FullButton clickHandler={() => setIsPopupCardOpen(true)} />
 
       <PopupCard isOpen={isPopupCardOpen} setIsOpen={setIsPopupCardOpen}>
-        <FullCast cast={cast} />
+        <Full cast={cast} />
       </PopupCard>
     </Section>
   );
@@ -28,23 +29,23 @@ const Cast = ({ cast }) => {
 
 export default Cast;
 
-const FullCastButton = ({ clickHandler }) => (
+const FullButton = ({ clickHandler }) => (
   <Button className={styles.button} onClick={clickHandler}>
     View full Cast & Crew
   </Button>
 );
 
-const CastPreview = ({ cast }) => (
-  <ul className={styles.shortList}>
+const Preview = ({ cast }) => (
+  <CardCarousel>
     {cast.map((person) => (
-      <li key={person.id} style={{ marginRight: 40 }}>
+      <div key={person.id}>
         <PersonCard person={person} />
-      </li>
+      </div>
     ))}
-  </ul>
+  </CardCarousel>
 );
 
-const FullCast = ({ cast }) => {
+const Full = ({ cast }) => {
   return (
     <div>
       <h2>Full cast & crew</h2>

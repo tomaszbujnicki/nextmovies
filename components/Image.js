@@ -22,10 +22,17 @@ const Image = ({
         height: height,
         position: 'relative',
         overflow: 'hidden',
+
         ...style,
       }}
     >
-      <NextImage src={src} alt={alt} width={width} height={height} />
+      <NextImage
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        draggable="false"
+      />
     </div>
   );
 };

@@ -9,7 +9,7 @@ const PopupCard = ({ isOpen, setIsOpen, children, style }) => {
     <div className={styles.root} style={style}>
       {children}
       <Button className={styles.button} onClick={() => setIsOpen(false)}>
-        <Close style={styles.svg} />
+        <Close className={styles.svg} />
       </Button>
     </div>
   );

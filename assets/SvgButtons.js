@@ -1,11 +1,10 @@
-export const ExitFullscreen = ({ style }) => (
+export const ExitFullscreen = ({ className }) => (
   <svg
-    className={style}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 215.35 215.35"
     aria-labelledby="exit fullscreen"
   >
-    <g>
+    <g className={className}>
       <path
         d="M146.7,204.3c4.1,0,7.5-3.4,7.5-7.5v-32l48.3,48.3c1.5,1.5,3.4,2.2,5.3,2.2c1.9,0,3.8-0.7,5.3-2.2
    c2.9-2.9,2.9-7.7,0-10.6l-48.3-48.3h32c4.1,0,7.5-3.4,7.5-7.5s-3.4-7.5-7.5-7.5h-50.1c-4.1,0-7.5,3.4-7.5,7.5v50.1
@@ -28,14 +27,13 @@ export const ExitFullscreen = ({ style }) => (
   </svg>
 );
 
-export const EnterFullscreen = ({ style }) => (
+export const EnterFullscreen = ({ className }) => (
   <svg
-    className={style}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 215.35 215.35"
     aria-labelledby="enter fullscreen"
   >
-    <g>
+    <g className={className}>
       <path
         d="M7.5,65.088c4.143,0,7.5-3.358,7.5-7.5V25.61l48.305,48.295c1.465,1.464,3.384,2.196,5.303,2.196
    c1.92,0,3.84-0.732,5.304-2.197c2.929-2.929,2.929-7.678-0.001-10.606L25.604,15.002h31.985c4.142,0,7.5-3.358,7.5-7.5
@@ -60,14 +58,13 @@ export const EnterFullscreen = ({ style }) => (
   </svg>
 );
 
-export const Home = ({ style }) => (
+export const Home = ({ className }) => (
   <svg
-    className={style}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 489.075 489.075"
     aria-labelledby="Home"
   >
-    <g>
+    <g className={className}>
       <path
         d="M482.453,220.775l-115.5-111.2v-88.5c0-11.4-9.4-20.8-20.8-20.8s-20.8,9.4-20.8,20.8v48.5l-66.6-64.1
 		c-7.3-7.3-19.8-7.3-28.1,0l-223.6,215.3c-8.3,8.3-9.4,20.8-1,29.1c8.4,8.3,20.8,9.4,29.1,1l3.1-3v220.4c0,11.4,9.4,20.8,20.8,20.8
@@ -79,14 +76,13 @@ export const Home = ({ style }) => (
   </svg>
 );
 
-export const Backdrop = ({ style }) => (
+export const Backdrop = ({ className }) => (
   <svg
-    className={style}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0.65 58 58"
     aria-labelledby="Backdrop"
   >
-    <g>
+    <g className={className}>
       <path
         d="M43.585,36.542c-0.27-0.032-0.543-0.053-0.821-0.053c-0.491,0-0.969,0.053-1.431,0.151
 		c-4.595,0.594-8.827,3.552-12.062,8.492l-0.466,0.711l0.359,0.548C32.798,51.942,37.693,55,42.946,55
@@ -116,14 +112,13 @@ export const Backdrop = ({ style }) => (
   </svg>
 );
 
-export const BackdropPlus = ({ style }) => (
+export const BackdropPlus = ({ className }) => (
   <svg
-    className={style}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 58 58"
     aria-labelledby="Backdrop"
   >
-    <g>
+    <g className={className}>
       <path
         d="M52.276,30.239c-1.164-1.164-3.057-1.162-4.221,0L32.664,45.63l-2.121,7.779l-0.519,0.519
 		c-0.388,0.388-0.389,1.014-0.006,1.405l-0.005,0.02l0.019-0.005c0.194,0.191,0.446,0.288,0.699,0.288
@@ -151,7 +146,7 @@ export const BackdropPlus = ({ style }) => (
   </svg>
 );
 
-export const Close = ({ style }) => (
+export const Close = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 48 48"
@@ -163,7 +158,7 @@ export const Close = ({ style }) => (
       strokeLinejoin="round"
       strokeLinecap="round"
       fill="var(--magenta)"
-      className={style}
+      className={className}
     >
       <path d="M24,47c12.7,0,23-10.3,23-23S36.7,1,24,1S1,11.3,1,24S11.3,47,24,47z" />
       <path d="M29.7,18.3L18.3,29.7" />
@@ -171,5 +166,33 @@ export const Close = ({ style }) => (
     </g>
   </svg>
 );
-//fill="var(--magenta)"
-//    viewBox="0 0 48 48"
+
+export const LeftArrow = ({ className }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 491.1 491.1"
+    aria-labelledby="Close"
+  >
+    <g className={className}>
+      <path
+        d="M111.9,208.2L304.7,15.5c20.6-20.6,54-20.6,74.6,0c20.6,20.6,20.6,54,0,74.6L223.8,245.6l155.5,155.5
+		c20.6,20.6,20.6,54,0,74.6c-20.6,20.6-54,20.6-74.6,0L111.8,282.8C91.2,262.2,91.2,228.9,111.9,208.2z"
+      />
+    </g>
+  </svg>
+);
+
+export const RightArrow = ({ className }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 491.1 491.1"
+    aria-labelledby="Close"
+  >
+    <g className={className}>
+      <path
+        d="M379.25,282.85l-192.8,192.8c-20.6,20.6-54,20.6-74.6,0s-20.6-54,0-74.6l155.5-155.5l-155.5-155.5
+		c-20.6-20.6-20.6-54,0-74.6s54-20.6,74.6,0l192.8,192.8C399.85,228.85,399.85,262.25,379.25,282.85z"
+      />
+    </g>
+  </svg>
+);

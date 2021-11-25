@@ -2,16 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import Button from '../components/Button';
 import useToggle from '../hooks/useToggle';
-
 import {
   Home,
   ExitFullscreen,
   EnterFullscreen,
   Backdrop,
 } from '../assets/SvgButtons';
-
 import useFullscreen from '../hooks/useFullscreen';
-
 import styles from './styles/Menu.module.css';
 
 const Menu = () => {
@@ -21,19 +18,19 @@ const Menu = () => {
     <div className={styles.root}>
       <Link href={`/`}>
         <a className={styles.button}>
-          <Home style={styles.svg} />
+          <Home className={styles.svg} />
         </a>
       </Link>
 
       <Button className={styles.button}>
-        <Backdrop style={styles.svg} />
+        <Backdrop className={styles.svg} />
       </Button>
 
       <Button onClick={toggleFullscreen} className={styles.button}>
         {isFullscreen ? (
-          <ExitFullscreen style={styles.svg} />
+          <ExitFullscreen className={styles.svg} />
         ) : (
-          <EnterFullscreen style={styles.svg} />
+          <EnterFullscreen className={styles.svg} />
         )}
       </Button>
     </div>
