@@ -8,7 +8,7 @@ const VideoCard = ({ video }) => {
     <div className={styles.root}>
       <Image
         id={video.key}
-        media="youtube"
+        media={video.site}
         width={480}
         height={360}
         placeholder="no-video"
