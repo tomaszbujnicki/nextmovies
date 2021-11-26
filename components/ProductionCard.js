@@ -9,11 +9,12 @@ const ProductionCard = ({ production }) => {
       <Link href={`/${production.media_type}/${production.id}`}>
         <a draggable="false">
           <Image
-            path={production.poster_path}
-            type="poster"
+            id={production.poster_path}
+            placeholder="poster"
             size="w185"
             width={185}
             height={278}
+            media="tmdb"
           />
         </a>
       </Link>

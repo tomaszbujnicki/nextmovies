@@ -21,7 +21,6 @@ const Background = ({ path, style, handleLoad, ...rest }) => {
             layout="fill"
             objectFit="cover"
             quality="100"
-            unoptimized={true}
             src={src}
             alt=""
             onLoad={(e) => {

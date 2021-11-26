@@ -9,11 +9,12 @@ const PersonCard = ({ person }) => {
       <Link href={`/person/${person.id}`}>
         <a draggable="false">
           <Image
-            path={person.profile_path}
-            type={`profile${person.gender}`}
+            id={person.profile_path}
+            placeholder={`profile${person.gender}`}
             size="w185"
             width={185}
             height={278}
+            media="tmdb"
           />
           <div className={styles.body}>
             <div className={styles.name}>{person.name}</div>

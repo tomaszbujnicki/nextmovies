@@ -45,12 +45,13 @@ const PersonPoster = ({ data }) => {
       }}
     >
       <Image
-        path={data.profile_path}
-        type={`profile${data.gender}`}
+        id={data.profile_path}
+        placeholder={`profile${data.gender}`}
         size="h632"
         width={421}
         height={632}
-        style={{ borderRadius: 40 }}
+        media="tmdb"
+        style={{ borderRadius: 40, overflow: 'hidden' }}
       />
     </div>
   );

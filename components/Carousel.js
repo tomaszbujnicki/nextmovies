@@ -97,7 +97,6 @@ const Carousel = ({ children, responsive, sliderClass }) => {
         transitionDuration={1000}
         itemClass={styles.item}
         arrows={false}
-        showDots={true}
         renderButtonGroupOutside={true}
         customButtonGroup={<ButtonGroup />}
         sliderClass={sliderClass}

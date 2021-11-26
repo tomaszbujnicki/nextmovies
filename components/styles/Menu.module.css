@@ -28,7 +28,7 @@
 }
 
 .root:hover::before {
-  height: 4rem;
+  height: 100%;
 }
 
 .root:hover .svg {

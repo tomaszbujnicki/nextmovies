@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import YouTube from 'react-youtube';
-import Image from 'next/image';
+import Image from './Image';
 import styles from './styles/VideoCard.module.css';
 
-const getUrl = (key) => `https://i.ytimg.com/vi/${key}/hqdefault.jpg`;
-
 const VideoCard = ({ video }) => {
+  return (
+    <div className={styles.root}>
+      <Image
+        id={video.key}
+        media="youtube"
+        width={480}
+        height={360}
+        placeholder="no-video"
+      />
+    </div>
+  );
+};
+
+export default VideoCard;
+
+/*
+
   const opts = {
     height: '360',
     width: '480',
@@ -20,19 +35,6 @@ const VideoCard = ({ video }) => {
     // access to player in all event handlers via event.target
     event.target.pauseVideo();
   };
-  return (
-    <div className={styles.root}>
-      <Image
-        src={getUrl(video.key)}
-        alt=""
-        width={480}
-        height={360}
-        quality={100}
-        draggable="false"
-      />
-      {/* <YouTube videoId={video.key} opts={opts} onReady={_onReady} /> */}
-    </div>
-  );
-};
-
-export default VideoCard;
+  return
+<YouTube videoId={video.key} opts={opts} onReady={_onReady} />
+  */
