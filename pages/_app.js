@@ -5,14 +5,16 @@ import '../styles/styles.scss';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <div className="app">
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-
-      <Component {...pageProps} />
-
-      <Menu />
+      <main>
+        <Component {...pageProps} />
+      </main>
+      <nav>
+        <Menu />
+      </nav>
     </div>
   );
 }

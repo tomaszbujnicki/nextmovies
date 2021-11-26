@@ -13,5 +13,5 @@
 
 .button:hover {
   font-size: 1.5rem;
-  color: var(--magenta);
+  color: var(--orange);
 }

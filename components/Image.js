@@ -31,6 +31,7 @@ const Image = ({
         alt={alt}
         width={width}
         height={height}
+        quality={100}
         draggable="false"
       />
     </div>

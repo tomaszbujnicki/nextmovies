@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
 import MultiCarousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { LeftArrow, RightArrow } from '../assets/SvgButtons';
@@ -60,7 +61,7 @@ const ButtonGroup = ({ next, previous, ...rest }) => {
   const leftClass =
     currentSlide === 0 ? `${styles.left} ${styles.disable}` : styles.left;
   const rightClass =
-    currentSlide === totalItems - slidesToShow
+    currentSlide >= totalItems - slidesToShow
       ? `${styles.right} ${styles.disable}`
       : styles.right;
 
@@ -76,19 +77,30 @@ const ButtonGroup = ({ next, previous, ...rest }) => {
   );
 };
 
-const Carousel = ({ children, responsive }) => {
+const Carousel = ({ children, responsive, sliderClass }) => {
+  const path = useRouter().asPath;
+  const ref = useRef(null);
+  useEffect(() => {
+    ref.current.goToSlide(0);
+  }, [path]);
+
   return (
     <div className={styles.root}>
       <MultiCarousel
+        ref={(el) => {
+          ref.current = el;
+        }}
         responsive={responsive}
-        ssr={true}
+        ssr={false}
         swipeable={false}
         draggable={false}
         transitionDuration={1000}
         itemClass={styles.item}
         arrows={false}
+        showDots={true}
         renderButtonGroupOutside={true}
         customButtonGroup={<ButtonGroup />}
+        sliderClass={sliderClass}
       >
         {children}
       </MultiCarousel>
@@ -101,5 +113,9 @@ export const CardCarousel = ({ children }) => {
 };
 
 export const VideoCarousel = ({ children }) => {
-  return <Carousel responsive={responsiveVideo}>{children}</Carousel>;
+  return (
+    <Carousel responsive={responsiveVideo} sliderClass={styles.sliderVideo}>
+      {children}
+    </Carousel>
+  );
 };

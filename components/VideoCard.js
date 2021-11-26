@@ -27,6 +27,7 @@ const VideoCard = ({ video }) => {
         alt=""
         width={480}
         height={360}
+        quality={100}
         draggable="false"
       />
       {/* <YouTube videoId={video.key} opts={opts} onReady={_onReady} /> */}
