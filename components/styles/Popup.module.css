@@ -3,21 +3,21 @@
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
   z-index: 9999;
 }
 
 .frame {
-  left: 1rem;
-  right: 1rem;
-  top: 4.5rem;
-  padding: 1.5rem;
+  inset: 2rem 4rem;
+  inset: 0;
   border-radius: 1.5rem;
   background-color: var(--black);
   position: fixed;
   border: solid 2px var(--violet);
+  border: none;
   z-index: 9999;
+  overflow: hidden;
 }
 
 .button {

@@ -1,39 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import PersonCard from './PersonCard';
-import PopupCard from './PopupCard';
 import Section from './Section';
 import Button from './Button';
 import { CardCarousel } from './Carousel';
+import { usePopup } from '../context/PopupProvider';
 import styles from './styles/Cast.module.css';
 
 const Cast = ({ cast }) => {
-  const [isPopupCardOpen, setIsPopupCardOpen] = useState(false);
-
-  useEffect(() => {
-    setIsPopupCardOpen(false);
-  }, [cast]);
+  const { setValue } = usePopup();
 
   if (!cast) return null;
+
   return (
     <Section title="Cast">
       <Preview cast={cast.slice(0, 12)} />
 
-      <FullButton clickHandler={() => setIsPopupCardOpen(true)} />
-
-      <PopupCard isOpen={isPopupCardOpen} setIsOpen={setIsPopupCardOpen}>
-        <Full cast={cast} />
-      </PopupCard>
+      <Button
+        className={styles.button}
+        onClick={() => setValue(<Popup cast={cast} />)}
+      >
+        View full Cast & Crew
+      </Button>
     </Section>
   );
 };
 
 export default Cast;
-
-const FullButton = ({ clickHandler }) => (
-  <Button className={styles.button} onClick={clickHandler}>
-    View full Cast & Crew
-  </Button>
-);
 
 const Preview = ({ cast }) => (
   <CardCarousel>
@@ -45,7 +37,7 @@ const Preview = ({ cast }) => (
   </CardCarousel>
 );
 
-const Full = ({ cast }) => {
+const Popup = ({ cast }) => {
   return (
     <div>
       <h2>Full cast & crew</h2>
