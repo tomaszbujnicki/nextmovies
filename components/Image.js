@@ -4,7 +4,7 @@ import NextImage from 'next/image';
 const sources = {
   tmdb: (id, size) => `http://image.tmdb.org/t/p/${size}${id}`,
   YouTube: (id) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
-  Vimeo: (id) => `https://vimeo.com/${id}`,
+  Vimeo: (id) => `https://vumbnail.com/${id}.jpg`,
   placeholder: (name) => `/placeholder/${name}.svg`,
   static: (path) => `/${path}`,
 };

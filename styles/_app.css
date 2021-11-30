@@ -1,0 +1,37 @@
+html,
+body,
+#__next,
+.app,
+main {
+  height: 100%;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  overflow-y: hidden;
+  position: relative;
+  z-index: -999;
+}
+
+main {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: var(--violet) var(--black);
+}
+
+main::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--black);
+}
+
+main::-webkit-scrollbar-button {
+  display: none;
+}
+
+main::-webkit-scrollbar-thumb {
+  background-color: var(--violet);
+  border-radius: 4px;
+}
+
+main::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(70, 40, 110);;
+}

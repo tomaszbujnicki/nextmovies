@@ -15,7 +15,7 @@ const VideoCard = ({ video }) => {
           id={video.key}
           media={video.site}
           width={480}
-          height={360}
+          height={video.site === 'YouTube' ? 360 : 270}
           placeholder="no-video"
         />
       </Button>

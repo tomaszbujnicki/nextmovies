@@ -5,7 +5,8 @@ import ProductionCard from './ProductionCard';
 import { CardCarousel } from './Carousel';
 
 const Recommendations = ({ data }) => {
-  if (!data) return null;
+  if (!Array.isArray(data) || !data.length) return null;
+
   return (
     <Section title="Recommendations">
       <Preview data={data} />

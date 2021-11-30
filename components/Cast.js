@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PersonCard from './PersonCard';
 import Section from './Section';
 import Button from './Button';
@@ -9,7 +9,7 @@ import styles from './styles/Cast.module.css';
 const Cast = ({ cast }) => {
   const { setValue } = usePopup();
 
-  if (!cast) return null;
+  if (!Array.isArray(cast) || !cast.length) return null;
 
   return (
     <Section title="Cast">

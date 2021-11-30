@@ -9,6 +9,7 @@ import Recommendations from '../../components/Recommendations';
 import Reviews from '../../components/Reviews';
 import Videos from '../../components/Videos';
 import Details from '../../components/Details';
+import { useRef } from 'react';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -26,16 +27,19 @@ export async function getServerSideProps(context) {
 }
 
 const Movie = ({ data }) => {
+  const heroElement = useRef(null);
+  if (heroElement.current) heroElement.current.scrollIntoView();
   console.log(data);
   return (
     <>
       <Head title={`${data.title} (${data.release_date?.slice(0, 4)})`} />
       <div
+        ref={heroElement}
         style={{
           display: 'flex',
           alignItems: 'flex-end',
           width: '100%',
-          height: '100vh',
+          height: '100%',
           position: 'relative',
         }}
       >

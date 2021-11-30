@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Section from '../components/Section';
 import styles from './styles/Videos.module.css';
 import VideoCard from './VideoCard';
@@ -10,16 +10,7 @@ const site = {
 };
 
 const Videos = ({ data }) => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  useEffect(() => {
-    setIsPopupOpen(false);
-  }, []);
-
   console.log(data);
-  data.forEach((element) => {
-    console.log(element.site);
-  });
 
   if (!data) return null;
   return (

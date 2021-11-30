@@ -5,9 +5,6 @@ import Popup from '../components/Popup';
 import { PopupProvider } from '../context/PopupProvider';
 import '../styles/styles.scss';
 
-const popupContent = <div>Tomek</div>;
-const PopupContext = React.createContext(popupContent);
-
 function MyApp({ Component, pageProps }) {
   return (
     <PopupProvider>

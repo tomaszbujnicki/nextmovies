@@ -4,7 +4,7 @@ module.exports = {
     API_KEY: process.env.API_KEY,
   },
   images: {
-    domains: ['image.tmdb.org', 'i.ytimg.com'],
+    domains: ['image.tmdb.org', 'i.ytimg.com', 'vumbnail.com'],
   },
   async redirects() {
     return [
