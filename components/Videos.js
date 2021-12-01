@@ -4,11 +4,6 @@ import styles from './styles/Videos.module.css';
 import VideoCard from './VideoCard';
 import { VideoCarousel } from './Carousel';
 
-const site = {
-  youTube: 'https://www.youtube.com/watch?v=',
-  vimeo: ' https://vimeo.com/',
-};
-
 const Videos = ({ data }) => {
   console.log(data);
 
