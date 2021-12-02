@@ -10,7 +10,7 @@ const ProductionCard = ({ production }) => {
         <a draggable="false">
           <Image
             id={production.poster_path}
-            placeholder="poster"
+            placeholder="default.jpg"
             size="w185"
             width={185}
             height={278}

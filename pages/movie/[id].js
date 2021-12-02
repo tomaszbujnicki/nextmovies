@@ -9,6 +9,7 @@ import Reviews from '../../components/Reviews';
 import Videos from '../../components/Videos';
 import Details from '../../components/Details';
 import Hero from '../../components/Hero';
+import Section from '../../components/Section';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -45,7 +46,10 @@ const Movie = ({ data }) => {
       <Videos data={data.videos?.results} />
       <Cast cast={data.credits.cast} />
       <Reviews />
-      <Recommendations data={data.recommendations?.results} />
+
+      <Section title="Similar Movies">
+        <Recommendations data={data.recommendations?.results} />
+      </Section>
     </>
   );
 };

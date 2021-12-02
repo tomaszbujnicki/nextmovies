@@ -5,7 +5,7 @@ const sources = {
   tmdb: (id, size) => `http://image.tmdb.org/t/p/${size}${id}`,
   YouTube: (id) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
   Vimeo: (id) => `https://vumbnail.com/${id}.jpg`,
-  placeholder: (name) => `/placeholder/${name}.svg`,
+  placeholder: (name) => `/placeholder/${name}`,
   static: (path) => `/${path}`,
 };
 
@@ -17,9 +17,11 @@ const Image = ({
   height,
   alt = '',
   size = 'original',
-  placeholder = 'default',
+  placeholder = 'default.jpg',
 }) => {
-  const [src, setSrc] = useState(sources[media](id, size));
+  const [src, setSrc] = useState(
+    id ? sources[media](id, size) : sources.placeholder(placeholder)
+  );
 
   return (
     <div style={{ fontSize: 0, ...style }}>

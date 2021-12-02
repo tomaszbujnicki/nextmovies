@@ -10,7 +10,7 @@ const PersonCard = ({ person }) => {
         <a draggable="false">
           <Image
             id={person.profile_path}
-            placeholder={`profile${person.gender}`}
+            placeholder={`profile${person.gender}.svg`}
             size="w185"
             width={185}
             height={278}
