@@ -4,16 +4,16 @@ import Vimeo from '@vimeo/player';
 import { usePopup } from '../context/PopupProvider';
 import styles from './styles/Player.module.css';
 
-const Player = ({ video }) => {
+const Player = ({ site, id }) => {
   const { setValue } = usePopup();
 
   const endHandler = () => setValue(null);
 
-  if (video.site === 'YouTube') {
-    return <YouTubePlayer id={video.key} onEnd={endHandler} />;
+  if (site === 'YouTube') {
+    return <YouTubePlayer id={id} onEnd={endHandler} />;
   }
-  if (video.site === 'Vimeo') {
-    return <VimeoPlayer id={video.key} onEnd={endHandler} />;
+  if (site === 'Vimeo') {
+    return <VimeoPlayer id={id} onEnd={endHandler} />;
   }
   return null;
 };

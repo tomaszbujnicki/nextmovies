@@ -3,13 +3,13 @@ import Link from 'next/link';
 import Image from './Image';
 import styles from './styles/ProductionCard.module.css';
 
-const ProductionCard = ({ production }) => {
+const ProductionCard = ({ id, media_type, poster_path }) => {
   return (
     <div className={styles.root}>
-      <Link href={`/${production.media_type}/${production.id}`}>
+      <Link href={`/${media_type}/${id}`}>
         <a draggable="false">
           <Image
-            id={production.poster_path}
+            id={poster_path}
             placeholder="default.jpg"
             size="w185"
             width={185}

@@ -4,12 +4,17 @@ import getData from '../../adapters/getData';
 import redirect from '../../utilities/redirect';
 import ProductionInfo from '../../components/ProductionInfo';
 import Cast from '../../components/Cast';
-import Recommendations from '../../components/Recommendations';
 import Reviews from '../../components/Reviews';
 import Videos from '../../components/Videos';
 import Details from '../../components/Details';
 import Hero from '../../components/Hero';
 import Section from '../../components/Section';
+import Button from '../../components/Button';
+import CardList from '../../components/CardList';
+import styles from './movie.module.css';
+import PersonCard from '../../components/PersonCard';
+import ProductionCard from '../../components/ProductionCard';
+import VideoCard from '../../components/VideoCard';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -42,13 +47,39 @@ const Movie = ({ data }) => {
         <ProductionInfo movie={data} />
       </Hero>
 
-      <Details />
-      <Videos data={data.videos?.results} />
-      <Cast cast={data.credits.cast} />
-      <Reviews />
+      <Section title="Details">
+        <Details />
+      </Section>
+
+      <Section title="Videos">
+        <CardList
+          data={data.videos?.results
+            .map((video) => ({
+              ...video,
+              videoKey: video.key,
+            }))
+            .reverse()}
+          Card={VideoCard}
+        />
+      </Section>
+
+      <Section title="Cast">
+        <CardList data={data.credits.cast} Card={PersonCard} />
+
+        <Button
+          className={styles.button}
+          onClick={() => setValue(<Cast data={data.credits} />)}
+        >
+          View full Cast & Crew
+        </Button>
+      </Section>
+
+      <Section title="Reviews">
+        <Reviews />
+      </Section>
 
       <Section title="Similar Movies">
-        <Recommendations data={data.recommendations?.results} />
+        <CardList data={data.recommendations?.results} Card={ProductionCard} />
       </Section>
     </>
   );

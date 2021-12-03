@@ -4,7 +4,6 @@ import Background from '../components/Background';
 import styles from './styles/DualBackground.module.css';
 
 const DualBackground = ({ src, animationName = 'fade' }) => {
-  console.log(src);
   const [bg, setBg] = useState([
     { key: 0, src: null, className: styles.hidden, display: true },
     { key: 1, src: null, className: styles.hidden, display: false },

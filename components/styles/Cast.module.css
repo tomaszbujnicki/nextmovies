@@ -4,14 +4,3 @@
   overflow: auto;
   padding: 1rem;
 }
-
-.button {
-  font-size: 1.5rem;
-  color: var(--violet);
-  margin: 1rem
-}
-
-.button:hover {
-  font-size: 1.5rem;
-  color: var(--orange);
-}

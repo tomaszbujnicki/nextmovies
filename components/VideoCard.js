@@ -5,17 +5,17 @@ import { usePopup } from '../context/PopupProvider';
 import styles from './styles/VideoCard.module.css';
 import Player from './Player';
 
-const VideoCard = ({ video }) => {
+const VideoCard = ({ videoKey, site }) => {
   const { setValue } = usePopup();
 
   return (
     <div className={styles.root}>
-      <Button onClick={() => setValue(<Player video={video} />)}>
+      <Button onClick={() => setValue(<Player site={site} id={videoKey} />)}>
         <Image
-          id={video.key}
-          media={video.site}
+          id={videoKey}
+          media={site}
           width={480}
-          height={video.site === 'YouTube' ? 360 : 270}
+          height={site === 'YouTube' ? 360 : 270}
           placeholder="no-video.svg"
         />
       </Button>
