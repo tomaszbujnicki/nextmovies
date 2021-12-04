@@ -5,7 +5,6 @@ import redirect from '../../utilities/redirect';
 import ProductionInfo from '../../components/ProductionInfo';
 import Cast from '../../components/Cast';
 import Reviews from '../../components/Reviews';
-import Videos from '../../components/Videos';
 import Details from '../../components/Details';
 import Hero from '../../components/Hero';
 import Section from '../../components/Section';
@@ -32,7 +31,6 @@ export async function getServerSideProps(context) {
 }
 
 const Movie = ({ data }) => {
-  console.log(data);
   return (
     <>
       <Head title={`${data.title} (${data.release_date?.slice(0, 4)})`} />
@@ -60,11 +58,12 @@ const Movie = ({ data }) => {
             }))
             .reverse()}
           Card={VideoCard}
+          cardWidth={480}
         />
       </Section>
 
       <Section title="Cast">
-        <CardList data={data.credits.cast} Card={PersonCard} />
+        <CardList data={data.credits.cast} Card={PersonCard} cardWidth={185} />
 
         <Button
           className={styles.button}
@@ -79,7 +78,11 @@ const Movie = ({ data }) => {
       </Section>
 
       <Section title="Similar Movies">
-        <CardList data={data.recommendations?.results} Card={ProductionCard} />
+        <CardList
+          data={data.recommendations?.results}
+          Card={ProductionCard}
+          cardWidth={185}
+        />
       </Section>
     </>
   );
