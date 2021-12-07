@@ -1,32 +1,23 @@
 import Head from 'next/head';
 import React from 'react';
 import Menu from '../components/Menu';
-import Popup from '../components/Popup';
-import { PopupProvider } from '../context/PopupProvider';
 import '../styles/styles.scss';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <PopupProvider>
-      <div className="app">
-        <Head>
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
-        </Head>
+    <div className="app" id="app">
+      <Head>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
 
-        <main>
-          <Component {...pageProps} />
-        </main>
+      <main>
+        <Component {...pageProps} />
+      </main>
 
-        <nav>
-          <Menu />
-        </nav>
-
-        <Popup />
-      </div>
-    </PopupProvider>
+      <nav>
+        <Menu />
+      </nav>
+    </div>
   );
 }
 

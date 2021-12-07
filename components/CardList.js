@@ -1,10 +1,26 @@
 import React from 'react';
-import { Carousel } from './Carousel';
+import Carousel from './Carousel';
+import PersonCard from './PersonCard';
+import ProductionCard from './ProductionCard';
+import VideoCard from './VideoCard';
 
-const CardList = ({ data, Card, cardWidth }) => {
+const cards = {
+  person: PersonCard,
+  production: ProductionCard,
+  video: VideoCard,
+};
+
+const cardWidth = {
+  person: 185,
+  production: 185,
+  video: 480,
+};
+
+const CardList = ({ data, type }) => {
   if (!Array.isArray(data) || !data.length) return null;
+  const Card = cards[type];
   return (
-    <Carousel responsive={getResponsive(cardWidth)}>
+    <Carousel itemWidth={cardWidth[type]}>
       {data.map((item) => (
         <div
           key={item.id}
@@ -18,37 +34,3 @@ const CardList = ({ data, Card, cardWidth }) => {
 };
 
 export default CardList;
-
-const getResponsive = (cardWidth) => {
-  const margin = 160;
-  const getCardCount = (width) => {
-    const count = Math.floor((width - margin) / cardWidth);
-    return count > 0 ? count : 1;
-  };
-
-  const breakpoints = [
-    { name: 'xxs', min: 0 },
-    { name: 'xs', min: 576 },
-    { name: 'sm', min: 768 },
-    { name: 'md', min: 992 },
-    { name: 'lg', min: 1200 },
-    { name: 'xl', min: 1800 },
-    { name: 'xxl', min: 2500 },
-    { min: 10000 },
-  ];
-
-  const responsive = {};
-
-  for (let i = 0; i < breakpoints.length - 1; i++) {
-    const item = breakpoints[i];
-    const max = breakpoints[i + 1].min;
-    const cardCount = getCardCount(item.min);
-    responsive[item.name] = {
-      breakpoint: { max: max, min: item.min },
-      items: cardCount,
-      slidesToSlide: cardCount,
-    };
-  }
-
-  return responsive;
-};

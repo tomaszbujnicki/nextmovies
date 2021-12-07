@@ -15,6 +15,7 @@ const Image = ({
   style,
   width,
   height,
+  onError,
   alt = '',
   size = 'original',
   placeholder = 'default.jpg',
@@ -22,12 +23,15 @@ const Image = ({
   const [src, setSrc] = useState(
     id ? sources[media](id, size) : sources.placeholder(placeholder)
   );
+  const errorHandler = onError
+    ? onError
+    : () => setSrc(sources.placeholder(placeholder));
 
   return (
     <div style={{ fontSize: 0, ...style }}>
       <NextImage
         src={src}
-        onError={() => setSrc(sources.placeholder(placeholder))}
+        onError={errorHandler}
         alt={alt}
         width={width}
         height={height}

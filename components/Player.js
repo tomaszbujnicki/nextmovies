@@ -1,24 +1,32 @@
 import React, { useEffect, useRef, useState } from 'react';
 import YouTube from 'react-youtube';
 import Vimeo from '@vimeo/player';
-import { usePopup } from '../context/PopupProvider';
 import styles from './styles/Player.module.css';
+import Modal from './Modal';
+import { CloseButton } from './Button';
 
-const Player = ({ site, id }) => {
-  const { setValue } = usePopup();
-
-  const endHandler = () => setValue(null);
-
+const Player = ({ site, id, onEnd }) => {
   if (site === 'YouTube') {
-    return <YouTubePlayer id={id} onEnd={endHandler} />;
+    return <YouTubePlayer id={id} onEnd={onEnd} />;
   }
   if (site === 'Vimeo') {
-    return <VimeoPlayer id={id} onEnd={endHandler} />;
+    return <VimeoPlayer id={id} onEnd={onEnd} />;
   }
   return null;
 };
 
 export default Player;
+
+export const PlayerInModal = ({ site, id, closeCallback }) => {
+  return (
+    <Modal>
+      <div className={styles.modalContent}>
+        <Player site={site} id={id} onEnd={closeCallback} />
+        <CloseButton onClick={closeCallback} className={styles.closeButton} />
+      </div>
+    </Modal>
+  );
+};
 
 const YouTubePlayer = ({ id, onEnd }) => {
   const opts = {

@@ -8,12 +8,12 @@ import Reviews from '../../components/Reviews';
 import Details from '../../components/Details';
 import Hero from '../../components/Hero';
 import Section from '../../components/Section';
-import Button from '../../components/Button';
+import Button, { CloseButton } from '../../components/Button';
 import CardList from '../../components/CardList';
 import styles from './movie.module.css';
-import PersonCard from '../../components/PersonCard';
-import ProductionCard from '../../components/ProductionCard';
-import VideoCard from '../../components/VideoCard';
+import Modal from '../../components/Modal';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -57,35 +57,43 @@ const Movie = ({ data }) => {
               videoKey: video.key,
             }))
             .reverse()}
-          Card={VideoCard}
-          cardWidth={480}
+          type="video"
         />
       </Section>
 
-      <Section title="Cast">
-        <CardList data={data.credits.cast} Card={PersonCard} cardWidth={185} />
-
-        <Button
-          className={styles.button}
-          onClick={() => setValue(<Cast data={data.credits} />)}
-        >
-          View full Cast & Crew
-        </Button>
-      </Section>
+      <CastSection credits={data.credits} />
 
       <Section title="Reviews">
         <Reviews />
       </Section>
 
       <Section title="Similar Movies">
-        <CardList
-          data={data.recommendations?.results}
-          Card={ProductionCard}
-          cardWidth={185}
-        />
+        <CardList data={data.recommendations?.results} type="production" />
       </Section>
     </>
   );
 };
 
 export default Movie;
+
+const CastSection = ({ credits }) => {
+  const path = useRouter().asPath;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    setIsModalOpen(false);
+  }, [path]);
+
+  return (
+    <Section title="Cast">
+      <CardList data={credits.cast} type="person" />
+
+      <Button className={styles.button} onClick={() => setIsModalOpen(true)}>
+        View full Cast & Crew
+      </Button>
+      {isModalOpen && (
+        <Cast credits={credits} closeCallback={() => setIsModalOpen(false)} />
+      )}
+    </Section>
+  );
+};

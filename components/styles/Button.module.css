@@ -1,0 +1,14 @@
+.CloseButton {
+  height: 50px;
+  width: 50px;
+}
+
+.CloseButton__svg {
+  transition: fill 0.5s;
+  fill: var(--black);
+  stroke: var(--violet);
+}
+
+.CloseButton:hover .CloseButton__svg {
+  fill: var(--orange);
+}

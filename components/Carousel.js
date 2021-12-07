@@ -1,80 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import MultiCarousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { LeftArrow, RightArrow } from '../assets/SvgButtons';
 import styles from './styles/Carousel.module.css';
-
-const responsiveCalc = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5,
-    slidesToSlide: 1,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 8,
-    slidesToSlide: 8,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-    slidesToSlide: 1,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-    slidesToSlide: 1,
-  },
-};
-
-const responsiveCard = {
-  superLargeDesktop: {
-    // the naming can be any
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5,
-    slidesToSlide: 1,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 8,
-    slidesToSlide: 8,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 1,
-    slidesToSlide: 1,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-    slidesToSlide: 1,
-  },
-};
-
-const responsiveVideo = {
-  superLargeDesktop: {
-    // the naming can be any
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5,
-    slidesToSlide: 1,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-    slidesToSlide: 3,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 1,
-    slidesToSlide: 1,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-    slidesToSlide: 1,
-  },
-};
 
 const ButtonGroup = ({ next, previous, ...rest }) => {
   const {
@@ -100,9 +29,10 @@ const ButtonGroup = ({ next, previous, ...rest }) => {
   );
 };
 
-export const Carousel = ({ children, responsive, sliderClass }) => {
+const Carousel = ({ children, responsive, sliderClass, itemWidth }) => {
   const path = useRouter().asPath;
   const ref = useRef(null);
+
   useEffect(() => {
     ref.current.goToSlide(0);
   }, [path]);
@@ -113,7 +43,7 @@ export const Carousel = ({ children, responsive, sliderClass }) => {
         ref={(el) => {
           ref.current = el;
         }}
-        responsive={responsive}
+        responsive={responsive || getResponsive(itemWidth)}
         ssr={false}
         swipeable={false}
         draggable={false}
@@ -130,14 +60,44 @@ export const Carousel = ({ children, responsive, sliderClass }) => {
   );
 };
 
-export const CardCarousel = ({ children }) => {
-  return <Carousel responsive={responsiveCard}>{children}</Carousel>;
-};
+export default Carousel;
 
-export const VideoCarousel = ({ children }) => {
-  return (
-    <Carousel responsive={responsiveVideo} sliderClass={styles.sliderVideo}>
-      {children}
-    </Carousel>
-  );
+const getResponsive = (itemWidth) => {
+  const margin = 160;
+  const getCardCount = (width) => {
+    const count = Math.floor((width - margin) / itemWidth);
+    return count > 0 ? count : 1;
+  };
+
+  const breakpoints = [
+    { name: 'a', min: 0 },
+    { name: 'b', min: 400 },
+    { name: 'c', min: 600 },
+    { name: 'd', min: 800 },
+    { name: 'e', min: 1000 },
+    { name: 'f', min: 1200 },
+    { name: 'g', min: 1400 },
+    { name: 'h', min: 1600 },
+    { name: 'i', min: 1800 },
+    { name: 'j', min: 2000 },
+    { name: 'k', min: 2200 },
+    { name: 'l', min: 2400 },
+    { name: 'm', min: 2600 },
+    { min: 10000 },
+  ];
+
+  const responsive = {};
+
+  for (let i = 0; i < breakpoints.length - 1; i++) {
+    const item = breakpoints[i];
+    const max = breakpoints[i + 1].min;
+    const cardCount = getCardCount(item.min);
+    responsive[item.name] = {
+      breakpoint: { max: max, min: item.min },
+      items: cardCount,
+      slidesToSlide: cardCount,
+    };
+  }
+
+  return responsive;
 };
