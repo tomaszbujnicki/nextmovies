@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import YouTube from 'react-youtube';
 import Vimeo from '@vimeo/player';
 import styles from './styles/Player.module.css';
-import Modal from './Modal';
-import { CloseButton } from './Button';
 
 const Player = ({ site, id, onEnd }) => {
   if (site === 'YouTube') {
@@ -16,17 +14,6 @@ const Player = ({ site, id, onEnd }) => {
 };
 
 export default Player;
-
-export const PlayerInModal = ({ site, id, closeCallback }) => {
-  return (
-    <Modal>
-      <div className={styles.modalContent}>
-        <Player site={site} id={id} onEnd={closeCallback} />
-        <CloseButton onClick={closeCallback} className={styles.closeButton} />
-      </div>
-    </Modal>
-  );
-};
 
 const YouTubePlayer = ({ id, onEnd }) => {
   const opts = {

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Button from './Button';
 import Image from './Image';
-import { PlayerInModal } from './Player';
+import Player from './Player';
+import Modal from './Modal';
 import styles from './styles/VideoCard.module.css';
 
 const VideoCard = ({ videoKey, site }) => {
@@ -25,11 +26,13 @@ const VideoCard = ({ videoKey, site }) => {
         />
       </Button>
       {isPlayerOn && (
-        <PlayerInModal
-          site={site}
-          id={videoKey}
-          closeCallback={() => setIsPlayerOn(false)}
-        />
+        <Modal closeCallback={() => setIsPlayerOn(false)}>
+          <Player
+            site={site}
+            id={videoKey}
+            onEnd={() => setIsPlayerOn(false)}
+          />
+        </Modal>
       )}
     </div>
   );

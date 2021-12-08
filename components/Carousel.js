@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
-import { useRouter } from 'next/router';
+import React, { useRef, useCallback } from 'react';
 import MultiCarousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { LeftArrow, RightArrow } from '../assets/SvgButtons';
 import styles from './styles/Carousel.module.css';
+import useRouteChangeStart from '../hooks/useRouteChangeStart';
 
 const ButtonGroup = ({ next, previous, ...rest }) => {
   const {
@@ -30,12 +30,13 @@ const ButtonGroup = ({ next, previous, ...rest }) => {
 };
 
 const Carousel = ({ children, responsive, sliderClass, itemWidth }) => {
-  const path = useRouter().asPath;
   const ref = useRef(null);
 
-  useEffect(() => {
-    ref.current.goToSlide(0);
-  }, [path]);
+  const handleRouteChange = useCallback(() => {
+    if (ref) ref.current.goToSlide(0);
+  }, []);
+
+  useRouteChangeStart(handleRouteChange);
 
   return (
     <div className={styles.root}>

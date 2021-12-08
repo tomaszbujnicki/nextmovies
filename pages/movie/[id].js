@@ -3,17 +3,16 @@ import Link from 'next/link';
 import getData from '../../adapters/getData';
 import redirect from '../../utilities/redirect';
 import ProductionInfo from '../../components/ProductionInfo';
-import Cast from '../../components/Cast';
+import CastAndCrew from '../../components/CastAndCrew';
 import Reviews from '../../components/Reviews';
 import Details from '../../components/Details';
 import Hero from '../../components/Hero';
 import Section from '../../components/Section';
-import Button, { CloseButton } from '../../components/Button';
+import Button from '../../components/Button';
 import CardList from '../../components/CardList';
 import styles from './movie.module.css';
 import Modal from '../../components/Modal';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -77,23 +76,27 @@ const Movie = ({ data }) => {
 export default Movie;
 
 const CastSection = ({ credits }) => {
-  const path = useRouter().asPath;
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  useEffect(() => {
-    setIsModalOpen(false);
-  }, [path]);
-
   return (
     <Section title="Cast">
       <CardList data={credits.cast} type="person" />
+      <CastSection__Modal credits={credits} />
+    </Section>
+  );
+};
 
+const CastSection__Modal = ({ credits }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  return (
+    <>
       <Button className={styles.button} onClick={() => setIsModalOpen(true)}>
         View full Cast & Crew
       </Button>
       {isModalOpen && (
-        <Cast credits={credits} closeCallback={() => setIsModalOpen(false)} />
+        <Modal closeCallback={() => setIsModalOpen(false)}>
+          <CastAndCrew credits={credits} />
+        </Modal>
       )}
-    </Section>
+    </>
   );
 };
