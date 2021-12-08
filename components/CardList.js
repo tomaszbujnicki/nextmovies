@@ -1,17 +1,20 @@
 import React from 'react';
 import Carousel from './Carousel';
-import PersonCard from './PersonCard';
+import ActorCard from './ActorCard';
+import CrewCard from './CrewCard';
 import ProductionCard from './ProductionCard';
 import VideoCard from './VideoCard';
 
 const cards = {
-  person: PersonCard,
+  actor: ActorCard,
+  crew: CrewCard,
   production: ProductionCard,
   video: VideoCard,
 };
 
 const cardWidth = {
-  person: 185,
+  actor: 185,
+  crew: 185,
   production: 185,
   video: 480,
 };

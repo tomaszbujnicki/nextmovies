@@ -1,0 +1,15 @@
+.root {
+  color: var(--white);
+  width: 300px;
+  border: 1px solid var(--violet);
+  display: flex;
+}
+
+.root:hover {
+  background-color: var(--magenta);
+}
+
+.body {
+  padding: 0.75rem;
+  font-size: 0.875rem;
+}

@@ -78,7 +78,7 @@ export default Movie;
 const CastSection = ({ credits }) => {
   return (
     <Section title="Cast">
-      <CardList data={credits.cast} type="person" />
+      <CardList data={credits.cast} type="actor" />
       <CastSection__Modal credits={credits} />
     </Section>
   );

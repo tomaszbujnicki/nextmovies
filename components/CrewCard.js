@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from './Image';
-import styles from './styles/PersonCard.module.css';
+import styles from './styles/CrewCard.module.css';
 
-const PersonCard = ({ id, profile_path, gender, name, character }) => {
+const CrewCard = ({ id, profile_path, gender, name, job }) => {
   return (
     <div className={styles.root}>
       <Link href={`/person/${id}`}>
@@ -18,7 +18,7 @@ const PersonCard = ({ id, profile_path, gender, name, character }) => {
           />
           <div className={styles.body}>
             <div className={styles.name}>{name}</div>
-            <div className={styles.character}>{character}</div>
+            <div className={styles.job}>{job}</div>
           </div>
         </a>
       </Link>
@@ -26,4 +26,4 @@ const PersonCard = ({ id, profile_path, gender, name, character }) => {
   );
 };
 
-export default PersonCard;
+export default CrewCard;

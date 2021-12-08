@@ -1,3 +1,9 @@
+.main {
+  display: flex;
+  justify-content: space-around;
+}
+
 .title {
   color: var(--orange);
+  text-align: center;
 }
