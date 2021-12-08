@@ -21,6 +21,7 @@ export async function getServerSideProps(context) {
 }
 
 const Person = ({ data }) => {
+  console.log(data);
   const sorted = data.combined_credits.cast.sort(
     (a, b) => b.popularity - a.popularity
   );

@@ -1,0 +1,53 @@
+/* default */
+
+.content {
+  border-radius: 1rem;
+  overflow: hidden;
+  color: var(--white);
+  width: 185px;
+}
+
+.content:hover .body {
+  background-color: var(--magenta);
+}
+
+.body {
+  padding: 0.75rem;
+  background-color: var(--purple);
+}
+
+.name {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.position {
+  font-size: 1rem;
+}
+
+/* horizontal */
+
+.contentHorizontal {
+  border-radius: 1rem;
+  overflow: hidden;
+  color: var(--white);
+  width: 400px;
+  display: flex;
+}
+
+.contentHorizontal:hover .body {
+  background-color: var(--magenta);
+}
+
+.bodyHorizontal {
+  flex-grow: 1;
+  padding: 0.75rem;
+  background-color: var(--purple);
+}
+
+.nameHorizontal {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.positionHorizontal {
+  font-size: 1rem;
+}

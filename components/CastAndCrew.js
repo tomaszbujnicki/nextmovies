@@ -1,6 +1,5 @@
 import React from 'react';
-import CrewMiniCard from './CrewMiniCard';
-import ActorMiniCard from './ActorMiniCard';
+import PersonCard from './PersonCard';
 
 import styles from './styles/CastAndCrew.module.css';
 
@@ -26,7 +25,7 @@ const Cast = ({ cast }) => {
       <h3 className={styles.title}>Cast</h3>
       <ul className={styles.castList}>
         {cast.map((person) => (
-          <li key={person.id}>{person.name}</li>
+          <PersonCard key={person.credit_id} {...person} />
         ))}
       </ul>
     </div>
@@ -98,13 +97,10 @@ const PrimaryCrew = ({ primary }) => {
               {type.name}
               {': '}
               {type.arr.map((person) => (
-                <CrewMiniCard
-                  key={person.id}
-                  id={person.id}
-                  profile_path={person.profile_path}
-                  gender={person.gender}
-                  name={person.name}
-                  character={person.job}
+                <PersonCard
+                  key={person.credit_id}
+                  cardType="horizontal"
+                  {...person}
                 />
               ))}
             </p>

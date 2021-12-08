@@ -30,6 +30,7 @@ export async function getServerSideProps(context) {
 }
 
 const Movie = ({ data }) => {
+  console.log(data);
   return (
     <>
       <Head title={`${data.title} (${data.release_date?.slice(0, 4)})`} />
@@ -78,7 +79,7 @@ export default Movie;
 const CastSection = ({ credits }) => {
   return (
     <Section title="Cast">
-      <CardList data={credits.cast} type="actor" />
+      <CardList data={credits.cast} type="person" />
       <CastSection__Modal credits={credits} />
     </Section>
   );
