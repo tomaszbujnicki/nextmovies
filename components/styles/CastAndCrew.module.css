@@ -1,9 +1,11 @@
-.main {
-  display: flex;
-  justify-content: space-around;
+.title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--white-opacity);
 }
 
-.title {
-  color: var(--orange);
+.subtitle {
   text-align: center;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
 }

@@ -15,3 +15,11 @@ export const CloseButton = ({ className, ...rest }) => {
     </Button>
   );
 };
+
+export const PrimaryButton = ({ children, className, ...rest }) => {
+  return (
+    <Button className={`${styles.PrimaryButton} ${className}`} {...rest}>
+      {children}
+    </Button>
+  );
+};

@@ -1,0 +1,9 @@
+.List {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ListItem {
+  margin: 0.5rem;
+}

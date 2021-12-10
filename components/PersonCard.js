@@ -14,15 +14,7 @@ const PersonCard = ({
   cardType = 'default',
 }) => {
   const position = job || character || known_for_department;
-  const {
-    width,
-    height,
-    size,
-    classNameContent,
-    classNameBody,
-    classNameName,
-    classNamePosition,
-  } = cardData[cardType];
+  const { width, height, classNameContent, classNameBody } = cardData[cardType];
 
   return (
     <div>
@@ -32,14 +24,14 @@ const PersonCard = ({
             <Image
               id={profile_path}
               placeholder={`profile${gender}.svg`}
-              size={size}
+              size="w185"
               width={width}
               height={height}
               media="tmdb"
             />
             <div className={classNameBody}>
-              <div className={classNameName}>{name}</div>
-              <div className={classNamePosition}>{position}</div>
+              <div className={styles.name}>{name}</div>
+              <div className={styles.position}>{position}</div>
             </div>
           </div>
         </a>
@@ -54,19 +46,13 @@ const cardData = {
   default: {
     width: 185,
     height: 278,
-    size: 'w185',
     classNameContent: styles.content,
     classNameBody: styles.body,
-    classNameName: styles.name,
-    classNamePosition: styles.position,
   },
   horizontal: {
     width: 80,
     height: 120,
-    size: 'w185',
-    classNameContent: styles.contentHorizontal,
-    classNameBody: styles.bodyHorizontal,
-    classNameName: styles.nameHorizontal,
-    classNamePosition: styles.positionHorizontal,
+    classNameContent: styles.content + ' ' + styles.contentHorizontal,
+    classNameBody: styles.body + ' ' + styles.bodyHorizontal,
   },
 };

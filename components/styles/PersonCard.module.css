@@ -5,15 +5,18 @@
   overflow: hidden;
   color: var(--white);
   width: 185px;
+
 }
 
 .content:hover .body {
-  background-color: var(--magenta);
+  background-color: var(--orange);
+  color: var(--black);
 }
 
 .body {
   padding: 0.75rem;
-  background-color: var(--purple);
+  background-color: var(--violet);
+  transition: 0.5s;
 }
 
 .name {
@@ -22,32 +25,20 @@
 }
 .position {
   font-size: 1rem;
+  font-style: italic
 }
 
 /* horizontal */
 
 .contentHorizontal {
-  border-radius: 1rem;
-  overflow: hidden;
-  color: var(--white);
-  width: 400px;
+  width: 300px;
+  height: 120px;
   display: flex;
 }
 
-.contentHorizontal:hover .body {
-  background-color: var(--magenta);
-}
-
 .bodyHorizontal {
-  flex-grow: 1;
-  padding: 0.75rem;
-  background-color: var(--purple);
-}
-
-.nameHorizontal {
-  font-size: 1.125rem;
-  font-weight: 700;
-}
-.positionHorizontal {
-  font-size: 1rem;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

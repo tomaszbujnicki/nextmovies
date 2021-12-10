@@ -1,0 +1,21 @@
+.root {
+  width: 100%;
+  position: relative;
+}
+
+.section {
+  margin-bottom: 1rem;
+}
+
+.sectionTitle {
+  color: var(--orange)
+}
+
+.crewList{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.crewListItem {
+  margin: 0.5rem;
+}

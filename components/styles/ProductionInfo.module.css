@@ -4,7 +4,7 @@
   padding: 1rem;
   border-radius: 1rem;
   margin: 1rem;
-  transition: background-color 1s, border 1s;
+  transition: background-color 0.75s, border 0.75s;
   max-width: 50rem;
   border: solid 2px transparent;
 }

@@ -15,7 +15,7 @@ main {
 main {
   overflow-y: scroll;
   scrollbar-width: thin;
-  scrollbar-color: var(--violet) var(--black);
+  scrollbar-color: var(--purple) var(--black);
 }
 
 main::-webkit-scrollbar {
@@ -28,10 +28,10 @@ main::-webkit-scrollbar-button {
 }
 
 main::-webkit-scrollbar-thumb {
-  background-color: var(--violet);
+  background-color: var(--purple);
   border-radius: 4px;
 }
 
 main::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(70, 40, 110);;
+  background-color: var(--violet)
 }
