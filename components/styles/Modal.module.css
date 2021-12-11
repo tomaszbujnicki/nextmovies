@@ -14,7 +14,7 @@
   border: 2px solid var(--primary);
   background-color: var(--background);
   border-radius: 5rem;
-  padding: 4rem;
+  padding: 3rem;
 }
 
 .closeButton {
@@ -27,6 +27,7 @@
   height: 100%;
   width: 100%;
   position: relative;
+  padding: 1rem;
   overflow: auto;
   scrollbar-color: var(--primary) var(--background);
 }

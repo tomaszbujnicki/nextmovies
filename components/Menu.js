@@ -17,16 +17,16 @@ const Menu = () => {
   return (
     <div className={styles.root}>
       <Link href={`/`}>
-        <a className={styles.button}>
+        <a className={styles.button} tabIndex="1">
           <Home className={styles.svg} />
         </a>
       </Link>
 
-      <Button className={styles.button}>
+      <Button className={styles.button} tabIndex="2">
         <Backdrop className={styles.svg} />
       </Button>
 
-      <Button onClick={toggleFullscreen} className={styles.button}>
+      <Button onClick={toggleFullscreen} className={styles.button} tabIndex="3">
         {isFullscreen ? (
           <ExitFullscreen className={styles.svg} />
         ) : (

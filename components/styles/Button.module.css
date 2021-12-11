@@ -33,9 +33,3 @@
   background-color: var(--accent);
   color: var(--on-accent);
 }
-
-/* .PrimaryButton:focus {
-  outline: 2px dashed var(--secondary);
-  outline-offset: -5px;
-  z-index: 999999;
-} */

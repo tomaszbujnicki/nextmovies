@@ -31,17 +31,22 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-  font-family: 'Roboto', sans-serif;
-}
-
+a,
 button {
   cursor: pointer;
   border: none;
+  color: inherit;
+  text-decoration: none;
   background-color: transparent;
   font-family: 'Roboto', sans-serif;
+  position: relative;
+}
+
+a:focus-visible,
+button:focus-visible {
+  z-index: 1005;
+  outline: 3px dashed var(--accent);
+  outline-offset: 1px;
 }
 
 ul {

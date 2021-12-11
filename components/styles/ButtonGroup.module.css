@@ -1,10 +1,17 @@
 .root {
-  overflow: hidden;
-  border-radius: 0.75rem;
   display: inline-block;
-  margin: 0;
+  position: relative; 
 }
 
 .root > button {
   border-radius: 0;
+  position: relative;
+}
+
+.root > button:first-child {
+  border-radius: 0.75rem 0 0 0.75rem;
+}
+
+.root > button:last-child {
+  border-radius: 0 0.75rem 0.75rem 0;
 }

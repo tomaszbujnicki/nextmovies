@@ -19,7 +19,7 @@ const PersonCard = ({
   return (
     <div>
       <Link href={`/person/${id}`}>
-        <a draggable="false">
+        <a draggable="false" className={styles.link}>
           <div className={classNameContent}>
             <Image
               id={profile_path}

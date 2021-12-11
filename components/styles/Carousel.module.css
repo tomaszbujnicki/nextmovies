@@ -3,6 +3,10 @@
   padding: 0 50px;
 }
 
+.MultiCarousel {
+  padding: 5px 0;
+}
+
 .sliderVideo {
   flex-direction: row-reverse;
   align-items: center;

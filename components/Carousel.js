@@ -50,6 +50,7 @@ const Carousel = ({ children, responsive, sliderClass, itemWidth }) => {
         draggable={false}
         transitionDuration={1000}
         itemClass={styles.item}
+        className={styles.MultiCarousel}
         arrows={false}
         renderButtonGroupOutside={true}
         customButtonGroup={<ButtonGroup />}
