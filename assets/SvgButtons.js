@@ -153,11 +153,11 @@ export const Close = ({ className }) => (
     aria-labelledby="Close"
   >
     <g
-      stroke="var(--orange)"
+      stroke="var(--accent)"
       strokeWidth="2"
       strokeLinejoin="round"
       strokeLinecap="round"
-      fill="var(--magenta)"
+      fill="var(--secondary)"
       className={className}
     >
       <path d="M24,47c12.7,0,23-10.3,23-23S36.7,1,24,1S1,11.3,1,24S11.3,47,24,47z" />

@@ -9,7 +9,7 @@
 
 .name {
   font-size: 3rem;
-  color: var(--violet);
+  color: var(--primary);
   margin-bottom: 3rem;
   position: relative;
 }
@@ -21,11 +21,11 @@
   left: 0;
   width: 5rem;
   height: 2px;
-  background-color: var(--purple);
+  background-color: var(--primary-dark);
 }
 
 .job {
   font-size: 2rem;
-  color: var(--violet);
+  color: var(--primary);
   margin-bottom: 1rem;
 }

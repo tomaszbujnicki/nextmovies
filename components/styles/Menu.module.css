@@ -6,14 +6,26 @@
   position: fixed;
   left: 0;
   top: 2rem;
-  background-color: var(--black-opacity);
+  background-color: var(--background);
   border-radius: 0 1rem 1rem 0;
   overflow: hidden;
+  opacity: 0.5;
+  transition: opacity 0.5s, background-color 0.5s;
+}
+
+.root:hover {
+  opacity: 1;
+  background-color: var(--primary);
+}
+
+.root:hover .svg{
+  fill: var(--on-primary);
+  stroke: var(--on-primary);
 }
 
 .svg {
-  fill: var(--white-opacity);
-  stroke: var(--white-opacity);
+  fill: var(--on-background);
+  stroke: var(--on-background);
   transition: fill 0.5s, stroke 0.5s;
 }
 
@@ -26,10 +38,10 @@
 }
 
 .button:hover {
-  background-color: var(--orange);
+  background-color: var(--accent);
 }
 
 .button:hover .svg {
-  fill: var(--white);
-  stroke: var(--white);
+  fill: var(--on-accent);
+  stroke: var(--on-accent);
 }

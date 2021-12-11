@@ -14,4 +14,17 @@
   --magenta-opacity: rgba(161, 37, 104, 0.6);
   --orange-opacity: rgba(254, 194, 96, 0.6);
   --red-opacity: rgba(255, 0, 0, 0.6);
+
+  --background: rgb(0, 0, 0);
+  --on-background: rgb(153, 153, 153);
+
+  --primary: rgb(59, 24, 95);
+  --primary-dark: rgb(42, 9, 68);
+  --on-primary: rgb(255, 255, 255);
+
+  --secondary: rgb(161, 37, 104);
+  --on-secondary: rgb(255, 255, 255);
+
+  --accent: rgb(254, 194, 96);
+  --on-accent: rgb(0, 0, 0);
 }

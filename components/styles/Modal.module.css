@@ -11,8 +11,8 @@
 .main {
   inset: 8%;
   position: absolute;
-  border: 2px solid var(--violet);
-  background-color: var(--black);
+  border: 2px solid var(--primary);
+  background-color: var(--background);
   border-radius: 5rem;
   padding: 4rem;
 }
@@ -28,11 +28,11 @@
   width: 100%;
   position: relative;
   overflow: auto;
-  scrollbar-color: var(--violet) var(--black);
+  scrollbar-color: var(--primary) var(--background);
 }
 
 .inner::-webkit-scrollbar {
-  background-color: var(--black);
+  background-color: var(--background);
   width: 12px;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .inner::-webkit-scrollbar-thumb {
-  background-color: var(--violet);
+  background-color: var(--primary);
 }
 
 .inner::-webkit-scrollbar-thumb:hover {

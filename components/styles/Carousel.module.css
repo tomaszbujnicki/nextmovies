@@ -27,11 +27,11 @@
 
 .right:not(.disable):hover .svg,
 .left:not(.disable):hover .svg {
-  fill: var(--orange);
+  fill: var(--accent);
 }
 
 .svg {
-  fill: var(--violet);
+  fill: var(--primary);
   transition: opacity 1s, fill 0.5s;
 }
 

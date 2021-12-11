@@ -1,11 +1,9 @@
 .title {
-  text-align: center;
   font-size: 2rem;
-  color: var(--white-opacity);
+  color: var(--on-background);
 }
 
 .subtitle {
-  text-align: center;
   font-size: 1.75rem;
   margin-bottom: 2rem;
 }

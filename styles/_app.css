@@ -15,12 +15,12 @@ main {
 main {
   overflow-y: scroll;
   scrollbar-width: thin;
-  scrollbar-color: var(--purple) var(--black);
+  scrollbar-color: var(--primary-dark) var(--background);
 }
 
 main::-webkit-scrollbar {
   width: 8px;
-  background-color: var(--black);
+  background-color: var(--background);
 }
 
 main::-webkit-scrollbar-button {
@@ -28,10 +28,10 @@ main::-webkit-scrollbar-button {
 }
 
 main::-webkit-scrollbar-thumb {
-  background-color: var(--purple);
+  background-color: var(--primary-dark);
   border-radius: 4px;
 }
 
 main::-webkit-scrollbar-thumb:hover {
-  background-color: var(--violet)
+  background-color: var(--primary)
 }

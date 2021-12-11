@@ -9,13 +9,12 @@
 }
 
 .content:hover .body {
-  background-color: var(--orange);
-  color: var(--black);
+  background-color: var(--secondary);
 }
 
 .body {
   padding: 0.75rem;
-  background-color: var(--violet);
+  background-color: var(--primary-dark);
   transition: 0.5s;
 }
 

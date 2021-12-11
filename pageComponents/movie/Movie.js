@@ -3,15 +3,14 @@ import Link from 'next/link';
 import getData from '../../adapters/getData';
 import redirect from '../../utilities/redirect';
 import ProductionInfo from '../../components/ProductionInfo';
-import CastAndCrew from '../../components/CastAndCrew';
 import Reviews from '../../components/Reviews';
 import Details from '../../components/Details';
 import Hero from '../../components/Hero';
 import Section from '../../components/Section';
-import Button, { PrimaryButton } from '../../components/Button';
+import Button from '../../components/Button';
 import CardList from '../../components/CardList';
-import Modal from '../../components/Modal';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { CastSection } from './CastSection';
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -74,29 +73,3 @@ const Movie = ({ data }) => {
 };
 
 export default Movie;
-
-const CastSection = ({ credits }) => {
-  return (
-    <Section title="Cast">
-      <CardList data={credits.cast} type="person" />
-      <CastSection__Modal credits={credits} />
-    </Section>
-  );
-};
-
-const CastSection__Modal = ({ credits }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  return (
-    <>
-      <PrimaryButton onClick={() => setIsModalOpen(true)}>
-        View full Cast & Crew
-      </PrimaryButton>
-      {isModalOpen && (
-        <Modal closeCallback={() => setIsModalOpen(false)}>
-          <CastAndCrew credits={credits} />
-        </Modal>
-      )}
-    </>
-  );
-};

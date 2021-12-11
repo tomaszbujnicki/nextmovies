@@ -7,11 +7,11 @@
 
 .button {
   font-size: 1.5rem;
-  color: var(--violet);
+  color: var(--primary);
   margin: 1rem
 }
 
 .button:hover {
   font-size: 1.5rem;
-  color: var(--magenta);
+  color: var(--secondary);
 }

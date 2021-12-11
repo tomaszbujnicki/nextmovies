@@ -22,6 +22,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--violet);
+  color: var(--primary);
   font-weight: bold;
 }

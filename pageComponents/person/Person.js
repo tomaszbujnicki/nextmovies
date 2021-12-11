@@ -68,7 +68,7 @@ const Poster = ({ data }) => {
       style={{
         padding: 20,
         width: 321,
-        border: '1px solid var(--violet)',
+        border: '1px solid var(--primary)',
         borderRadius: 50,
         display: 'inline-block',
       }}

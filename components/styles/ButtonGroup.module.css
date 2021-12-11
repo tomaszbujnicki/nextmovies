@@ -1,0 +1,10 @@
+.root {
+  overflow: hidden;
+  border-radius: 0.75rem;
+  display: inline-block;
+  margin: 0;
+}
+
+.root > button {
+  border-radius: 0;
+}

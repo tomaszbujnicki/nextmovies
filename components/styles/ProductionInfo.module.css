@@ -10,8 +10,8 @@
 }
 
 .root:hover {
-  background-color: var(--violet);
-  border: solid 2px var(--orange);
+  background-color: var(--primary);
+  border: solid 2px var(--accent);
 }
 
 .title {
