@@ -1,6 +1,6 @@
 /* default */
 
-.link {
+.root {
   border-radius: 1rem;
   display: block;
 }
@@ -12,14 +12,14 @@
   width: 185px;
 }
 
-.content:hover .body {
-  background-color: var(--secondary);
+.Image {
+  transition: opacity 0.5s;
 }
 
 .body {
   padding: 0.75rem;
   background-color: var(--primary-dark);
-  transition: 0.5s;
+  transition: opacity 0.5s;
 }
 
 .name {
@@ -28,7 +28,31 @@
 }
 .position {
   font-size: 1rem;
-  font-style: italic
+  font-style: italic;
+}
+
+.ForwardButton {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-25px, -25px);
+  opacity: 0;
+  transition: opacity 0.5s;
+  fill: var(--accent);
+}
+
+.root:hover .ForwardButton,
+.root:focus .ForwardButton {
+  opacity: 1;
+}
+
+.root:hover .Image,
+.root:focus .Image,
+.root:hover .body,
+.root:focus .body {
+  opacity: 0.5;
 }
 
 /* horizontal */

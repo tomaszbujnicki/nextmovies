@@ -1,5 +1,8 @@
 .root {
   padding: 2rem 1rem 2rem 3.5rem;
+}
+
+.root:not(:last-child) {
   border-bottom: solid 1px var(--primary);
 }
 

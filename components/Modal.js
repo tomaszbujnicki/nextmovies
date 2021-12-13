@@ -11,7 +11,11 @@ const Modal = ({ children, closeCallback }) => {
   return createPortal(
     <div className={styles.overlay}>
       <div className={styles.main}>
-        <CloseButton onClick={closeCallback} className={styles.closeButton} />
+        <CloseButton
+          onClick={closeCallback}
+          className={styles.CloseButton}
+          classNameInner={styles.CloseButtonInner}
+        />
         <div className={styles.inner}>{children}</div>
       </div>
     </div>,

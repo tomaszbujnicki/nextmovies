@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Button from './Button';
+import Button, { PlayButton } from './Button';
 import Image from './Image';
 import Player from './Player';
 import Modal from './Modal';
@@ -16,14 +16,16 @@ const VideoCard = ({ videoKey, site }) => {
 
   return (
     <div className={styles.root}>
-      <Button onClick={() => setIsPlayerOn(true)}>
+      <Button className={styles.rootButton} onClick={() => setIsPlayerOn(true)}>
         <Image
+          className={styles.Image}
           id={videoKey}
           media={site}
           width={480}
           height={site === 'YouTube' ? 360 : 270}
           onError={() => setVideoExists(false)}
         />
+        <PlayButton className={styles.PlayButton} tabIndex="-1" />
       </Button>
       {isPlayerOn && (
         <Modal closeCallback={() => setIsPlayerOn(false)}>

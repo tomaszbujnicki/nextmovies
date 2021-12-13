@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from './Image';
 import styles from './styles/PersonCard.module.css';
+import { ForwardButton } from './Button';
 
 const PersonCard = ({
   id,
@@ -17,26 +18,26 @@ const PersonCard = ({
   const { width, height, classNameContent, classNameBody } = cardData[cardType];
 
   return (
-    <div>
-      <Link href={`/person/${id}`}>
-        <a draggable="false" className={styles.link}>
-          <div className={classNameContent}>
-            <Image
-              id={profile_path}
-              placeholder={`profile${gender}.svg`}
-              size="w185"
-              width={width}
-              height={height}
-              media="tmdb"
-            />
-            <div className={classNameBody}>
-              <div className={styles.name}>{name}</div>
-              <div className={styles.position}>{position}</div>
-            </div>
+    <Link href={`/person/${id}`}>
+      <a draggable="false" className={styles.root}>
+        <div className={classNameContent}>
+          <Image
+            id={profile_path}
+            className={styles.Image}
+            placeholder={`profile${gender}.svg`}
+            size="w185"
+            width={width}
+            height={height}
+            media="tmdb"
+          />
+          <div className={classNameBody}>
+            <div className={styles.name}>{name}</div>
+            <div className={styles.position}>{position}</div>
           </div>
-        </a>
-      </Link>
-    </div>
+          <ForwardButton className={styles.ForwardButton} tabIndex="-1" />
+        </div>
+      </a>
+    </Link>
   );
 };
 

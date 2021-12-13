@@ -80,7 +80,7 @@ const Poster = ({ data }) => {
         width={281}
         height={421}
         media="tmdb"
-        style={{ borderRadius: 40, overflow: 'hidden' }}
+        className={styles.Image}
       />
     </div>
   );

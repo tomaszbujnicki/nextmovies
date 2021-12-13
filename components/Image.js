@@ -12,10 +12,10 @@ const sources = {
 const Image = ({
   id,
   media,
-  style,
   width,
   height,
   onError,
+  className,
   alt = '',
   size = 'original',
   placeholder = 'default.jpg',
@@ -28,7 +28,7 @@ const Image = ({
     : () => setSrc(sources.placeholder(placeholder));
 
   return (
-    <div style={{ fontSize: 0, ...style }}>
+    <div style={{ fontSize: 0 }} className={className}>
       <NextImage
         src={src}
         onError={errorHandler}

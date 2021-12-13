@@ -29,6 +29,7 @@ const YouTubePlayer = ({ id, onEnd }) => {
 
   return (
     <YouTube
+      tabIndex="4"
       videoId={id}
       opts={opts}
       containerClassName={styles.PlayerContainer}

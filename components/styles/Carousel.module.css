@@ -16,8 +16,7 @@
   padding-left: 5px;
 }
 
-.right,
-.left {
+.button {
   position: absolute;
   right: 0;
   top: 0;
@@ -25,12 +24,11 @@
   width: 40px;
 }
 
-.left {
+.buttonLeft {
   left: 0;
 }
 
-.right:not(.disable):hover .svg,
-.left:not(.disable):hover .svg {
+.button:not([disabled]):hover .svg {
   fill: var(--accent);
 }
 
@@ -39,10 +37,10 @@
   transition: opacity 1s, fill 0.5s;
 }
 
-.disable {
+.button:disabled {
   cursor: default;
 }
 
-.disable .svg {
+.button:disabled .svg {
   opacity: 0.2;
 }

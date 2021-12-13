@@ -153,11 +153,11 @@ export const Close = ({ className }) => (
     aria-labelledby="Close"
   >
     <g
-      stroke="var(--accent)"
+      stroke="var(--primary)"
       strokeWidth="2"
       strokeLinejoin="round"
       strokeLinecap="round"
-      fill="var(--secondary)"
+      fill="var(--background)"
       className={className}
     >
       <path d="M24,47c12.7,0,23-10.3,23-23S36.7,1,24,1S1,11.3,1,24S11.3,47,24,47z" />
@@ -193,6 +193,45 @@ export const RightArrow = ({ className }) => (
         d="M379.25,282.85l-192.8,192.8c-20.6,20.6-54,20.6-74.6,0s-20.6-54,0-74.6l155.5-155.5l-155.5-155.5
 		c-20.6-20.6-20.6-54,0-74.6s54-20.6,74.6,0l192.8,192.8C399.85,228.85,399.85,262.25,379.25,282.85z"
       />
+    </g>
+  </svg>
+);
+
+export const Play = ({ className }) => {
+  const circle = {
+    fill: '#000000',
+    stroke: 'var(--accent)',
+    strokeWidth: 5,
+  };
+  const triangle = {
+    fill: 'var(--accent)',
+  };
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 120 120"
+      aria-labelledby="Play"
+    >
+      <g className={className}>
+        <g style={circle}>
+          <circle cx="60" cy="60" r="55" />
+        </g>
+        <g style={triangle}>
+          <path d="M79.7,64c3.8-2.2,3.8-5.8,0-8L53.6,40.9c-3.8-2.2-6.9-0.4-6.9,4v30.2c0,4.4,3.1,6.2,6.9,4L79.7,64z" />
+        </g>
+      </g>
+    </svg>
+  );
+};
+
+export const Forward = ({ className }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    aria-labelledby="Forward"
+  >
+    <g className={className}>
+      <path d="M16 7.9l-6-4.9v3c-0.5 0-1.1 0-2 0-8 0-8 8-8 8s1-4 7.8-4c1.1 0 1.8 0 2.2 0v2.9l6-5z"></path>
     </g>
   </svg>
 );

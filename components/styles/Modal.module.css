@@ -17,10 +17,20 @@
   padding: 3rem;
 }
 
-.closeButton {
+.CloseButton {
   position: absolute;
   top: 0;
   right: 0;
+  height: 50px;
+  width: 50px;
+}
+
+.CloseButtonInner {
+  transition: fill 0.5s;
+}
+
+.CloseButton:hover .CloseButtonInner {
+  fill: var(--accent);
 }
 
 .inner {

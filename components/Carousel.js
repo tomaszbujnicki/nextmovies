@@ -10,19 +10,23 @@ const ButtonGroup = ({ next, previous, ...rest }) => {
     carouselState: { currentSlide, slidesToShow, totalItems },
   } = rest;
 
-  const leftClass =
-    currentSlide === 0 ? `${styles.left} ${styles.disable}` : styles.left;
-  const rightClass =
-    currentSlide >= totalItems - slidesToShow
-      ? `${styles.right} ${styles.disable}`
-      : styles.right;
+  const isLeftDisabled = currentSlide === 0;
+  const isRightDisabled = currentSlide >= totalItems - slidesToShow;
 
   return (
     <div className="carousel-button-group">
-      <button className={leftClass} onClick={() => previous()}>
+      <button
+        className={`${styles.button} ${styles.buttonLeft}`}
+        onClick={() => previous()}
+        disabled={isLeftDisabled}
+      >
         <LeftArrow className={styles.svg} />
       </button>
-      <button className={rightClass} onClick={() => next()}>
+      <button
+        className={styles.button}
+        onClick={() => next()}
+        disabled={isRightDisabled}
+      >
         <RightArrow className={styles.svg} />
       </button>
     </div>

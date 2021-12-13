@@ -1,5 +1,5 @@
 import React from 'react';
-import { Close } from '../assets/SvgButtons';
+import { Close, Play, Forward } from '../assets/SvgButtons';
 import styles from './styles/Button.module.css';
 
 const Button = ({ children, active, className, ...rest }) => {
@@ -15,18 +15,34 @@ const Button = ({ children, active, className, ...rest }) => {
 
 export default Button;
 
-export const CloseButton = ({ className, ...rest }) => {
-  return (
-    <Button className={`${styles.CloseButton} ${className}`} {...rest}>
-      <Close className={styles.CloseButton__svg} />
-    </Button>
-  );
-};
-
 export const PrimaryButton = ({ children, ...rest }) => {
   return (
     <Button className={styles.PrimaryButton} {...rest}>
       {children}
+    </Button>
+  );
+};
+
+export const CloseButton = ({ className, classNameInner, ...rest }) => {
+  return (
+    <Button className={className} {...rest}>
+      <Close className={classNameInner} />
+    </Button>
+  );
+};
+
+export const PlayButton = ({ className, ...rest }) => {
+  return (
+    <Button className={className} {...rest}>
+      <Play />
+    </Button>
+  );
+};
+
+export const ForwardButton = ({ className, ...rest }) => {
+  return (
+    <Button className={className} {...rest}>
+      <Forward />
     </Button>
   );
 };

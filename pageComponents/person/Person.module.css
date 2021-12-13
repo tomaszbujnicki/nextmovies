@@ -29,3 +29,8 @@
   color: var(--primary);
   margin-bottom: 1rem;
 }
+
+.Image {
+  border-radius: 40px;
+  overflow: hidden;
+}
