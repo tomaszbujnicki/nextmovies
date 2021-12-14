@@ -44,9 +44,7 @@ button {
 
 a:focus-visible,
 button:focus-visible {
-  z-index: 1005;
-  outline: 3px dashed var(--accent);
-  outline-offset: 1px;
+  z-index: 1005; 
 }
 
 ul {

@@ -211,8 +211,9 @@ export const Play = ({ className }) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 120 120"
       aria-labelledby="Play"
+      className={className}
     >
-      <g className={className}>
+      <g>
         <g style={circle}>
           <circle cx="60" cy="60" r="55" />
         </g>
@@ -229,8 +230,9 @@ export const Forward = ({ className }) => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 16 16"
     aria-labelledby="Forward"
+    className={className}
   >
-    <g className={className}>
+    <g>
       <path d="M16 7.9l-6-4.9v3c-0.5 0-1.1 0-2 0-8 0-8 8-8 8s1-4 7.8-4c1.1 0 1.8 0 2.2 0v2.9l6-5z"></path>
     </g>
   </svg>

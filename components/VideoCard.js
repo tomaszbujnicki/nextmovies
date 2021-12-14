@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import Button, { PlayButton } from './Button';
+import Button from './Button';
 import Image from './Image';
 import Player from './Player';
 import Modal from './Modal';
 import styles from './styles/VideoCard.module.css';
+import { Play } from '../assets/SvgButtons';
 
 const VideoCard = ({ videoKey, site }) => {
   const [videoExists, setVideoExists] = useState(null);
@@ -25,7 +26,7 @@ const VideoCard = ({ videoKey, site }) => {
           height={site === 'YouTube' ? 360 : 270}
           onError={() => setVideoExists(false)}
         />
-        <PlayButton className={styles.PlayButton} tabIndex="-1" />
+        <Play className={styles.PlayButton} width={50} height={50} />
       </Button>
       {isPlayerOn && (
         <Modal closeCallback={() => setIsPlayerOn(false)}>

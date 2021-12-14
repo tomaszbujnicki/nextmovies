@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from './Image';
 import styles from './styles/PersonCard.module.css';
-import { ForwardButton } from './Button';
+import { Forward } from '../assets/SvgButtons';
 
 const PersonCard = ({
   id,
@@ -34,7 +34,7 @@ const PersonCard = ({
             <div className={styles.name}>{name}</div>
             <div className={styles.position}>{position}</div>
           </div>
-          <ForwardButton className={styles.ForwardButton} tabIndex="-1" />
+          <Forward className={styles.Forward} tabIndex="-1" />
         </div>
       </a>
     </Link>

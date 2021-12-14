@@ -1,5 +1,11 @@
 import React from 'react';
-import { Close, Play, Forward } from '../assets/SvgButtons';
+import {
+  Close,
+  Play,
+  Forward,
+  LeftArrow,
+  RightArrow,
+} from '../assets/SvgButtons';
 import styles from './styles/Button.module.css';
 
 const Button = ({ children, active, className, ...rest }) => {
@@ -31,18 +37,34 @@ export const CloseButton = ({ className, classNameInner, ...rest }) => {
   );
 };
 
-export const PlayButton = ({ className, ...rest }) => {
+export const PlayButton = ({ className, classNameInner, ...rest }) => {
   return (
     <Button className={className} {...rest}>
-      <Play />
+      <Play className={classNameInner} />
     </Button>
   );
 };
 
-export const ForwardButton = ({ className, ...rest }) => {
+export const ForwardButton = ({ className, classNameInner, ...rest }) => {
   return (
     <Button className={className} {...rest}>
-      <Forward />
+      <Forward className={classNameInner} />
+    </Button>
+  );
+};
+
+export const LeftButton = ({ className, classNameInner, ...rest }) => {
+  return (
+    <Button className={className} {...rest}>
+      <LeftArrow className={classNameInner} />
+    </Button>
+  );
+};
+
+export const RightButton = ({ className, classNameInner, ...rest }) => {
+  return (
+    <Button className={className} {...rest}>
+      <RightArrow className={classNameInner} />
     </Button>
   );
 };

@@ -1,0 +1,33 @@
+.root {
+  padding: 0 3.5rem;
+}
+
+.button {
+  position: absolute;
+  right: -3.5rem;
+  top: 0;
+  height: 100%;
+  padding: 0 0.5rem;
+  width: 3.5rem;
+}
+
+.buttonLeft {
+  left: -3.5rem;
+}
+
+.button:not([disabled]):hover .svg {
+  fill: var(--accent);
+}
+
+.svg {
+  fill: var(--primary);
+  transition: opacity 1s, fill 0.5s;
+}
+
+.button:disabled {
+  cursor: default;
+}
+
+.button:disabled .svg {
+  opacity: 0.2;
+}
