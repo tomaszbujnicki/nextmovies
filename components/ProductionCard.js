@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from './Image';
 import styles from './styles/ProductionCard.module.css';
-import { ForwardButton } from './Button';
+import { Forward } from '../assets/SvgButtons';
 
 const ProductionCard = ({ id, media_type, poster_path }) => {
   return (
@@ -17,7 +17,7 @@ const ProductionCard = ({ id, media_type, poster_path }) => {
           height={278}
           media="tmdb"
         />
-        <ForwardButton className={styles.ForwardButton} tabIndex="-1" />
+        <Forward className={styles.Forward} />
       </a>
     </Link>
   );

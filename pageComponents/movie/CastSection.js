@@ -11,7 +11,7 @@ import ButtonGroup from '../../components/ButtonGroup';
 export const CastSection = ({ credits }) => {
   return (
     <Section title="Cast">
-      <CardList data={credits.cast.slice(0, 17)} type="person" />
+      <CardList data={credits.cast.slice(0, 16)} type="person" />
       <CastSection__Modal credits={credits} />
     </Section>
   );

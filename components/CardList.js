@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import PersonCard from './PersonCard';
 import ProductionCard from './ProductionCard';
 import VideoCard from './VideoCard';
@@ -7,39 +7,39 @@ import { LeftButton, RightButton } from './Button';
 import styles from './styles/CardList.module.css';
 
 const cards = {
-  person: PersonCard,
-  production: ProductionCard,
-  video: VideoCard,
-};
-
-const cardWidth = {
-  person: 185,
-  production: 185,
-  video: 480,
+  person: {
+    component: PersonCard,
+    width: 185,
+    gap: '1rem',
+  },
+  production: {
+    component: ProductionCard,
+    width: 185,
+    gap: '0',
+  },
+  video: {
+    component: VideoCard,
+    width: 480,
+    gap: '1rem',
+  },
 };
 
 const CardList = ({ data, type }) => {
   const ref = useRef();
 
-  useEffect(() => {
-    console.log('useEffect');
-    const onMoveHandler = () => console.log('Move');
-    ref.current.splide.on('move', onMoveHandler);
-  }, []);
-
   if (!Array.isArray(data) || !data.length) return null;
 
-  const Card = cards[type];
+  const Component = cards[type].component;
+  const width = cards[type].width;
+  const gap = cards[type].gap;
 
   const options = {
     pagination: false,
     keyboard: false,
     slideFocus: false,
-    arrows: false,
-    type: 'loop',
-    fixedWidth: cardWidth[type],
-    perMove: 8,
-    gap: '1rem',
+    arrows: true,
+    fixedWidth: width,
+    gap: gap,
   };
 
   return (
@@ -47,14 +47,22 @@ const CardList = ({ data, type }) => {
       <Splide
         ref={ref}
         options={options}
-        renderControls={() => <Controls slider={ref} />}
+        renderControls={() => <Controls />}
+        //renderControls={() => <Controls splide={ref} />}
+        // renderControls={() => (
+        //   <div className="splide__arrows">
+        //     <button className="splide__arrow splide__arrow--prev xd"></button>
+        //     <button className="splide__arrow splide__arrow--next xd"></button>
+        //   </div>
+        // )}
+        onArrowsMounted={(splide, prev, next) => {
+          console.log(prev, next);
+        }}
+        Extensions={{ MyExtension }}
       >
         {data.map((item) => (
-          <SplideSlide
-            key={item.id}
-            style={{ display: 'flex', justifyContent: 'center' }}
-          >
-            <Card {...item} />
+          <SplideSlide key={item.id}>
+            <Component {...item} />
           </SplideSlide>
         ))}
       </Splide>
@@ -64,24 +72,61 @@ const CardList = ({ data, type }) => {
 
 export default CardList;
 
-const Controls = ({ slider }) => (
-  <div>
-    <LeftButton
-      className={`${styles.button} ${styles.buttonLeft}`}
-      classNameInner={styles.svg}
-      onClick={() => {
-        slider.current.go('<');
-        console.log(slider.current.slides);
-        console.log(slider.current);
-      }}
-    />
-    <RightButton
-      className={styles.button}
-      classNameInner={styles.svg}
-      onClick={() => {
-        console.log(slider.current.slides);
-        slider.current.go('>');
-      }}
-    />
-  </div>
-);
+const MyExtension = (Splide, Components, options) => {
+  const controller = Components.Controller;
+  const elements = Components.Elements;
+  const arrows = Components.Arrows;
+  console.log('arrows: ', arrows);
+
+  const mount = () => {
+    Splide.on('refresh', jumpToFirst);
+    Splide.on('resize', setPerMove);
+    Splide.on('mounted', setPerMove);
+    Splide.on('moved', preventIndex);
+    Splide.on('arrows:mounted', () => {
+      console.log('arrows -------->');
+      console.log(arrows);
+    });
+  };
+
+  const jumpToFirst = () => {
+    controller.go(0);
+  };
+
+  const setPerMove = () => {
+    setTimeout(() => {
+      const visibleCount = elements.slides.filter((el) =>
+        el.classList.contains('is-visible')
+      ).length;
+      Splide.options = { perMove: visibleCount };
+    }, 0);
+  };
+
+  const preventIndex = () => {
+    const index = controller.getIndex();
+    const slideCount = elements.slides.length;
+    const lastIndexToActive = slideCount - options.perMove;
+    if (index > lastIndexToActive) {
+      controller.setIndex(lastIndexToActive);
+    }
+  };
+
+  return {
+    mount,
+  };
+};
+
+const Controls = () => {
+  return (
+    <div className="splide__arrows">
+      <RightButton
+        className={`splide__arrow splide__arrow--prev ${styles.button} ${styles.buttonLeft}`}
+        classNameInner={styles.svg}
+      />
+      <RightButton
+        className={`splide__arrow splide__arrow--next ${styles.button}`}
+        classNameInner={styles.svg}
+      />
+    </div>
+  );
+};

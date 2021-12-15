@@ -34,7 +34,7 @@ const PersonCard = ({
             <div className={styles.name}>{name}</div>
             <div className={styles.position}>{position}</div>
           </div>
-          <Forward className={styles.Forward} tabIndex="-1" />
+          <Forward className={styles.Forward} />
         </div>
       </a>
     </Link>

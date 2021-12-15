@@ -9,6 +9,14 @@
   height: 100%;
   padding: 0 0.5rem;
   width: 3.5rem;
+  background-color: transparent;
+  border-radius: 0;
+  transform: none;
+}
+
+/* overwrite default*/
+.button:focus{
+  outline: 2px solid var(--accent);
 }
 
 .buttonLeft {
@@ -19,9 +27,12 @@
   fill: var(--accent);
 }
 
-.svg {
+/* .svg,  overwrite default*/
+.button > svg { 
   fill: var(--primary);
   transition: opacity 1s, fill 0.5s;
+  width: 100%;
+  height: unset;
 }
 
 .button:disabled {

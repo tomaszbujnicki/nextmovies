@@ -172,8 +172,9 @@ export const LeftArrow = ({ className }) => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 491.1 491.1"
     aria-labelledby="Close"
+    className={className}
   >
-    <g className={className}>
+    <g>
       <path
         d="M111.9,208.2L304.7,15.5c20.6-20.6,54-20.6,74.6,0c20.6,20.6,20.6,54,0,74.6L223.8,245.6l155.5,155.5
 		c20.6,20.6,20.6,54,0,74.6c-20.6,20.6-54,20.6-74.6,0L111.8,282.8C91.2,262.2,91.2,228.9,111.9,208.2z"
@@ -187,8 +188,9 @@ export const RightArrow = ({ className }) => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 491.1 491.1"
     aria-labelledby="Close"
+    className={className}
   >
-    <g className={className}>
+    <g>
       <path
         d="M379.25,282.85l-192.8,192.8c-20.6,20.6-54,20.6-74.6,0s-20.6-54,0-74.6l155.5-155.5l-155.5-155.5
 		c-20.6-20.6-20.6-54,0-74.6s54-20.6,74.6,0l192.8,192.8C399.85,228.85,399.85,262.25,379.25,282.85z"
