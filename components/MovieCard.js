@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from './Image';
-import styles from './styles/ProductionCard.module.css';
+import styles from './styles/MovieCard.module.css';
 import { Forward } from '../assets/SvgButtons';
 
-const ProductionCard = ({ id, media_type, poster_path }) => {
+const MovieCard = ({ id, poster_path }) => {
   return (
-    <Link href={`/${media_type}/${id}`}>
+    <Link href={`/movie/${id}`}>
       <a draggable="false" className={styles.root}>
         <Image
           id={poster_path}
@@ -23,4 +23,4 @@ const ProductionCard = ({ id, media_type, poster_path }) => {
   );
 };
 
-export default ProductionCard;
+export default MovieCard;

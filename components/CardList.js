@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 import PersonCard from './PersonCard';
-import ProductionCard from './ProductionCard';
+import MovieCard from './MovieCard';
 import VideoCard from './VideoCard';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import { LeftButton, RightButton } from './Button';
+import { RightButton } from './Button';
 import styles from './styles/CardList.module.css';
 
 const cards = {
@@ -13,7 +13,7 @@ const cards = {
     gap: '1rem',
   },
   production: {
-    component: ProductionCard,
+    component: MovieCard,
     width: 185,
     gap: '0',
   },
@@ -48,16 +48,6 @@ const CardList = ({ data, type }) => {
         ref={ref}
         options={options}
         renderControls={() => <Controls />}
-        //renderControls={() => <Controls splide={ref} />}
-        // renderControls={() => (
-        //   <div className="splide__arrows">
-        //     <button className="splide__arrow splide__arrow--prev xd"></button>
-        //     <button className="splide__arrow splide__arrow--next xd"></button>
-        //   </div>
-        // )}
-        onArrowsMounted={(splide, prev, next) => {
-          console.log(prev, next);
-        }}
         Extensions={{ MyExtension }}
       >
         {data.map((item) => (
@@ -75,18 +65,12 @@ export default CardList;
 const MyExtension = (Splide, Components, options) => {
   const controller = Components.Controller;
   const elements = Components.Elements;
-  const arrows = Components.Arrows;
-  console.log('arrows: ', arrows);
 
   const mount = () => {
     Splide.on('refresh', jumpToFirst);
     Splide.on('resize', setPerMove);
     Splide.on('mounted', setPerMove);
     Splide.on('moved', preventIndex);
-    Splide.on('arrows:mounted', () => {
-      console.log('arrows -------->');
-      console.log(arrows);
-    });
   };
 
   const jumpToFirst = () => {
