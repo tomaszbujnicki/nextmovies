@@ -6,6 +6,7 @@ import Hero from '../../components/Hero';
 import Section from '../../components/Section';
 import CardList from '../../components/CardList';
 import { CastSection } from './CastSection';
+import styles from './Movie.module.css';
 
 const Movie = ({ data }) => {
   //console.log(data);
@@ -14,14 +15,10 @@ const Movie = ({ data }) => {
     <>
       <Head title={`${data.title} (${data.release_date?.slice(0, 4)})`} />
 
-      <Hero
-        img={data.backdrop_path}
-        style={{
-          display: 'flex',
-          alignItems: 'flex-end',
-        }}
-      >
-        <ProductionInfo movie={data} />
+      <Hero img={data.backdrop_path}>
+        <div className={styles.hero}>
+          <ProductionInfo movie={data} />
+        </div>
       </Hero>
 
       <Section title="Details">

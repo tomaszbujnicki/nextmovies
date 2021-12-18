@@ -9,4 +9,5 @@
   height: 100%;
   position: relative;
   padding-left: 3.5rem;
+  overflow: hidden;
 }

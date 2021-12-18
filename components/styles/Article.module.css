@@ -1,0 +1,17 @@
+.root {
+  max-width: 60rem;
+}
+
+.title {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.text {
+  font-family: Montserrat, sans-serif;
+  color: var(--on-background);
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 1rem;
+}

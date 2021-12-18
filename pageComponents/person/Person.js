@@ -2,6 +2,7 @@ import Head from '../../components/Head';
 import Image from '../../components/Image';
 import Hero from '../../components/Hero';
 import styles from './Person.module.css';
+import Article from '../../components/Article';
 
 const Person = ({ data }) => {
   console.log(data);
@@ -29,10 +30,14 @@ vote_count: 1497
     <>
       <Head title={data.name} />
 
-      <Hero style={{ display: 'flex' }}>
-        <PersonalInfo data={data} />
-        <MainInfo data={data} />
-      </Hero>
+      <div className={styles.root}>
+        <div className={styles.PersonalInfoContainer}>
+          <PersonalInfo data={data} />
+        </div>
+        <div className={styles.MainInfoContainer}>
+          <MainInfo data={data} />
+        </div>
+      </div>
     </>
   );
 };
@@ -50,14 +55,9 @@ const PersonalInfo = ({ data }) => {
 const MainInfo = ({ data }) => {
   return (
     <div className="" style={{ paddingTop: '5rem' }}>
-      <h1 className={styles.name}>{data.name}</h1>
+      <h1 className={styles.title}>{data.name}</h1>
       <p className={styles.job}>{data.known_for_department}</p>
-      {data.biography && (
-        <>
-          <h2>Biography</h2>
-          <p>{data.biography}</p>
-        </>
-      )}
+      {data.biography && <Article title="Biography" text={data.biography} />}
     </div>
   );
 };
