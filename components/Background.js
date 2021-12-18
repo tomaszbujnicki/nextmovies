@@ -19,6 +19,7 @@ const Background = ({ path, style, handleLoad, ...rest }) => {
       <div style={{ position: 'relative', width: '100%', height: '100%' }}>
         {src && (
           <Image
+            priority
             layout="fill"
             objectFit="cover"
             quality="100"

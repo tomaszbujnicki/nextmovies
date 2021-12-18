@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from './styles/Section.module.css';
 
-const Section = ({ children, title, style }) => {
-  if (children === undefined) return null;
+const Section = ({ children, title }) => {
   return (
-    <section className={styles.root} style={style}>
+    <section className={styles.root}>
       <h2 className={styles.heading}>{title}</h2>
       {children}
     </section>

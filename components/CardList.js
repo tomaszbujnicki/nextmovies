@@ -67,22 +67,21 @@ const MyExtension = (Splide, Components, options) => {
   const elements = Components.Elements;
 
   const mount = () => {
-    Splide.on('refresh', jumpToFirst);
-    Splide.on('resize', setPerMove);
-    Splide.on('mounted', setPerMove);
-    Splide.on('moved', preventIndex);
+    Splide.on('refresh', () => {
+      controller.go(0);
+      setOptions();
+    });
+    Splide.on('resize', setOptions);
+    Splide.on('mounted', setOptions);
+    Splide.on('move', preventIndex);
   };
 
-  const jumpToFirst = () => {
-    controller.go(0);
-  };
-
-  const setPerMove = () => {
+  const setOptions = () => {
     setTimeout(() => {
       const visibleCount = elements.slides.filter((el) =>
         el.classList.contains('is-visible')
       ).length;
-      Splide.options = { perMove: visibleCount };
+      Splide.options = { perMove: visibleCount, perPage: visibleCount };
     }, 0);
   };
 

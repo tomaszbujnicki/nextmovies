@@ -9,8 +9,8 @@ const Hero = ({ children, style, img }) => {
   if (heroElement.current) heroElement.current.scrollIntoView();
   return (
     <header ref={heroElement} className={styles.root}>
-      {/* {img && <Background path={img} />} */}
-      {img && <DualBackground src={img} />}
+      {img && <Background path={img} />}
+      {/* {img && <DualBackground src={img} />} */}
       <div className={styles.container} style={style}>
         {children}
       </div>
