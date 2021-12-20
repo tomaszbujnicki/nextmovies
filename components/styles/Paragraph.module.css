@@ -1,0 +1,18 @@
+.root {
+  font-family: Montserrat, sans-serif;
+  color: var(--on-background);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.button {
+  font-size: 1rem;
+  font-family: Montserrat, sans-serif;
+  text-transform: uppercase;
+  text-decoration: underline;
+  transition: color 0.5s;
+}
+
+.button:hover {
+  color: var(--accent);
+}

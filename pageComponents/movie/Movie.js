@@ -44,11 +44,11 @@ const Movie = ({ data }) => {
       </Section>
 
       <Section title="Recommendations">
-        <CardList data={data.recommendations?.results} type="production" />
+        <CardList data={data.recommendations?.results} type="movie" />
       </Section>
 
       <Section title="Similar Movies">
-        <CardList data={data.similar?.results} type="production" />
+        <CardList data={data.similar?.results} type="movie" />
       </Section>
     </>
   );

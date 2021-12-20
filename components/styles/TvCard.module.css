@@ -1,0 +1,31 @@
+.root {
+  overflow: hidden;
+  width: 185px;
+  display: block;
+}
+
+.Image {
+  transition: opacity 0.5s;
+}
+
+.Forward {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-25px, -25px);
+  opacity: 0;
+  transition: opacity 0.5s;
+  fill: var(--accent);
+}
+
+.root:hover .Forward,
+.root:focus .Forward {
+  opacity: 1;
+}
+
+.root:hover .Image,
+.root:focus .Image {
+  opacity: 0.5;
+}

@@ -7,12 +7,45 @@
 
 .PersonalInfoContainer {
   width: 25%;
-  border-right: 1px solid var(--primary);
+  display: flex;
+  flex-direction: column;
+  padding: 3.5rem;
+  overflow: hidden;
+
 }
 
 .MainInfoContainer {
   width: 75%;
-  padding-left: 3.5rem;
+  padding: 3.5rem 10rem 3.5rem 3.5rem;
+}
+
+.Poster {
+  border-radius: 50px;
+  width: 281px;
+  margin-bottom: 2rem;
+}
+
+.PersonalInfo {
+  font-family: Montserrat, sans-serif;
+  font-size: 1.125rem;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.PersonalInfoList > dt {
+  font-weight: 600;
+  color: var(--primary);
+}
+.PersonalInfoList > dd {
+  margin-bottom: 1.5rem;
+}
+
+.header {
+  padding-bottom: 2rem;
+}
+
+.section {
+  padding-bottom: 2rem;
 }
 
 .title {
@@ -21,41 +54,18 @@
   position: relative;
   color: var(--primary);
   font-weight: 700;
-  margin-bottom: 1rem;
 }
 
-.title::after {
-  content: '';
-  position: absolute;
-  bottom: -0.5rem;
-  left: 0;
-  width: 5rem;
-  height: 2px;
-  background-color: var(--on-background);
-}
-
-.job {
+.subtitle {
   font-size: 2rem;
-  color: var(--primary);
-  margin-bottom: 1rem;
-}
-
-/* .article {
-  max-width: 60rem;
-  line-height: 1.75rem;
-}
-
-.articleTitle {
-  font-size: 2rem;
-  color: var(--primary);
-  margin-bottom: 1rem;
-}
-
-.articleParagraph {
-  font-family: Montserrat, sans-serif;
   color: var(--on-background);
-  font-size: 1.25rem;
-} */
+}
+
+.heading {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
 
 .Image {
   border-radius: 40px;

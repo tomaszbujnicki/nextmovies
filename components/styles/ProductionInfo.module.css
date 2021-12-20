@@ -1,5 +1,5 @@
 .root {
-  color: white;
+  color: var(--on-primary);
   background-color: var(--violet-opacity);
   padding: 1rem;
   border-radius: 1rem;
@@ -29,6 +29,10 @@
 
 .genresItem {
   margin-right: 1.5rem;
+}
+
+.overview {
+  font-family: Montserrat, sans-serif;
 }
 
 

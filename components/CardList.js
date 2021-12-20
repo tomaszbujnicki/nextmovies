@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import PersonCard from './PersonCard';
 import MovieCard from './MovieCard';
+import TvCard from './TvCard';
 import VideoCard from './VideoCard';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { RightButton } from './Button';
@@ -12,8 +13,13 @@ const cards = {
     width: 185,
     gap: '1rem',
   },
-  production: {
+  movie: {
     component: MovieCard,
+    width: 185,
+    gap: '0',
+  },
+  tv: {
+    component: TvCard,
     width: 185,
     gap: '0',
   },

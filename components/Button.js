@@ -21,9 +21,9 @@ const Button = ({ children, active, className, ...rest }) => {
 
 export default Button;
 
-export const PrimaryButton = ({ children, ...rest }) => {
+export const PrimaryButton = ({ children, size, ...rest }) => {
   return (
-    <Button className={styles.PrimaryButton} {...rest}>
+    <Button className={styles.PrimaryButton + ' ' + styles[size]} {...rest}>
       {children}
     </Button>
   );
