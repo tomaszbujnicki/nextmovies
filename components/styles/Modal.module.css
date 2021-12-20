@@ -6,13 +6,9 @@
   background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
   z-index: 9999;
-  transition: opacity 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-  opacity: 1;
-}
-
-.overlay.hide {
-  transition-timing-function: cubic-bezier(0.75, 0, 1, 1);
-  opacity: 0;
+  /*   transition: opacity 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  opacity: 1; */
+  animation-name: opacity;
 }
 
 .main {
@@ -22,14 +18,74 @@
   background-color: var(--background);
   border-radius: 5rem;
   padding: 3rem;
-  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-  will-change: transform;
+  /*   transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1); */
+  /*   will-change: transform; */
+  animation-name: translateY;
 }
 
-.main.hide {
+.overlay,
+.main {
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.overlay.reverse {
+  animation-name: opacityReverse;
+  animation-timing-function: cubic-bezier(0.75, 0, 1, 1);
+}
+
+.main.reverse {
+  animation-name: translateYreverse;
+  animation-timing-function: cubic-bezier(0.75, 0, 1, 1);
+}
+
+@keyframes opacityReverse {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes translateY {
+  from {
+    transform: translateY(50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes translateYreverse {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(50%);
+  }
+}
+
+/* .overlay.hide {
+  transition-timing-function: cubic-bezier(0.75, 0, 1, 1);
+  opacity: 0;
+} */
+
+/* .main.hide {
   transition-timing-function: cubic-bezier(0.75, 0, 1, 1);
   transform: translateY(30%);
-}
+} */
 
 .CloseButton {
   position: absolute;

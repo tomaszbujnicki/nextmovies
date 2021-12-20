@@ -1,39 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import useRouteChangeStart from '../hooks/useRouteChangeStart';
 import { CloseButton } from './Button';
 import styles from './styles/Modal.module.css';
 
 const Modal = ({ children, closeCallback }) => {
-  const [hide, setHide] = useState(true);
-  const [runTimeout, setRunTimeout] = useState(null);
+  const [reverse, setReverse] = useState(false);
 
   useRouteChangeStart(closeCallback);
 
-  const clickHandler = () => {
-    setHide(true);
-    setRunTimeout(true);
+  const animationEndHandler = () => {
+    if (reverse) closeCallback();
   };
-
-  useEffect(() => {
-    setHide(false);
-  }, []);
-
-  useEffect(() => {
-    if (runTimeout) {
-      const id = setTimeout(closeCallback, 500);
-
-      return () => clearTimeout(id);
-    }
-  }, [closeCallback, runTimeout]);
 
   const container = document.getElementById('app');
 
   return createPortal(
-    <div className={hide ? `${styles.overlay} ${styles.hide}` : styles.overlay}>
-      <div className={hide ? `${styles.main} ${styles.hide}` : styles.main}>
+    <div
+      className={
+        reverse ? `${styles.overlay} ${styles.reverse}` : styles.overlay
+      }
+    >
+      <div
+        onAnimationEnd={animationEndHandler}
+        className={reverse ? `${styles.main} ${styles.reverse}` : styles.main}
+      >
         <CloseButton
-          onClick={clickHandler}
+          onClick={() => setReverse(true)}
           className={styles.CloseButton}
           classNameInner={styles.CloseButtonInner}
         />
