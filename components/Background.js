@@ -1,9 +1,16 @@
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+
+const root = 'http://image.tmdb.org/t/p/';
 
 const Background = ({ path, style, handleLoad, ...rest }) => {
-  if (typeof path !== 'string') return null;
+  const [src, setSrc] = useState(null);
 
-  const src = `http://image.tmdb.org/t/p/original${path}`;
+  useEffect(() => {
+    setSrc(`${root}w300${path}`);
+  }, [path]);
+
+  if (src === null) return null;
 
   return (
     <div
@@ -27,7 +34,11 @@ const Background = ({ path, style, handleLoad, ...rest }) => {
             alt=""
             onLoad={(e) => {
               if (e.target.src.indexOf('data:image/gif;base64') < 0) {
-                if (handleLoad) handleLoad();
+                setSrc(`${root}original${path}`);
+
+                if (handleLoad) {
+                  handleLoad();
+                }
               }
             }}
           />

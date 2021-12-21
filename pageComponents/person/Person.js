@@ -1,12 +1,17 @@
 import Head from '../../components/Head';
 import Image from '../../components/Image';
-import Hero from '../../components/Hero';
 import styles from './Person.module.css';
 import Paragraph from '../../components/Paragraph';
 import CardList from '../../components/CardList';
+import { useRef, useEffect } from 'react';
 
 const Person = ({ data }) => {
   console.log(data);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (ref.current) ref.current.scrollIntoView();
+  });
 
   const popularMovieCredits = getPopularCredits(
     data.movie_credits,
@@ -37,7 +42,7 @@ vote_count: 1497
     <>
       <Head title={data.name} />
 
-      <div className={styles.root}>
+      <div ref={ref} className={styles.root}>
         <div className={styles.PersonalInfoContainer}>
           <Poster data={data} />
           <PersonalInfo data={data} />
@@ -149,6 +154,7 @@ const Poster = ({ data }) => {
         height={421}
         media="tmdb"
         className={styles.Image}
+        priority
       />
     </div>
   );
@@ -178,7 +184,7 @@ const PersonalInfo = ({ data }) => (
       {data.deathday && (
         <>
           <dt>Deathday</dt>
-          <dd>{data.birthday}</dd>
+          <dd>{data.deathday}</dd>
         </>
       )}
       {data.place_of_birth && (

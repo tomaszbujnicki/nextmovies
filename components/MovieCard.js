@@ -11,7 +11,7 @@ const MovieCard = ({ id, poster_path }) => {
         <Image
           id={poster_path}
           className={styles.Image}
-          placeholder="default.jpg"
+          placeholder="production.svg"
           size="w185"
           width={185}
           height={278}
