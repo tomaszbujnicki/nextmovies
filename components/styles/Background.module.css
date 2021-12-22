@@ -1,0 +1,13 @@
+.high {
+  transition: opacity 2000ms ease 100ms;
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 0s;
+}
+
+.blur {
+  filter: blur(4px);
+}

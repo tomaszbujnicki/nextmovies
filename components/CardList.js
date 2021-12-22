@@ -57,7 +57,7 @@ const CardList = ({ data, type }) => {
         Extensions={{ MyExtension }}
       >
         {data.map((item) => (
-          <SplideSlide key={item.id}>
+          <SplideSlide key={item.credit_id || item.id}>
             <Component {...item} />
           </SplideSlide>
         ))}

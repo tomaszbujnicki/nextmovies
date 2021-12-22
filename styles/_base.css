@@ -13,6 +13,8 @@
 html,
 body {
   font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 html,
@@ -29,37 +31,9 @@ main {
   z-index: -999;
 }
 
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-
-a,
-button {
-  cursor: pointer;
-  border: none;
-  text-decoration: none;
-  background-color: transparent;
+.page{
   position: relative;
-}
-
-a, input, button, textarea, select {
-  font-family: 'Roboto', sans-serif;
-  color: var(--on-background);
-  line-height: 1.5;
-}
-
-a:focus,
-button:focus {
-  z-index: 1005;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-
-ul {
-  list-style: none;
+  height: 100%;
 }
 
 main {
@@ -85,3 +59,43 @@ main::-webkit-scrollbar-thumb {
 main::-webkit-scrollbar-thumb:hover {
   background-color: var(--primary);
 }
+
+a,
+button {
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  background-color: transparent;
+  position: relative;
+}
+
+a,
+input,
+button,
+textarea,
+select {
+  font-family: 'Roboto', sans-serif;
+  color: var(--on-background);
+  line-height: 1.5;
+}
+
+a:focus,
+button:focus {
+  z-index: 1005;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+ul {
+  list-style: none;
+}
+
+
