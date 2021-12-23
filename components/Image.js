@@ -74,6 +74,7 @@ const Image = ({
         quality={100}
         loading={loading}
         draggable="false"
+        lazyBoundary="500px"
       />
     </div>
   );
@@ -97,10 +98,10 @@ const isMobileConnection = () => {
 
 const defer = (callback) => {
   // Check if we can use requestIdleCallback
-  /*   if (window.requestIdleCallback) {
+  if (window.requestIdleCallback) {
     const handle = window.requestIdleCallback(callback);
     return () => window.cancelIdleCallback(handle);
-  } */
+  }
   // Just defer using setTimeout with some random delay otherwise
   const handle = setTimeout(callback, 2345 + Math.random() * 1000);
   return () => clearTimeout(handle);

@@ -38,6 +38,7 @@ const CastSection__Modal = ({ credits }) => {
 
 const CastAndCrew = ({ credits }) => {
   const [isCastDisplayed, setIsCastDisplayed] = useState(true);
+
   return (
     <div className={styles.root}>
       <h2 className={styles.title}>Full Cast & Crew</h2>
@@ -50,18 +51,16 @@ const CastAndCrew = ({ credits }) => {
             Crew
           </PrimaryButton>
         </ButtonGroup>
-        {isCastDisplayed && (
-          <div>
-            <h3 className={styles.subtitle}>Cast</h3>
-            <Cast cast={credits.cast} />
-          </div>
-        )}
-        {!isCastDisplayed && (
-          <div>
-            <h3 className={styles.subtitle}>Crew</h3>
-            <Crew crew={credits.crew} />
-          </div>
-        )}
+
+        <div className={!isCastDisplayed ? styles.hide : null}>
+          <h3 className={styles.subtitle}>Cast</h3>
+          <Cast cast={credits.cast} />
+        </div>
+
+        <div className={isCastDisplayed ? styles.hide : null}>
+          <h3 className={styles.subtitle}>Crew</h3>
+          <Crew crew={credits.crew} />
+        </div>
       </div>
     </div>
   );

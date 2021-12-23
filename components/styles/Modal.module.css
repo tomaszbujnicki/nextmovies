@@ -20,11 +20,18 @@
 }
 
 .overlay,
-.main {
+.main,
+.inner {
   animation-duration: 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: both;
   animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.inner {
+  animation-delay: 0.5s;
+  animation-name: opacity;
+  animation-timing-function: ease;
 }
 
 .overlay.reverse {
@@ -57,7 +64,7 @@
 
 @keyframes translateY {
   from {
-    transform: translateY(50%);
+    transform: translateY(120%);
   }
   to {
     transform: translateY(0);
@@ -69,7 +76,7 @@
     transform: translateY(0);
   }
   to {
-    transform: translateY(50%);
+    transform: translateY(120%);
   }
 }
 
