@@ -12,7 +12,7 @@ async function getData(route, params = '') {
       return res.json();
     })
     .catch((err) => {
-      return undefined;
+      return null;
     });
 
   return data;
