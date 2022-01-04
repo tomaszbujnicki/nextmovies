@@ -10,13 +10,16 @@
 }
 
 .main {
-  inset: 8%;
   position: absolute;
   border: 2px solid var(--primary);
   background-color: var(--background);
   border-radius: 5rem;
   padding: 3rem;
   animation-name: translateY;
+  width: 84%;
+  height: 84%;
+  left: 8%;
+  top: 8%
 }
 
 .overlay,

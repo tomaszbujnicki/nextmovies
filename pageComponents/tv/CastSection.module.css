@@ -1,0 +1,13 @@
+.title {
+  font-size: 2rem;
+  color: var(--on-background);
+}
+
+.subtitle {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.hide {
+  display: none;
+}

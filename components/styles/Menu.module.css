@@ -22,6 +22,10 @@
   stroke: var(--on-primary);
 }
 
+.root:hover .svgClose, .root:focus-within .svgClose {
+  fill: var(--primary);
+}
+
 .root > *:first-child {
   border-radius: 0 1rem 0 0;
 }
@@ -34,6 +38,10 @@
   fill: var(--on-background);
   stroke: var(--on-background);
   transition: fill 0.5s, stroke 0.5s;
+}
+
+.svgClose {
+  fill: var(--background);
 }
 
 .button {
@@ -51,4 +59,8 @@
 .button:hover .svg {
   fill: var(--on-accent);
   stroke: var(--on-accent);
+}
+
+.button:hover .svgClose {
+  fill: var(--accent);
 }
