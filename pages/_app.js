@@ -1,15 +1,20 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Menu from '../components/Menu';
+import Search from '../components/Search';
 import '../styles/styles.scss';
 
 function MyApp({ Component, pageProps }) {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const router = useRouter();
   const ref = useRef(null);
 
   useEffect(() => {
-    const handleRouteChange = () => ref.current.scrollIntoView();
+    const handleRouteChange = () => {
+      ref.current.scrollIntoView();
+      setIsSearchOpen(false);
+    };
 
     router.events.on('routeChangeComplete', handleRouteChange);
 
@@ -25,13 +30,18 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       <main>
+        <Search
+          isOpen={isSearchOpen}
+          closeCallback={() => setIsSearchOpen(false)}
+        />
+
         <div className="page" ref={ref}>
           <Component {...pageProps} />
         </div>
       </main>
 
       <nav>
-        <Menu />
+        <Menu setIsSearchOpen={setIsSearchOpen} />
       </nav>
     </div>
   );

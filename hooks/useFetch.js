@@ -1,37 +1,35 @@
 import { useState, useEffect } from 'react';
 
-const API_KEY = process.env.API_KEY;
-const API_ROOT = 'https://api.themoviedb.org/3/';
-
-const useFetch = (route, params = '') => {
-  const url = `${API_ROOT}${route}?api_key=${API_KEY}${params}`;
-
+const useFetch = (query) => {
   const [data, setData] = useState(null);
-  const [err, setErr] = useState(null);
 
   useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
+    if (query) {
+      const url = `/api/${query}`;
 
-    fetch(url, { signal })
-      .then((res) => {
-        if (res.ok) return res.json();
-        else throw new Error(`Http error: ${res.status}`);
-      })
-      .then((res) => {
-        setData(res);
-      })
-      .catch((err) => {
-        setData(undefined);
-        setErr(err);
-      });
+      const controller = new AbortController();
+      const signal = controller.signal;
 
-    return () => {
-      controller.abort();
-    };
-  }, [url]);
+      fetch(url, { signal })
+        .then((res) => {
+          if (res.ok) return res.json();
+          else throw new Error(`Http error: ${res.status}`);
+        })
+        .then((res) => {
+          setData(res);
+        })
+        .catch((err) => {
+          setData(undefined);
+        });
+      return () => {
+        controller.abort();
+      };
+    } else {
+      setData(null);
+    }
+  }, [query]);
 
-  return [data, err];
+  return data;
 };
 
 export default useFetch;

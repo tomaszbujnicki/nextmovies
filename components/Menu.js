@@ -8,16 +8,12 @@ import {
   EnterFullscreen,
   Backdrop,
   SearchIcon,
-  Close,
 } from '../assets/SvgButtons';
 import useFullscreen from '../hooks/useFullscreen';
 import styles from './styles/Menu.module.css';
-import Modal from './Modal';
-import Search from './Search';
 
-const Menu = () => {
+const Menu = ({ setIsSearchOpen }) => {
   const [isFullscreen, toggleFullscreen] = useFullscreen();
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
     <div className={styles.root}>
@@ -32,11 +28,7 @@ const Menu = () => {
         className={styles.button}
         tabIndex="2"
       >
-        {isSearchOpen ? (
-          <Close className={styles.svg + ' ' + styles.svgClose} />
-        ) : (
-          <SearchIcon className={styles.svg} />
-        )}
+        <SearchIcon className={styles.svg} />
       </Button>
 
       <Button className={styles.button} tabIndex="3">
@@ -50,12 +42,6 @@ const Menu = () => {
           <EnterFullscreen className={styles.svg} />
         )}
       </Button>
-
-      {isSearchOpen && (
-        <Modal closeCallback={() => setIsSearchOpen(false)}>
-          <Search />
-        </Modal>
-      )}
     </div>
   );
 };
