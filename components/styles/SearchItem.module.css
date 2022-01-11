@@ -1,0 +1,41 @@
+.root {
+  overflow: hidden;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  transition: background-color 0.5s, border 0.5s, color 0.5s;
+  border-radius: 1rem;
+  background-color: var(--background);
+  margin: 2px 4px 2px 2px;  
+  border: solid 2px transparent;
+  outline: none;
+}
+
+.Image {
+  flex-shrink: 0;
+}
+
+.root:hover,
+.root:focus {
+  background: var(--primary-dark);
+  border: solid 2px var(--accent);
+  color: var(--accent);
+  z-index: 1005;
+}
+
+.body {
+  margin-left: 1rem;
+}
+
+.title {
+  font-size: 1.25rem;
+}
+
+.genres {
+  display: flex;
+}
+
+.genresItem {
+  margin-right: 1rem;
+}
