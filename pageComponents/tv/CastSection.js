@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Section from '../../components/Section';
 import { PrimaryButton } from '../../components/Button';
 import CardList from '../../components/CardList';
@@ -18,6 +18,29 @@ export const CastSection = ({ credits }) => {
 };
 const CastSection__Modal = ({ credits }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCastDisplayed, setIsCastDisplayed] = useState(true);
+  const childRef = useRef(null);
+
+  const menuBar = (
+    <ButtonGroup>
+      <PrimaryButton
+        onClick={() => {
+          childRef.current.scrollTop = 0;
+          setIsCastDisplayed(true);
+        }}
+      >
+        Cast
+      </PrimaryButton>
+      <PrimaryButton
+        onClick={() => {
+          childRef.current.scrollTop = 0;
+          setIsCastDisplayed(false);
+        }}
+      >
+        Crew
+      </PrimaryButton>
+    </ButtonGroup>
+  );
 
   return (
     <>
@@ -28,30 +51,23 @@ const CastSection__Modal = ({ credits }) => {
         View full Cast & Crew
       </PrimaryButton>
       {isModalOpen && (
-        <Modal closeCallback={() => setIsModalOpen(false)}>
-          <CastAndCrew credits={credits} />
+        <Modal
+          forwardedRef={childRef}
+          closeCallback={() => setIsModalOpen(false)}
+          barContent={menuBar}
+        >
+          <CastAndCrew credits={credits} isCastDisplayed={isCastDisplayed} />
         </Modal>
       )}
     </>
   );
 };
 
-const CastAndCrew = ({ credits }) => {
-  const [isCastDisplayed, setIsCastDisplayed] = useState(true);
-
+const CastAndCrew = ({ credits, isCastDisplayed }) => {
   return (
     <div className={styles.root}>
       <h2 className={styles.title}>Full Cast & Crew</h2>
       <div className={styles.main}>
-        <ButtonGroup>
-          <PrimaryButton onClick={() => setIsCastDisplayed(true)}>
-            Cast
-          </PrimaryButton>
-          <PrimaryButton onClick={() => setIsCastDisplayed(false)}>
-            Crew
-          </PrimaryButton>
-        </ButtonGroup>
-
         <div className={!isCastDisplayed ? styles.hide : null}>
           <h3 className={styles.subtitle}>Cast</h3>
           <Cast cast={credits.cast} />

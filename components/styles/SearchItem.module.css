@@ -6,7 +6,7 @@
   padding: 0 2rem;
   transition: background-color 0.5s, border 0.5s, color 0.5s;
   border-radius: 1rem;
-  background-color: var(--background);
+  background-color: var(--background-highlight);
   margin: 2px 4px 2px 2px;  
   border: solid 2px transparent;
   outline: none;
@@ -18,10 +18,12 @@
 
 .root:hover,
 .root:focus {
-  background: var(--primary-dark);
-  border: solid 2px var(--accent);
+  background: var(--primary-dark);      
   color: var(--accent);
-  z-index: 1005;
+}
+
+.root:focus {
+  border: solid 2px var(--accent);
 }
 
 .body {

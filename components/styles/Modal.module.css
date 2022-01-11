@@ -13,13 +13,13 @@
   position: absolute;
   border: 2px solid var(--primary);
   background-color: var(--background);
-  border-radius: 5rem;
+  border-radius: 2rem 5rem 2rem 2rem;
   padding: 3rem;
   animation-name: translateY;
   width: 84%;
-  height: 84%;
+  height: 90%;
   left: 8%;
-  top: 8%
+  top: 5rem;
 }
 
 .overlay,
@@ -104,5 +104,13 @@
   width: 100%;
   position: relative;
   padding: 1rem;
-  overflow: auto;
+  overflow: scroll;
+}
+
+.bar {
+  position: absolute;
+  animation-name: translateY;
+  width: 84%;
+  left: 8%;
+  top: 1rem;
 }

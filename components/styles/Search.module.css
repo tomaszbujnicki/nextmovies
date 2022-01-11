@@ -1,14 +1,3 @@
-.root {
-  position: fixed;
-  width: 84%;
-  left: 8%;
-  top: 1rem;
-  z-index: 9999;
-  background: var(--primary);
-  border-radius: 1rem;
-  transition: transform 0.5s;
-}
-
 .hide {
   transform: translateY(-150%);
   transition: none;
@@ -27,6 +16,7 @@
   padding: 0 1rem;
   flex-grow: 1;
   color: var(--white);
+  background: var(--primary-dark);
 }
 
 .button {
@@ -35,7 +25,6 @@
 
 .input,
 .button {
-  background: transparent;
   border: none;
   height: 100%;
   border-radius: 1rem;
@@ -43,12 +32,9 @@
   transition: background-color 0.5s, outline 0.5s, fill 0.5s;
 }
 
-.input:focus,
-.input:hover,
-.button:hover,
+.input:focus-visible,
 .button:focus-visible {
   outline: 2px solid var(--accent);
-  background: var(--primary-dark);
 }
 
 .svg {
@@ -62,35 +48,10 @@
 }
 
 .content {
-  position: fixed;
-  width: 84%;
-  max-height: 88%;
   left: 8%;
   top: 3.5rem;
   top: 5.5rem;
   z-index: 9998;
-
-  background-color: var(--primary);
-  border: 4px solid var(--primary);
-  padding: 1.25rem 4px 4px 2px;
-  border-radius: 1rem;
-
-  transition: height 1s;
-  transform-origin: top;
-
-  overflow: auto;
-}
-
-.inner {
-  
-}
-
-
-
-.collapse {
-  height: 0;
-  padding: 0;
-  border: 0;
 }
 
 .list {

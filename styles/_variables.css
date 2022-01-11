@@ -18,6 +18,8 @@
   --background: rgb(0, 0, 0);
   --on-background: rgb(153, 153, 153);
 
+  --background-highlight: rgb(8, 8, 8);
+
   --primary: rgb(59, 24, 95);
   --primary-dark: rgb(42, 9, 68);
   --on-primary: rgb(249, 249, 249);

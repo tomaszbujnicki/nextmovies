@@ -4,7 +4,7 @@ import useRouteChangeStart from '../hooks/useRouteChangeStart';
 import { CloseButton } from './Button';
 import styles from './styles/Modal.module.css';
 
-const Modal = ({ children, closeCallback }) => {
+const Modal = ({ children, closeCallback, barContent, forwardedRef }) => {
   const [reverse, setReverse] = useState(false);
 
   useRouteChangeStart(closeCallback);
@@ -21,6 +21,7 @@ const Modal = ({ children, closeCallback }) => {
         reverse ? `${styles.overlay} ${styles.reverse}` : styles.overlay
       }
     >
+      <div className={styles.bar}>{barContent}</div>
       <div
         onAnimationEnd={animationEndHandler}
         className={reverse ? `${styles.main} ${styles.reverse}` : styles.main}
@@ -30,7 +31,9 @@ const Modal = ({ children, closeCallback }) => {
           className={styles.CloseButton}
           classNameInner={styles.CloseButtonInner}
         />
-        <div className={styles.inner}>{children}</div>
+        <div ref={forwardedRef} className={styles.inner}>
+          {children}
+        </div>
       </div>
     </div>,
     container
