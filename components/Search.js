@@ -74,22 +74,20 @@ const Content = ({ data }) => {
   const collapsed = styles.content + ' ' + styles.collapse;
 
   return (
-    <div className={data ? expanded : collapsed}>
-      <div className={styles.inner} tabIndex="-1">
-        {data?.results?.length > 0 && (
-          <ul className={styles.list}>
-            {data.results.map((item) => (
-              <li key={`${item.media_type}_${item.id}`}>
-                <SearchItem {...item} />
-              </li>
-            ))}
-          </ul>
-        )}
+    <div className={data ? expanded : collapsed} tabIndex="-1">
+      {data?.results?.length > 0 && (
+        <ul className={styles.list}>
+          {data.results.map((item) => (
+            <li key={`${item.media_type}_${item.id}`}>
+              <SearchItem {...item} />
+            </li>
+          ))}
+        </ul>
+      )}
 
-        {data?.results?.length === 0 && (
-          <div className={styles.noResults}>No results found.</div>
-        )}
-      </div>
+      {data?.results?.length === 0 && (
+        <div className={styles.noResults}>No results found.</div>
+      )}
     </div>
   );
 };
