@@ -1,0 +1,28 @@
+.review {
+  margin-bottom: 5rem;
+  max-width: 80rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  margin-left: 1rem;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.content {
+  margin: 1rem 0;
+}

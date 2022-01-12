@@ -4,7 +4,13 @@ module.exports = {
     API_KEY: process.env.API_KEY,
   },
   images: {
-    domains: ['image.tmdb.org', 'i.ytimg.com', 'vumbnail.com'],
+    domains: [
+      'image.tmdb.org',
+      'i.ytimg.com',
+      'vumbnail.com',
+      'gravatar.com',
+      'secure.gravatar.com',
+    ],
   },
   async redirects() {
     return [

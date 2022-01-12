@@ -9,7 +9,7 @@ import { CastSection } from './CastSection';
 import styles from './Movie.module.css';
 
 const Movie = ({ data }) => {
-  //console.log(data);
+  console.log(data);
 
   return (
     <>
@@ -25,31 +25,41 @@ const Movie = ({ data }) => {
         <Details />
       </Section>
 
-      <Section title="Videos">
-        <CardList
-          data={data.videos?.results
-            .map((video) => ({
-              ...video,
-              videoKey: video.key,
-            }))
-            .reverse()}
-          type="video"
-        />
-      </Section>
+      {data.videos?.results.length > 0 && (
+        <Section title="Videos">
+          <CardList
+            data={data.videos.results
+              .map((video) => ({
+                ...video,
+                videoKey: video.key,
+              }))
+              .reverse()}
+            type="video"
+          />
+        </Section>
+      )}
 
-      <CastSection credits={data.credits} />
+      {(data.credits?.cast.length > 0 || data.credits?.crew.length > 0) && (
+        <CastSection credits={data.credits} />
+      )}
 
-      <Section title="Reviews">
-        <Reviews />
-      </Section>
+      {data.reviews?.results.length > 0 && (
+        <Section title="Reviews">
+          <Reviews data={data.reviews} />
+        </Section>
+      )}
 
-      <Section title="Recommendations">
-        <CardList data={data.recommendations?.results} type="movie" />
-      </Section>
+      {data.recommendations?.results.length > 0 && (
+        <Section title="Recommendations">
+          <CardList data={data.recommendations.results} type="movie" />
+        </Section>
+      )}
 
-      <Section title="Similar Movies">
-        <CardList data={data.similar?.results} type="movie" />
-      </Section>
+      {data.similar?.results.length > 0 && (
+        <Section title="Similar Movies">
+          <CardList data={data.similar.results} type="movie" />
+        </Section>
+      )}
     </>
   );
 };

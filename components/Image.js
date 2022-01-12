@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import NextImage from 'next/image';
 
 const sources = {
-  tmdb: (id, size) => `http://image.tmdb.org/t/p/${size}${id}`,
+  tmdb: (id, size) => `https://image.tmdb.org/t/p/${size}${id}`,
+  gravatar: (id, size) => `https://secure.gravatar.com/avatar/${id}?s=${size}`,
+  gravatarFull: (id, size) => `${id}?s=${size}`,
   YouTube: (id) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
   Vimeo: (id) => `https://vumbnail.com/${id}.jpg`,
   placeholder: (name) => `/placeholder/${name}`,
