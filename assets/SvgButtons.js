@@ -244,7 +244,7 @@ export const SearchIcon = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
-    aria-labelledby="exit fullscreen"
+    aria-labelledby="search"
     className={className}
   >
     <g>
@@ -252,3 +252,37 @@ export const SearchIcon = ({ className }) => (
     </g>
   </svg>
 );
+
+export const Star = ({ className, half, empty }) => {
+  console.log(half, empty);
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 280.124 280.124"
+      aria-labelledby="star"
+      className={className}
+    >
+      <g>
+        <path
+          style={{
+            fill: empty ? 'var(--background)' : 'var(--accent)',
+            strokeWidth: 8,
+            stroke: 'var(--accent)',
+          }}
+          d="M280.124,106.914l-92.059-6.598L140.057,4.441l-48.55,95.874L0,106.914l61.282,74.015   l-17.519,94.754l96.294-43.614l96.294,43.606l-17.799-94.754C218.553,180.919,280.124,106.914,280.124,106.914z"
+        />
+        <polygon
+          style={{
+            fill: empty
+              ? 'transparent'
+              : half
+              ? 'var(--background)'
+              : 'var(--accent)',
+            strokeWidth: 0,
+          }}
+          points="236.352,275.683 218.553,180.92 280.071,106.975 280.071,106.905 188.065,100.315    140.057,4.441 140.057,232.068  "
+        />
+      </g>
+    </svg>
+  );
+};

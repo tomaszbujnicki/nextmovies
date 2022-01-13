@@ -1,0 +1,74 @@
+.root {
+  max-width: 80rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  margin-left: 1rem;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.content {
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.content p {
+  margin-bottom: 0.65rem;
+}
+
+.content hr {
+  display: none;
+}
+
+.button {
+  font-size: 1rem;
+  font-family: Montserrat, sans-serif;
+  text-transform: uppercase;
+  text-decoration: underline;
+  transition: color 0.5s;
+}
+
+.button:hover {
+  color: var(--accent);
+}
+
+.date {
+  font-family: Montserrat, sans-serif;
+  margin-left: 1rem;
+}
+
+.author {
+  font-family: Montserrat, sans-serif;
+  margin-left: 1rem;
+}
+
+.rating {
+  display: flex;
+  width: 200px;
+  justify-content: space-around;
+}
+
+.rating > svg {
+  height: 32px;
+  width: 32px;
+}

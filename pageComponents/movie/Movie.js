@@ -1,6 +1,5 @@
 import Head from '../../components/Head';
 import ProductionInfo from '../../components/ProductionInfo';
-import Reviews from '../../components/Reviews';
 import Details from '../../components/Details';
 import Hero from '../../components/Hero';
 import Section from '../../components/Section';
@@ -45,7 +44,7 @@ const Movie = ({ data }) => {
 
       {data.reviews?.results.length > 0 && (
         <Section title="Reviews">
-          <Reviews data={data.reviews} />
+          <CardList data={data.reviews.results} type="review" />
         </Section>
       )}
 

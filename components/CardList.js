@@ -3,30 +3,35 @@ import PersonCard from './PersonCard';
 import MovieCard from './MovieCard';
 import TvCard from './TvCard';
 import VideoCard from './VideoCard';
+import ReviweCard from './ReviewCard';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { RightButton } from './Button';
 import styles from './styles/CardList.module.css';
 
 const cards = {
   person: {
-    component: PersonCard,
+    Component: PersonCard,
     width: 185,
     gap: '1rem',
   },
   movie: {
-    component: MovieCard,
+    Component: MovieCard,
     width: 185,
     gap: '0',
   },
   tv: {
-    component: TvCard,
+    Component: TvCard,
     width: 185,
     gap: '0',
   },
   video: {
-    component: VideoCard,
+    Component: VideoCard,
     width: 480,
     gap: '1rem',
+  },
+  review: {
+    Component: ReviweCard,
+    perPage: 1,
   },
 };
 
@@ -35,9 +40,7 @@ const CardList = ({ data, type }) => {
 
   if (!Array.isArray(data) || !data.length) return null;
 
-  const Component = cards[type].component;
-  const width = cards[type].width;
-  const gap = cards[type].gap;
+  const { Component, width, gap, perPage } = cards[type];
 
   const options = {
     pagination: false,
@@ -46,6 +49,7 @@ const CardList = ({ data, type }) => {
     arrows: true,
     fixedWidth: width,
     gap: gap,
+    perPage: perPage,
   };
 
   return (

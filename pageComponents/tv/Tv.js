@@ -1,6 +1,5 @@
 import Head from '../../components/Head';
 import ProductionInfo from '../../components/ProductionInfo';
-import Reviews from '../../components/Reviews';
 import Details from '../../components/Details';
 import Hero from '../../components/Hero';
 import Section from '../../components/Section';
@@ -25,31 +24,41 @@ const Tv = ({ data }) => {
         <Details />
       </Section>
 
-      <Section title="Videos">
-        <CardList
-          data={data.videos?.results
-            .map((video) => ({
-              ...video,
-              videoKey: video.key,
-            }))
-            .reverse()}
-          type="video"
-        />
-      </Section>
+      {data.videos?.results.length > 0 && (
+        <Section title="Videos">
+          <CardList
+            data={data.videos.results
+              .map((video) => ({
+                ...video,
+                videoKey: video.key,
+              }))
+              .reverse()}
+            type="video"
+          />
+        </Section>
+      )}
 
-      <CastSection credits={data.credits} />
+      {(data.credits?.cast.length > 0 || data.credits?.crew.length > 0) && (
+        <CastSection credits={data.credits} />
+      )}
 
-      <Section title="Reviews">
-        <Reviews />
-      </Section>
+      {data.reviews?.results.length > 0 && (
+        <Section title="Reviews">
+          <CardList data={data.reviews.results} type="review" />
+        </Section>
+      )}
 
-      <Section title="Recommendations">
-        <CardList data={data.recommendations?.results} type="tv" />
-      </Section>
+      {data.recommendations?.results.length > 0 && (
+        <Section title="Recommendations">
+          <CardList data={data.recommendations.results} type="tv" />
+        </Section>
+      )}
 
-      <Section title="Similar TV Shows">
-        <CardList data={data.similar?.results} type="tv" />
-      </Section>
+      {data.similar?.results.length > 0 && (
+        <Section title="Similar Similar TV Shows">
+          <CardList data={data.similar.results} type="tv" />
+        </Section>
+      )}
     </>
   );
 };
