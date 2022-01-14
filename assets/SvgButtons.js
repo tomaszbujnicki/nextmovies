@@ -254,7 +254,6 @@ export const SearchIcon = ({ className }) => (
 );
 
 export const Star = ({ className, half, empty }) => {
-  console.log(half, empty);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

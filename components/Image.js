@@ -21,18 +21,24 @@ const Image = ({
   priority,
   className,
   alt = '',
+  quality = 100,
   size = 'original',
+  layout = 'intrinsic',
   placeholder = 'default.jpg',
 }) => {
-  const [src, setSrc] = useState(
-    id ? sources[media](id, size) : sources.placeholder(placeholder)
-  );
+  const [src, setSrc] = useState(sources.placeholder(placeholder));
 
   const [loading, setLoading] = useState(propsLoading);
 
   const errorHandler = onError
     ? onError
     : () => setSrc(sources.placeholder(placeholder));
+
+  useEffect(() => {
+    if (id) {
+      setSrc(sources[media](id, size));
+    }
+  }, [id, media, size]);
 
   useEffect(() => {
     // Skip if image is already eager or has priority (disables lazy loading)
@@ -71,9 +77,10 @@ const Image = ({
         src={src}
         onError={errorHandler}
         alt={alt}
+        layout={layout}
         width={width}
         height={height}
-        quality={100}
+        quality={quality}
         loading={loading}
         draggable="false"
         lazyBoundary="500px"

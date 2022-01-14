@@ -1,0 +1,14 @@
+.root {
+  display: grid;
+  width: 100%;
+  position: relative;
+  background: var(--background-highlight);
+  grid-template-columns: 1fr 1.3fr 1fr 1.3fr;
+  column-gap: 0.8%;
+}
+
+.backdropGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

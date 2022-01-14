@@ -7,7 +7,7 @@ export async function getServerSideProps(context) {
 
   const data = await getData(
     `movie/${id}`,
-    '&append_to_response=credits,videos,similar,recommendations,reviews,images&include_image_language=null'
+    '&append_to_response=credits,videos,similar,recommendations,reviews,keywords,external_ids,images&include_image_language=null'
   );
 
   if (data) {

@@ -1,0 +1,11 @@
+.root {
+  display: flex;
+}
+
+.Poster {
+  flex-shrink: 0;
+}
+
+.info {
+  padding: 1rem;
+}

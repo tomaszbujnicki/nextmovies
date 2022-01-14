@@ -20,8 +20,8 @@ const Movie = ({ data }) => {
         </div>
       </Hero>
 
-      <Section title="Details">
-        <Details />
+      <Section>
+        <Details data={data} />
       </Section>
 
       {data.videos?.results.length > 0 && (

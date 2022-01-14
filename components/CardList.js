@@ -11,12 +11,12 @@ import styles from './styles/CardList.module.css';
 const cards = {
   person: {
     Component: PersonCard,
-    width: 185,
+    width: 'max(185px, 10%)',
     gap: '1rem',
   },
   movie: {
     Component: MovieCard,
-    width: 185,
+    width: 'max(185px, 10%)',
     gap: '0',
   },
   tv: {

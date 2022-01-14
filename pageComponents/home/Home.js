@@ -1,22 +1,25 @@
 import CardList from '../../components/CardList';
 import Head from '../../components/Head';
 import Section from '../../components/Section';
+import ProductionBanner from '../../components/ProductionBanner';
 
-const Home = ({ popularity, popularKids, inTheatres }) => {
+const Home = ({ popularForKids, inTheatres, popular, upcoming }) => {
   return (
     <>
       <Head fullTitle="NextMovies - Movies, TV-Shows, People, Ratings, Reviews" />
 
-      <Section title="inTheatres">
+      <ProductionBanner movies={popular.results} />
+
+      <Section title="Now Playing in Theatres">
         <CardList data={inTheatres.results} type="movie" />
       </Section>
 
-      <Section title="popularity">
-        <CardList data={popularity.results} type="movie" />
+      <Section title="Upcoming Movies">
+        <CardList data={upcoming.results} type="movie" />
       </Section>
 
-      <Section title="popularKids">
-        <CardList data={popularKids?.results} type="movie" />
+      <Section title="Popular Movies for Kids">
+        <CardList data={popularForKids?.results} type="movie" />
       </Section>
     </>
   );

@@ -4,7 +4,7 @@ import styles from './styles/Section.module.css';
 const Section = ({ children, title }) => {
   return (
     <section className={styles.root}>
-      <h2 className={styles.heading}>{title}</h2>
+      {title && <h2 className={styles.heading}>{title}</h2>}
       {children}
     </section>
   );

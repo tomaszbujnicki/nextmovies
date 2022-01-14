@@ -20,9 +20,7 @@ const Tv = ({ data }) => {
         </div>
       </Hero>
 
-      <Section title="Details">
-        <Details />
-      </Section>
+      <Section title="Details">{/* <Details /> */}</Section>
 
       {data.videos?.results.length > 0 && (
         <Section title="Videos">
