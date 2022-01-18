@@ -4,5 +4,5 @@
   position: relative;
   display: flex;
   align-items: flex-end;
-  padding-bottom: 3.5rem;
+  padding-bottom: max(3rem, 3vw);
 }

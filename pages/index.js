@@ -2,7 +2,15 @@ import Home from '../pageComponents/home/Home';
 import getData from '../adapters/getData';
 
 export async function getServerSideProps() {
-  const [popularForKids, inTheatres, popular, upcoming] = await Promise.all([
+  const [
+    popularForKids,
+    inTheatres,
+    popular,
+    upcoming,
+    tvPopular,
+    tvOnAir,
+    tvLatest,
+  ] = await Promise.all([
     getData(
       `discover/movie`,
       '&certification_country=US&certification.lte=G&sort_by=popularity.desc'
@@ -10,6 +18,10 @@ export async function getServerSideProps() {
     getData(`movie/now_playing`, '&region=US'),
     getData(`movie/popular`),
     getData(`movie/upcoming`, '&region=US'),
+
+    getData(`tv/popular`),
+    getData(`tv/on_the_air`),
+    getData(`tv/latest`),
   ]);
 
   return {
@@ -18,6 +30,9 @@ export async function getServerSideProps() {
       inTheatres,
       popular,
       upcoming,
+      tvPopular,
+      tvOnAir,
+      tvLatest,
     },
   };
 }

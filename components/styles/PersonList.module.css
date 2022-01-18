@@ -4,5 +4,6 @@
 }
 
 .ListItem {
-  margin: 0.5rem;
+  margin: max(0.5rem, 0.5vw);
+  width: max(18rem, 18vw);
 }

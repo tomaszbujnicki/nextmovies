@@ -14,12 +14,12 @@
   border: 2px solid var(--primary);
   background-color: var(--background);
   border-radius: 2rem 5rem 2rem 2rem;
-  padding: 3rem;
+  padding: max(2rem, 2%);
   animation-name: translateY;
   width: 84%;
   height: 90%;
   left: 8%;
-  top: 5rem;
+  top: 8%;
 }
 
 .overlay,
@@ -89,6 +89,7 @@
   right: 0;
   height: 50px;
   width: 50px;
+  z-index: 100;
 }
 
 .CloseButtonInner {
@@ -103,7 +104,7 @@
   height: 100%;
   width: 100%;
   position: relative;
-  padding: 1rem;
+  padding: max(1rem, 1%);
   overflow: scroll;
 }
 
@@ -112,5 +113,5 @@
   animation-name: translateY;
   width: 84%;
   left: 8%;
-  top: 1rem;
+  top: 1%;
 }

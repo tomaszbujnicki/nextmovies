@@ -7,6 +7,10 @@
   column-gap: 0.8%;
 }
 
+.root--variant-2 {
+  grid-template-columns: 1.3fr 1fr 1.3fr 1fr;
+}
+
 .backdropGroup {
   display: flex;
   flex-direction: column;

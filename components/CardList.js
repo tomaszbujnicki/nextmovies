@@ -10,27 +10,27 @@ import styles from './styles/CardList.module.css';
 
 const cards = {
   person: {
-    Component: PersonCard,
-    width: 'max(185px, 10%)',
+    Card: PersonCard,
+    width: 'max(10rem, 10vw)',
     gap: '1rem',
   },
   movie: {
-    Component: MovieCard,
-    width: 'max(185px, 10%)',
+    Card: MovieCard,
+    width: 'max(10rem, 10vw)',
     gap: '0',
   },
   tv: {
-    Component: TvCard,
-    width: 185,
+    Card: TvCard,
+    width: 'max(10rem, 10vw)',
     gap: '0',
   },
   video: {
-    Component: VideoCard,
-    width: 480,
+    Card: VideoCard,
+    width: 'max(25rem, 25vw)',
     gap: '1rem',
   },
   review: {
-    Component: ReviweCard,
+    Card: ReviweCard,
     perPage: 1,
   },
 };
@@ -40,7 +40,7 @@ const CardList = ({ data, type }) => {
 
   if (!Array.isArray(data) || !data.length) return null;
 
-  const { Component, width, gap, perPage } = cards[type];
+  const { Card, width, gap, perPage } = cards[type];
 
   const options = {
     pagination: false,
@@ -62,7 +62,7 @@ const CardList = ({ data, type }) => {
       >
         {data.map((item) => (
           <SplideSlide key={item.credit_id || item.id}>
-            <Component {...item} />
+            <Card {...item} />
           </SplideSlide>
         ))}
       </Splide>

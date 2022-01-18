@@ -13,9 +13,10 @@ const PersonCard = ({
   character,
   known_for_department,
   cardType = 'default',
+  size = 'w185',
 }) => {
   const position = job || character || known_for_department;
-  const { width, height, classNameContent, classNameBody } = cardData[cardType];
+  const { classNameContent, classNameBody } = cardData[cardType];
 
   return (
     <Link href={`/person/${id}`}>
@@ -25,9 +26,10 @@ const PersonCard = ({
             id={profile_path}
             className={styles.Image}
             placeholder={`profile${gender}.svg`}
-            size="w185"
-            width={width}
-            height={height}
+            size={size}
+            width={185}
+            height={278}
+            layout="responsive"
             media="tmdb"
           />
           <div className={classNameBody}>
@@ -45,14 +47,10 @@ export default PersonCard;
 
 const cardData = {
   default: {
-    width: 185,
-    height: 278,
     classNameContent: styles.content,
     classNameBody: styles.body,
   },
   horizontal: {
-    width: 80,
-    height: 120,
     classNameContent: styles.content + ' ' + styles.contentHorizontal,
     classNameBody: styles.body + ' ' + styles.bodyHorizontal,
   },

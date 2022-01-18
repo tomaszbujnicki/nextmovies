@@ -3,7 +3,7 @@ import Section from '../../components/Section';
 import { PrimaryButton } from '../../components/Button';
 import CardList from '../../components/CardList';
 import Modal from '../../components/Modal';
-import Cast from '../../components/Cast';
+import PersonList from '../../components/PersonList';
 import Crew from '../../components/Crew';
 import styles from './CastSection.module.css';
 import ButtonGroup from '../../components/ButtonGroup';
@@ -70,7 +70,7 @@ const CastAndCrew = ({ credits, isCastDisplayed }) => {
       <div className={styles.main}>
         <div className={!isCastDisplayed ? styles.hide : null}>
           <h3 className={styles.subtitle}>Cast</h3>
-          <Cast cast={credits.cast} />
+          <PersonList people={credits.cast} />
         </div>
 
         <div className={isCastDisplayed ? styles.hide : null}>

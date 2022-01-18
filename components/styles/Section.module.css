@@ -1,5 +1,5 @@
 .root {
-  padding: 4rem 2rem 5rem 3.5rem;
+  padding: max(4rem, 4vw) max(2rem, 2vw) max(5rem, 5vw) max(3.5rem, 3.5vw);
 }
 
 .root:not(:last-child) {

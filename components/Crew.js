@@ -1,5 +1,4 @@
-import React from 'react';
-import PersonCard from './PersonCard';
+import PersonList from './PersonList';
 import styles from './styles/Crew.module.css';
 
 const Crew = ({ crew }) => {
@@ -22,13 +21,7 @@ const CrewList = ({ crew }) => {
           type.arr.length > 0 && (
             <section key={type.name} className={styles.section}>
               <h4 className={styles.sectionTitle}>{type.name}</h4>
-              <ul className={styles.crewList}>
-                {type.arr.map((person) => (
-                  <li key={person.credit_id} className={styles.crewListItem}>
-                    <PersonCard cardType="horizontal" {...person} />
-                  </li>
-                ))}
-              </ul>
+              <PersonList people={type.arr} />
             </section>
           )
       )}

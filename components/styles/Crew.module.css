@@ -10,12 +10,3 @@
 .sectionTitle {
   color: var(--accent)
 }
-
-.crewList{
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.crewListItem {
-  margin: 0.5rem;
-}

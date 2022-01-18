@@ -12,7 +12,13 @@ const VideoCard = ({ videoKey, site }) => {
 
   if (videoExists === false)
     return (
-      <Image id="no-video.svg" media="placeholder" width={480} height={360} />
+      <Image
+        id="no-video.svg"
+        media="placeholder"
+        width={480}
+        height={360}
+        layout="responsive"
+      />
     );
 
   return (
@@ -21,6 +27,7 @@ const VideoCard = ({ videoKey, site }) => {
         <Image
           className={styles.Image}
           id={videoKey}
+          layout="responsive"
           media={site}
           width={480}
           height={site === 'YouTube' ? 360 : 270}

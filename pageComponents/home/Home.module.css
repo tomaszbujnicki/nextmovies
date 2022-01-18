@@ -1,36 +1,5 @@
-.main {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  position: relative;
-  padding: 20px;
-  min-height: 100vh;
-}
-
-.name {
-  font-size: 3rem;
-  color: var(--primary);
-  margin-bottom: 3rem;
-  position: relative;
-}
-
-.name::after {
-  content: '';
-  position: absolute;
-  bottom: -1.5rem;
-  left: 0;
-  width: 5rem;
-  height: 2px;
-  background-color: var(--primary-dark);
-}
-
-.job {
-  font-size: 2rem;
-  color: var(--primary);
-  margin-bottom: 1rem;
-}
-
-.Image {
-  border-radius: 40px;
-  overflow: hidden;
+.heading {
+  padding: 5% 4rem;
+  font-size: max(4vw, 2rem);
+  text-align: center;
 }
