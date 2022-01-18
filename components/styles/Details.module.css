@@ -4,8 +4,9 @@
 
 .Poster {
   flex-shrink: 0;
+  width: max(20rem, 20vw);
 }
 
 .info {
-  padding: 1rem;
+  padding: max(1rem, 1vw);
 }

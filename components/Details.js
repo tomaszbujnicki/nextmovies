@@ -21,10 +21,11 @@ const Poster = ({ path }) => {
       <Image
         id={path}
         placeholder={`production.svg`}
-        size="w342"
+        size="w500"
         width={342}
         height={513}
         media="tmdb"
+        layout="responsive"
       />
     </div>
   );

@@ -12,35 +12,35 @@
 }
 
 .input {
-  font-size: 1.125rem;
-  padding: 0 1rem;
+  font-size: var(--fs-6);
+  padding: 0 max(1rem, 1vw);
   flex-grow: 1;
   color: var(--white);
   background: var(--primary-dark);
 }
 
 .button {
-  padding: 0.35rem 1rem;
+  padding: max(0.35rem, 0.35vw) max(1rem, 1vw);
 }
 
 .input,
 .button {
   border: none;
   height: 100%;
-  border-radius: 1rem;
-  outline: solid 2px transparent;
+  border-radius: max(1rem, 1vw);
+  outline: solid max(0.125rem, 0.125vw) transparent;
   transition: background-color 0.5s, outline 0.5s, fill 0.5s;
 }
 
 .input:focus-visible,
 .button:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: max(0.125rem, 0.125vw) solid var(--accent);
 }
 
 .svg {
-  height: 1.5rem;
+  height: max(1.5rem, 1.5vw);
   fill: var(--white);
-  margin-top: 0.25rem;
+  margin-top: max(0.25rem, 0.25vw);
 }
 
 .button:hover .svg {
@@ -60,6 +60,6 @@
 }
 
 .noResults {
-  padding: 2rem;
-  font-size: 2rem;
+  padding: max(2rem, 2vw);
+  font-size: var(--fs-3);
 }

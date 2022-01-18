@@ -9,8 +9,8 @@
 
 .Forward {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: max(3rem, 3vw);
+  height: max(3rem, 3vw);
   top: 50%;
   left: 50%;
   transform: translate(-25px, -25px);

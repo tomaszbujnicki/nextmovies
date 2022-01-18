@@ -3,14 +3,13 @@
 }
 
 .root:not(:last-child) {
-  border-bottom: solid 1px var(--primary);
+  border-bottom: solid max(0.0625rem, 0.0625vw) var(--primary);
 }
 
 .heading {
-  font-size: 3rem;
-  letter-spacing: 0.2rem;
-  padding: 0 0 1rem 3rem;
-  position: relative;
+  font-size: var(--fs-2);
+  letter-spacing: max(0.2rem, 0.2vw);
+  padding: 0 0 max(1rem, 1vw) max(3rem, 3vw);
   color: var(--on-background);
   font-weight: 700;
 }

@@ -147,6 +147,7 @@ const Poster = ({ data }) => {
         width={281}
         height={421}
         media="tmdb"
+        layout="responsive"
         className={styles.Image}
         priority
       />

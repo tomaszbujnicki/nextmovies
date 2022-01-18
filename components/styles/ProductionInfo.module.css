@@ -1,34 +1,35 @@
 .root {
   color: var(--on-primary);
   background-color: var(--violet-opacity);
-  padding: 1rem;
-  border-radius: 1rem;
+  padding: max(1rem, 1vw);
+  border-radius: max(1rem, 1vw);
   transition: background-color 0.75s, border 0.75s;
-  max-width: 50rem;
-  border: solid 2px transparent;
+  max-width: max(50rem, 50vw);
+  border: solid max(0.125rem, 0.125vw) transparent;
 }
 
 .root:hover {
   background-color: var(--primary);
-  border: solid 2px var(--accent);
+  border: solid max(0.125rem, 0.125vw) var(--accent);
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: var(--fs-2);
+  background-clip: text;
 }
 
 .tagline {
-  font-size: 1.5rem;
+  font-size: var(--fs-4);
   font-style: italic;
 }
 
 .genres {
   display: flex;
-  margin: 0.5rem 0;
+  margin: max(0.5rem, 0.5vw) 0;
 }
 
 .genresItem {
-  margin-right: 1.5rem;
+  margin-right: max(1.5rem, 1.5vw);
 }
 
 .overview {

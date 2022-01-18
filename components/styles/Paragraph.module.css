@@ -1,12 +1,12 @@
 .root {
   font-family: Montserrat, sans-serif;
   color: var(--on-background);
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
+  font-size: var(--fs-5);
+  margin-bottom: max(1rem, 1vw);
 }
 
 .button {
-  font-size: 1rem;
+  font-size: var(--fs-7);
   font-family: Montserrat, sans-serif;
   text-transform: uppercase;
   text-decoration: underline;

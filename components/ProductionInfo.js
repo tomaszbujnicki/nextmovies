@@ -36,11 +36,11 @@ const ProductionInfo = ({ movie }) => {
   return (
     <div className={styles.root}>
       <Title title={movie.title || movie.name} />
-      <Tagline tagline={movie.tagline} />
+      {/*       <Tagline tagline={movie.tagline} />
       <Genres genres={movie.genres} />
       <Rating end={movie.vote_average * 10} id={movie.id} />
       <Timer time={movie.runtime} />
-      <Overview overview={movie.overview} />
+      <Overview overview={movie.overview} /> */}
 
       {/* <div>
         {belongs_to_collection ? belongs_to_collection.name : 'no collection'}

@@ -7,7 +7,7 @@
   right: max(-3rem, -3vw);
   top: 0;
   height: 100%;
-  padding: 0 0.5rem;
+  padding: 0 max(0.5rem, 0.5vw);
   width: max(3rem, 3vw);
   background-color: transparent;
   border-radius: 0;
@@ -16,7 +16,7 @@
 
 /* overwrite default*/
 .button:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: max(0.125rem, 0.125vw) solid var(--accent);
 }
 
 .buttonLeft {

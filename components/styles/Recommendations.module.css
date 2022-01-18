@@ -2,16 +2,16 @@
   display: flex;
   width: 100%;
   overflow: auto;
-  padding: 1rem;
+  padding: max(1rem, 1vw);
 }
 
 .button {
-  font-size: 1.5rem;
+  font-size: var(--fs-4);
   color: var(--primary);
-  margin: 1rem
+  margin: max(1rem, 1vw)
 }
 
 .button:hover {
-  font-size: 1.5rem;
+  font-size: var(--fs-4);
   color: var(--secondary);
 }

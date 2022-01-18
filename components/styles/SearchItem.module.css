@@ -1,14 +1,14 @@
 .root {
   overflow: hidden;
-  height: 160px;
+  height: max(10rem, 10vw);
   display: flex;
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 max(2rem, 2vw);
   transition: background-color 0.5s, border 0.5s, color 0.5s;
-  border-radius: 1rem;
+  border-radius: max(1rem, 1vw);
   background-color: var(--background-highlight);
-  margin: 2px 4px 2px 2px;  
-  border: solid 2px transparent;
+  margin: max(2rem, 2vw) max(4rem, 4vw) max(2rem, 2vw) max(2rem, 2vw);  
+  border: solid max(0.125rem, 0.125vw) transparent;
   outline: none;
 }
 
@@ -23,15 +23,15 @@
 }
 
 .root:focus {
-  border: solid 2px var(--accent);
+  border: solid max(0.125rem, 0.125vw) var(--accent);
 }
 
 .body {
-  margin-left: 1rem;
+  margin-left: max(1rem, 1vw);
 }
 
 .title {
-  font-size: 1.25rem;
+  font-size: var(--fs-5);
 }
 
 .genres {
@@ -39,5 +39,5 @@
 }
 
 .genresItem {
-  margin-right: 1rem;
+  margin-right: max(1rem, 1vw);
 }

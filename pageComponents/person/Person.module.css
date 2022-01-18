@@ -16,18 +16,18 @@
 
 .MainInfoContainer {
   width: 75%;
-  padding: max(3rem, 3vw) max(30rem, 30vw) max(3rem, 3vw) max(3rem, 3vw);
+  padding: max(3rem, 3vw);
 }
 
 .Poster {
-  border-radius: 50px;
-  width: 281px;
-  margin-bottom: 2rem;
+  border-radius: max(3rem, 3vw);
+  width: max(17.5rem, 17.5vw);
+  margin-bottom: max(2rem, 2vw);
 }
 
 .PersonalInfo {
   font-family: Montserrat, sans-serif;
-  font-size: 1.125rem;
+  font-size: var(--fs-6);
   overflow: hidden;
   overflow-wrap: break-word;
 }
@@ -37,37 +37,37 @@
   color: var(--primary);
 }
 .PersonalInfoList > dd {
-  margin-bottom: 1.5rem;
+  margin-bottom: max(1.5rem, 1.5vw);
 }
 
 .header {
-  padding-bottom: 2rem;
+  padding-bottom: max(2rem, 2vw);
 }
 
 .section {
-  padding-bottom: 2rem;
+  padding-bottom: max(2rem, 2vw);
 }
 
 .title {
-  font-size: 3rem;
-  letter-spacing: 0.2rem;
+  font-size: var(--fs-2);
+  letter-spacing: max(0.2rem, 0.2vw);
   position: relative;
   color: var(--primary);
   font-weight: 700;
 }
 
 .subtitle {
-  font-size: 2rem;
+  font-size: var(--fs-3);
   color: var(--on-background);
 }
 
 .heading {
-  font-size: 2rem;
+  font-size: var(--fs-3);
   color: var(--primary);
   margin-bottom: max(1rem, 1vw);
 }
 
 .Image {
-  border-radius: 40px;
+  border-radius: max(2.5rem, 2.5vw);
   overflow: hidden;
 }

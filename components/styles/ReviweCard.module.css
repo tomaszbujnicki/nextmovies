@@ -1,6 +1,6 @@
 .root {
-  max-width: 80rem;
-  padding: 2rem;
+  max-width: max(80rem, 80vw);
+  padding: max(2rem, 2vw);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -12,7 +12,7 @@
 }
 
 .username {
-  margin-left: 1rem;
+  margin-left: max(1rem, 1vw);
 }
 
 .footer {
@@ -28,12 +28,12 @@
 }
 
 .content {
-  margin: 1rem 0;
+  margin: max(1rem, 1vw) 0;
   overflow: hidden;
 }
 
 .content p {
-  margin-bottom: 0.65rem;
+  margin-bottom: max(0.65rem, 0.65vw);
 }
 
 .content hr {
@@ -41,7 +41,7 @@
 }
 
 .button {
-  font-size: 1rem;
+  font-size: var(--fs-7);
   font-family: Montserrat, sans-serif;
   text-transform: uppercase;
   text-decoration: underline;
@@ -54,21 +54,21 @@
 
 .date {
   font-family: Montserrat, sans-serif;
-  margin-left: 1rem;
+  margin-left: max(1rem, 1vw);
 }
 
 .author {
   font-family: Montserrat, sans-serif;
-  margin-left: 1rem;
+  margin-left: max(1rem, 1vw);
 }
 
 .rating {
   display: flex;
-  width: 200px;
+  width: max(13rem, 13vw);
   justify-content: space-around;
 }
 
 .rating > svg {
-  height: 32px;
-  width: 32px;
+  height: max(2rem, 2vw);
+  width: max(2rem,21vw);
 }

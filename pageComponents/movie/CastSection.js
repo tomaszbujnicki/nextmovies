@@ -46,7 +46,7 @@ const CastSection__Modal = ({ credits }) => {
     <>
       <PrimaryButton
         onClick={() => setIsModalOpen(true)}
-        style={{ marginTop: '1rem' }}
+        style={{ marginTop: 'max(1rem, 1vw)' }}
       >
         View full Cast & Crew
       </PrimaryButton>

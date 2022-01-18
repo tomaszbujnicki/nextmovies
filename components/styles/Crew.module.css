@@ -4,7 +4,7 @@
 }
 
 .section {
-  margin-bottom: 1rem;
+  margin-bottom: max(1rem, 1vw);
 }
 
 .sectionTitle {
