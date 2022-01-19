@@ -1,0 +1,10 @@
+.root {
+  display: flex;
+  width: max(13rem, 13vw);
+  justify-content: space-around;
+}
+
+.root > svg {
+  height: max(2rem, 2vw);
+  width: max(2rem,21vw);
+}

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Rating from './Rating';
-
+import { Timer as TimerSvg, People as PeopleSvg } from '../assets/SvgButtons';
 import styles from './styles/ProductionInfo.module.css';
+import { MOVIE_CERTYFICATION } from '../constants';
+import Tag from './Tag';
 
 const Title = ({ title }) => {
   return <h1 className={styles.title}>{title}</h1>;
@@ -9,6 +11,17 @@ const Title = ({ title }) => {
 
 const Tagline = ({ tagline }) => {
   return <p className={styles.tagline}>{tagline}</p>;
+};
+
+const Certyfication = ({ certyfication }) => {
+  console.log(certyfication);
+  if (!certyfication) return null;
+  return (
+    <Tag>
+      <PeopleSvg />
+      {certyfication}
+    </Tag>
+  );
 };
 
 const Genres = ({ genres }) => {
@@ -25,7 +38,7 @@ const Genres = ({ genres }) => {
 
 const Timer = ({ time }) => {
   if (!time > 0) return null;
-  return <p className={styles.timer}>{time}</p>;
+  return <Tag svg="Timer">{time}</Tag>;
 };
 
 const Overview = ({ overview }) => {
@@ -33,13 +46,23 @@ const Overview = ({ overview }) => {
 };
 
 const ProductionInfo = ({ movie }) => {
+  console.log(movie);
+  console.log(movie.release_dates.results[0].release_dates[0].certification);
   return (
     <div className={styles.root}>
       <Title title={movie.title || movie.name} />
-      {/*       <Tagline tagline={movie.tagline} />
       <Genres genres={movie.genres} />
-      <Rating end={movie.vote_average * 10} id={movie.id} />
+
+      <Rating rating={movie.vote_average} />
       <Timer time={movie.runtime} />
+      <Certyfication
+        certyfication={
+          movie.release_dates.results[0].release_dates[0].certification
+        }
+      />
+
+      {/*
+          <Tagline tagline={movie.tagline} />
       <Overview overview={movie.overview} /> */}
 
       {/* <div>

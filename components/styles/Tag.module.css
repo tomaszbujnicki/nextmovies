@@ -1,0 +1,15 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  padding: max(0.25rem, 0.25vw) max(0.5rem, 0.5vw);
+  border-radius: max(0.5rem, 0.5vw);
+  justify-content: space-between;
+  border: max(0.025rem, 0.025vw) solid var(--white);
+}
+
+.svg {
+  fill: var(--white);
+  width: max(1rem, 1vw);
+  height: max(1rem, 1vw);
+  flex-shrink: 0;
+}

@@ -253,35 +253,87 @@ export const SearchIcon = ({ className }) => (
   </svg>
 );
 
-export const Star = ({ className, half, empty }) => {
+export const Star = ({ className, half, full }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 280.124 280.124"
+      viewBox="0 0 501.28 476.74"
       aria-labelledby="star"
       className={className}
     >
       <g>
-        <path
+        <polygon
           style={{
-            fill: empty ? 'var(--background)' : 'var(--accent)',
-            strokeWidth: 8,
-            stroke: 'var(--accent)',
+            fill: full ? 'var(--accent)' : 'transparent',
           }}
-          d="M280.124,106.914l-92.059-6.598L140.057,4.441l-48.55,95.874L0,106.914l61.282,74.015   l-17.519,94.754l96.294-43.614l96.294,43.606l-17.799-94.754C218.553,180.919,280.124,106.914,280.124,106.914z"
+          points="501.28 182.1 335.26 147.06 250.64 0 250.64 407.5 405.54 476.74 387.56 308.02 501.28 182.1"
         />
         <polygon
           style={{
-            fill: empty
-              ? 'transparent'
-              : half
-              ? 'var(--background)'
-              : 'var(--accent)',
-            strokeWidth: 0,
+            fill: half ? 'var(--accent)' : 'transparent',
           }}
-          points="236.352,275.683 218.553,180.92 280.071,106.975 280.071,106.905 188.065,100.315    140.057,4.441 140.057,232.068  "
+          points="166.02 147.06 0 182.1 113.72 308.02 95.74 476.74 250.64 407.5 250.64 0 166.02 147.06"
         />
       </g>
+      <polygon
+        style={{
+          fill: full ? 'var(--accent)' : 'transparent',
+          strokeWidth: 20,
+          stroke: 'var(--accent)',
+        }}
+        points="387.56 308.02 405.54 476.74 250.64 407.5 95.74 476.74 113.72 308.02 0 182.1 166.02 147.06 250.64 0 335.26 147.06 501.28 182.1 387.56 308.02"
+      />
     </svg>
   );
 };
+
+export const Timer = ({ className }) => (
+  <svg
+    viewBox="0 0 31.16 31.16"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-labelledby="timer"
+    className={className}
+  >
+    <g>
+      <path d="M15.58,0C6.976,0,0.001,6.976,0.001,15.58c0,8.604,6.975,15.58,15.579,15.58c8.604,0,15.579-6.977,15.579-15.58    C31.159,6.976,24.185,0,15.58,0z M15.58,28.16c-6.937,0-12.579-5.643-12.579-12.58C3.001,8.643,8.643,3,15.58,3    c6.937,0,12.579,5.643,12.579,12.58C28.159,22.518,22.517,28.16,15.58,28.16z" />
+      <path d="M22.151,14.58h-4.442c-0.233-0.497-0.633-0.896-1.129-1.129V6.138c0-0.552-0.446-1-1-1c-0.553,0-1,0.448-1,1v7.313    c-0.801,0.377-1.358,1.185-1.358,2.129c0,1.303,1.056,2.359,2.358,2.359c0.944,0,1.752-0.559,2.129-1.359h4.442    c0.553,0,1-0.448,1-1S22.704,14.58,22.151,14.58z" />
+    </g>
+  </svg>
+);
+
+export const People = ({ className }) => (
+  <svg
+    viewBox="0 0 512 512"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-labelledby="people"
+    className={className}
+  >
+    <path
+      d="M402,168c-2.93,40.67-33.1,72-66,72s-63.12-31.32-66-72c-3-42.31,26.37-72,66-72S405,126.46,402,168Z"
+      style={{
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
+        strokeWidth: 32,
+      }}
+    />
+    <path
+      d="M336,304c-65.17,0-127.84,32.37-143.54,95.41-2.08,8.34,3.15,16.59,11.72,16.59H467.83c8.57,0,13.77-8.25,11.72-16.59C463.85,335.36,401.18,304,336,304Z"
+      style={{
+        strokeMiterlimit: 10,
+        strokeWidth: 32,
+      }}
+    />
+    <path
+      d="M200,185.94C197.66,218.42,173.28,244,147,244S96.3,218.43,94,185.94C91.61,152.15,115.34,128,147,128S202.39,152.77,200,185.94Z"
+      style={{ strokeWidth: 32 }}
+    />
+    <path
+      d="M206,306c-18.05-8.27-37.93-11.45-59-11.45-52,0-102.1,25.85-114.65,76.2C30.7,377.41,34.88,384,41.72,384H154"
+      style={{
+        strokeLinecap: 'round',
+        strokeMiterlimit: 10,
+        strokeWidth: 32,
+      }}
+    />
+  </svg>
+);

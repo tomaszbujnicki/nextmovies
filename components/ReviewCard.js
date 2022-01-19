@@ -5,6 +5,7 @@ import removeEmoji from '../utilities/removeEmoji';
 import { Star } from '../assets/SvgButtons';
 import Modal from './Modal';
 import { useState } from 'react';
+import Rating from './Rating';
 
 const ReviweCard = ({
   content,
@@ -86,7 +87,7 @@ const Header = ({ username, avatar_path }) => {
 const Footer = ({ rating, date }) => {
   return (
     <footer className={styles.footer}>
-      <UserRating rating={rating} />
+      <Rating rating={rating} />
       <div className={styles.date}>
         {new Date(date).toLocaleDateString('en-US', {
           month: 'long',
@@ -143,19 +144,5 @@ const AvatarImage = ({ avatar_path }) => {
       height={64}
       media={media}
     />
-  );
-};
-
-const UserRating = ({ rating }) => {
-  if (!rating) return null;
-
-  return (
-    <div className={styles.rating}>
-      <Star half={rating === 1} empty={rating < 1} />
-      <Star half={rating === 3} empty={rating < 3} />
-      <Star half={rating === 5} empty={rating < 5} />
-      <Star half={rating === 7} empty={rating < 7} />
-      <Star half={rating === 9} empty={rating < 9} />
-    </div>
   );
 };

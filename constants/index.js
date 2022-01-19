@@ -38,3 +38,33 @@ export const TV_GENRES = {
   10768: 'War & Politics',
   37: 'Western',
 };
+
+export const MOVIE_CERTYFICATION = {
+  // US
+  0: 'NR',
+  1: 'G',
+  2: 'PG',
+  3: 'PG-13',
+  4: 'R',
+  5: 'NC-17',
+};
+
+export const TV_CERTYFICATION = {
+  // US
+  0: 'NR',
+  1: 'TV-Y',
+  2: 'TV-Y7',
+  3: 'TV-G',
+  4: 'TV-PG',
+  5: 'TV-14',
+  6: 'TV-MA',
+};
+
+export const RELEASE_DATE_TYPES = {
+  1: 'Premiere',
+  2: 'Theatrical (limited)',
+  3: 'Theatrical',
+  4: 'Digital',
+  5: 'Physical',
+  6: 'TV',
+};

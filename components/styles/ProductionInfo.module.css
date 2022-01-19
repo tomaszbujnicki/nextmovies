@@ -1,21 +1,18 @@
 .root {
   color: var(--on-primary);
-  background-color: var(--violet-opacity);
   padding: max(1rem, 1vw);
   border-radius: max(1rem, 1vw);
   transition: background-color 0.75s, border 0.75s;
   max-width: max(50rem, 50vw);
-  border: solid max(0.125rem, 0.125vw) transparent;
-}
-
-.root:hover {
   background-color: var(--primary);
   border: solid max(0.125rem, 0.125vw) var(--accent);
 }
 
 .title {
   font-size: var(--fs-2);
-  background-clip: text;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  line-height: 1;
 }
 
 .tagline {
@@ -35,5 +32,4 @@
 .overview {
   font-family: Montserrat, sans-serif;
 }
-
 

@@ -61,14 +61,3 @@
   font-family: Montserrat, sans-serif;
   margin-left: max(1rem, 1vw);
 }
-
-.rating {
-  display: flex;
-  width: max(13rem, 13vw);
-  justify-content: space-around;
-}
-
-.rating > svg {
-  height: max(2rem, 2vw);
-  width: max(2rem,21vw);
-}
