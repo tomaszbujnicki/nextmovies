@@ -1,11 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-  <g
-    stroke="var(--primary)"
-    stroke-width="2"
-    stroke-linejoin="round"
-    stroke-linecap="round"
-    fill="var(--background)"
-  >
+  <g stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
     <path
       d="M24,47c12.7,0,23-10.3,23-23S36.7,1,24,1S1,11.3,1,24S11.3,47,24,47z"
     />

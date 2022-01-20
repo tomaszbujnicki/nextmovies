@@ -1,5 +1,4 @@
 .root {
-  padding: 0 max(4rem, 4vw);
 }
 
 .button {
@@ -28,7 +27,7 @@
 }
 
 /* .svg,  overwrite default*/
-.button > svg { 
+.button > svg {
   fill: var(--primary);
   transition: opacity 1s, fill 0.5s;
   width: 100%;

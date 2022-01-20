@@ -12,7 +12,7 @@ const PersonCard = ({
   character,
   known_for_department,
   cardType = 'default',
-  size = 'w185',
+  size = 'h632',
 }) => {
   const position = job || character || known_for_department;
   const { classNameContent, classNameBody } = cardData[cardType];

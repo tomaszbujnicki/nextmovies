@@ -12,8 +12,9 @@
   outline: none;
 }
 
-.Image {
+.image {
   flex-shrink: 0;
+  width: max(5rem, 5vw);
 }
 
 .root:hover,

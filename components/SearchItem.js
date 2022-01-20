@@ -20,17 +20,22 @@ const SearchItem = ({
   return (
     <Link href={`/${media_type}/${id}`}>
       <a draggable="false" className={styles.root}>
-        <Image
-          id={poster_path || profile_path}
-          className={styles.Image}
-          placeholder={
-            media_type === 'person' ? `profile${gender}.svg` : 'production.svg'
-          }
-          size={media_type === 'person' ? 'w185' : 'w92'}
-          width={92}
-          height={138}
-          media="tmdb"
-        />
+        <div className={styles.image}>
+          <Image
+            id={poster_path || profile_path}
+            placeholder={
+              media_type === 'person'
+                ? `profile${gender}.svg`
+                : 'production.svg'
+            }
+            size="w185"
+            width={92}
+            height={138}
+            media="tmdb"
+            layout="responsive"
+          />
+        </div>
+
         <div className={styles.body}>
           {media_type === 'movie' ? (
             <Movie

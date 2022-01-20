@@ -90,6 +90,7 @@
   height: max(3rem, 3vw);
   width: max(3rem, 3vw);
   z-index: 100;
+  stroke: var(--primary);
 }
 
 .CloseButtonInner {

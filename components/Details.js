@@ -31,6 +31,14 @@ const Poster = ({ path }) => {
   );
 };
 
+const Tagline = ({ tagline }) => {
+  return <p className={styles.tagline}>{tagline}</p>;
+};
+
+const Overview = ({ overview }) => {
+  return <p className={styles.overview}>{overview}</p>;
+};
+
 const Keywords = ({ keywords }) => {
   return (
     <ul className={styles.keywords}>

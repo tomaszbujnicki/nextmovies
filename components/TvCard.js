@@ -7,7 +7,7 @@ const TvCard = ({
   id,
   poster_path,
   backdrop_path,
-  size = 'w185',
+  size = 'w342',
   horizontal = false,
 }) => {
   return (

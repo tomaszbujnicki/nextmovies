@@ -39,7 +39,7 @@ export const TV_GENRES = {
   37: 'Western',
 };
 
-export const MOVIE_CERTYFICATION = {
+export const MOVIE_CERTIFICATION = {
   // US
   0: 'NR',
   1: 'G',
@@ -49,7 +49,7 @@ export const MOVIE_CERTYFICATION = {
   5: 'NC-17',
 };
 
-export const TV_CERTYFICATION = {
+export const TV_CERTIFICATION = {
   // US
   0: 'NR',
   1: 'TV-Y',

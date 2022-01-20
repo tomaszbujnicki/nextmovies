@@ -1,5 +1,5 @@
 .root {
-  padding: max(4rem, 4vw) max(2rem, 2vw) max(5rem, 5vw) max(4rem, 4vw);
+  padding: max(4rem, 4vw) max(8rem, 8vw) max(5rem, 5vw) max(8rem, 8vw);
 }
 
 .root:not(:last-child) {
@@ -9,7 +9,7 @@
 .heading {
   font-size: var(--fs-2);
   letter-spacing: max(0.2rem, 0.2vw);
-  padding: 0 0 max(1rem, 1vw) max(3rem, 3vw);
   color: var(--on-background);
   font-weight: 700;
+  margin: 0 0 max(3rem, 3vw) max(3rem, 3vw);
 }

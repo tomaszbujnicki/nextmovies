@@ -5,8 +5,8 @@ import Background from './Background';
 const Hero = ({ children, img }) => {
   return (
     <header className={styles.root}>
-      {img && <Background path={img} low="w300" />}
-      <div className={styles.container}>{children}</div>
+      <Background path={img} low="w300" />
+      {children}
     </header>
   );
 };
