@@ -4,7 +4,7 @@ import Image from './Image';
 import Player from './Player';
 import Modal from './Modal';
 import styles from './styles/VideoCard.module.css';
-import { Play } from '../assets/SvgButtons';
+import SVG_Play from '../assets/play.svg';
 
 const VideoCard = ({ videoKey, site }) => {
   const [videoExists, setVideoExists] = useState(null);
@@ -33,7 +33,7 @@ const VideoCard = ({ videoKey, site }) => {
           height={site === 'YouTube' ? 360 : 270}
           onError={() => setVideoExists(false)}
         />
-        <Play className={styles.PlayButton} width={50} height={50} />
+        <SVG_Play className={styles.svg} />
       </Button>
       {isPlayerOn && (
         <Modal closeCallback={() => setIsPlayerOn(false)}>

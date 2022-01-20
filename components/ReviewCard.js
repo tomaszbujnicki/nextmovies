@@ -2,7 +2,6 @@ import Image from './Image';
 import styles from './styles/ReviweCard.module.css';
 import ReactMarkdown from 'react-markdown';
 import removeEmoji from '../utilities/removeEmoji';
-import { Star } from '../assets/SvgButtons';
 import Modal from './Modal';
 import { useState } from 'react';
 import Rating from './Rating';

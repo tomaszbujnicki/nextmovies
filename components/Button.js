@@ -1,11 +1,9 @@
 import React from 'react';
-import {
-  Close,
-  Play,
-  Forward,
-  LeftArrow,
-  RightArrow,
-} from '../assets/SvgButtons';
+import SVG_Close from '../assets/close.svg';
+import SVG_Play from '../assets/play.svg';
+import SVG_Forward from '../assets/forward.svg';
+import SVG_LeftArrow from '../assets/arrow-left.svg';
+import SVG_RightArrow from '../assets/arrow-right.svg';
 import styles from './styles/Button.module.css';
 
 const Button = ({ children, active, className, ...rest }) => {
@@ -32,7 +30,7 @@ export const PrimaryButton = ({ children, size, ...rest }) => {
 export const CloseButton = ({ className, classNameInner, ...rest }) => {
   return (
     <Button className={className} {...rest}>
-      <Close className={classNameInner} />
+      <SVG_Close className={classNameInner} />
     </Button>
   );
 };
@@ -40,7 +38,7 @@ export const CloseButton = ({ className, classNameInner, ...rest }) => {
 export const PlayButton = ({ className, classNameInner, ...rest }) => {
   return (
     <Button className={className} {...rest}>
-      <Play className={classNameInner} />
+      <SVG_Play className={classNameInner} />
     </Button>
   );
 };
@@ -48,7 +46,7 @@ export const PlayButton = ({ className, classNameInner, ...rest }) => {
 export const ForwardButton = ({ className, classNameInner, ...rest }) => {
   return (
     <Button className={className} {...rest}>
-      <Forward className={classNameInner} />
+      <SVG_Forward className={classNameInner} />
     </Button>
   );
 };
@@ -56,7 +54,7 @@ export const ForwardButton = ({ className, classNameInner, ...rest }) => {
 export const LeftButton = ({ className, classNameInner, ...rest }) => {
   return (
     <Button className={className} {...rest}>
-      <LeftArrow className={classNameInner} />
+      <SVG_LeftArrow className={classNameInner} />
     </Button>
   );
 };
@@ -64,7 +62,7 @@ export const LeftButton = ({ className, classNameInner, ...rest }) => {
 export const RightButton = ({ className, classNameInner, ...rest }) => {
   return (
     <Button className={className} {...rest}>
-      <RightArrow className={classNameInner} />
+      <SVG_RightArrow className={classNameInner} />
     </Button>
   );
 };

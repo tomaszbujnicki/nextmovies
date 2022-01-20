@@ -1,6 +1,0 @@
-.root {
-  fill: var(--white);
-  width: max(1rem, 1vw);
-  height: max(1rem, 1vw);
-  flex-shrink: 0;
-}

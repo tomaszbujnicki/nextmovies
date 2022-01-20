@@ -33,3 +33,18 @@
   font-family: Montserrat, sans-serif;
 }
 
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: max(0.25rem, 0.25vw) max(0.5rem, 0.5vw);
+  border: max(0.025rem, 0.025vw) solid var(--white);
+  border-radius: max(0.5rem, 0.5vw);
+}
+
+.svg {
+  fill: var(--white);
+  width: max(1rem, 1vw);
+  height: max(1rem, 1vw);
+  flex-shrink: 0;
+  margin-right: max(0.5rem, 0.5vw);
+}

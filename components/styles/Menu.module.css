@@ -36,8 +36,9 @@
 
 .svg {
   fill: var(--on-background);
-  stroke: var(--on-background);
   transition: fill 0.5s, stroke 0.5s;
+  height: 100%;
+  width: 100%;
 }
 
 .svgClose {
@@ -45,9 +46,9 @@
 }
 
 .button {
-  height: max(3rem, 3vw);
-  width: max(3rem, 3vw);
-  padding: max(0.75rem, 0.75vw);
+  height: max(4rem, 4vw);
+  width: max(4rem, 4vw);
+  padding: max(1rem, 1vw);
   cursor: pointer;
   transition: background-color 0.5s;
 }
@@ -58,7 +59,6 @@
 
 .button:hover .svg {
   fill: var(--on-accent);
-  stroke: var(--on-accent);
 }
 
 .button:hover .svgClose {

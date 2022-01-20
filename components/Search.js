@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { SearchIcon } from '../assets/SvgButtons';
+import SVG_Search from '../assets/search.svg';
 import useFetch from '../hooks/useFetch';
 import SearchItem from './SearchItem';
 import Modal from './Modal';
@@ -54,7 +54,7 @@ const Search = ({ isOpen, closeCallback }) => {
         placeholder="Search for Movies, Tv-Shows, People"
       />
       <button className={styles.button} type="submit">
-        <SearchIcon className={styles.svg} />
+        <SVG_Search className={styles.svg} />
       </button>
     </form>
   );

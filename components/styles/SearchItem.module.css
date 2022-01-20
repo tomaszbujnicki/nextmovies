@@ -7,7 +7,7 @@
   transition: background-color 0.5s, border 0.5s, color 0.5s;
   border-radius: max(1rem, 1vw);
   background-color: var(--background-highlight);
-  margin: max(2rem, 2vw) max(4rem, 4vw) max(2rem, 2vw) max(2rem, 2vw);  
+  margin: max(0.5rem, 0.5vw) max(4rem, 4vw) max(0.5rem, 0.5vw) max(2rem, 2vw);  
   border: solid max(0.125rem, 0.125vw) transparent;
   outline: none;
 }

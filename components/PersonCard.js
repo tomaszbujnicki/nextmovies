@@ -1,9 +1,7 @@
 import React from 'react';
-import Link from 'next/link';
 import Image from './Image';
-import styles from './styles/PersonCard.module.css';
-import { Forward } from '../assets/SvgButtons';
 import CardLink from './CardLink';
+import styles from './styles/PersonCard.module.css';
 
 const PersonCard = ({
   id,

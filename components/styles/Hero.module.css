@@ -8,6 +8,6 @@
   width: 100%;
   height: 100%;
   position: relative;
-  padding-left: max(3rem, 3vw);
+  padding-left: max(4rem, 4vw);
   overflow: hidden;
 }

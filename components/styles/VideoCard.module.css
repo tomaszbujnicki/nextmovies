@@ -3,13 +3,13 @@
   position: relative;
 }
 
-.PlayButton {
+.svg {
   position: absolute;
   width: max(3rem, 3vw);
   height: max(3rem, 3vw);
   top: 50%;
   left: 50%;
-  transform: translate(-25px, -25px);
+  transform: translate(max(-1.5rem, -1.5vw), max(-1.5rem, -1.5vw));
   opacity: 0;
   transition: opacity 0.5s;
 }
@@ -19,8 +19,8 @@
   height: 100%;
 }
 
-.rootButton:hover .PlayButton,
-.rootButton:focus .PlayButton {
+.rootButton:hover .svg,
+.rootButton:focus .svg {
   opacity: 1;
 }
 

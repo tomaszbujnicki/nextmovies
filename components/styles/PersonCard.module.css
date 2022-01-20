@@ -1,24 +1,14 @@
 /* default */
 
-.root {
-  border-radius: max(1rem, 1vw);
-  display: block;
-}
-
 .content {
   border-radius: max(1rem, 1vw);
   overflow: hidden;
   color: var(--white);
 }
 
-.Image {
-  transition: opacity 0.5s;
-}
-
 .body {
   padding: max(0.75rem, 0.75vw);
   background-color: var(--primary-dark);
-  transition: opacity 0.5s;
 }
 
 .name {
@@ -28,36 +18,6 @@
 .position {
   font-size: var(--fs-7);
   font-style: italic;
-}
-
-.button {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-}
-
-.Forward {
-  width: 30%;
-  opacity: 0;
-  transition: opacity 0.5s;
-  fill: var(--accent);
-}
-
-.root:hover .Forward,
-.root:focus .Forward {
-  opacity: 1;
-}
-
-.root:hover .Image,
-.root:focus .Image,
-.root:hover .body,
-.root:focus .body {
-  opacity: 0.5;
 }
 
 /* horizontal */

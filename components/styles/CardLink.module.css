@@ -15,11 +15,15 @@
 }
 
 .svg {
-  /* width: min(high width) */
-  width: 30%; 
+  width: max(3rem, 3vw); 
   opacity: 0;
   transition: opacity 0.5s;
   fill: var(--accent);
+}
+
+.content {
+  opacity: 1;
+  transition: opacity 0.5s;
 }
 
 .root:hover .svg,

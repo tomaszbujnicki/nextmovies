@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Rating from './Rating';
-import { Timer as TimerSvg, People as PeopleSvg } from '../assets/SvgButtons';
 import styles from './styles/ProductionInfo.module.css';
 import { MOVIE_CERTYFICATION } from '../constants';
-import Tag from './Tag';
+import LockEye from '../assets/exit-fullscreen.svg';
+import SVG_Calendar from '../assets/calendar.svg';
+import SVG_Clock from '../assets/clock.svg';
 
 const Title = ({ title }) => {
   return <h1 className={styles.title}>{title}</h1>;
@@ -18,11 +19,13 @@ const Certyfication = ({ certyfication }) => {
   if (!certyfication) return null;
   return (
     <Tag>
-      <PeopleSvg />
+      <LockEye className={styles.svg} />
       {certyfication}
     </Tag>
   );
 };
+
+const Tag = ({ children }) => <div className={styles.tag}>{children}</div>;
 
 const Genres = ({ genres }) => {
   return (
@@ -38,7 +41,22 @@ const Genres = ({ genres }) => {
 
 const Timer = ({ time }) => {
   if (!time > 0) return null;
-  return <Tag svg="Timer">{time}</Tag>;
+  return (
+    <Tag>
+      <SVG_Clock className={styles.svg} />
+      {time}
+    </Tag>
+  );
+};
+
+const ReleaseDate = ({ date }) => {
+  if (!date) return null;
+  return (
+    <Tag>
+      <SVG_Calendar className={styles.svg} />
+      {new Date(date).toLocaleDateString('en-US')}
+    </Tag>
+  );
 };
 
 const Overview = ({ overview }) => {
@@ -51,15 +69,18 @@ const ProductionInfo = ({ movie }) => {
   return (
     <div className={styles.root}>
       <Title title={movie.title || movie.name} />
+
       <Genres genres={movie.genres} />
 
       <Rating rating={movie.vote_average} />
+
       <Timer time={movie.runtime} />
       <Certyfication
         certyfication={
           movie.release_dates.results[0].release_dates[0].certification
         }
       />
+      <ReleaseDate date={movie.release_date} />
 
       {/*
           <Tagline tagline={movie.tagline} />

@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Button from '../components/Button';
 import useToggle from '../hooks/useToggle';
-import {
-  Home,
-  ExitFullscreen,
-  EnterFullscreen,
-  Backdrop,
-  SearchIcon,
-} from '../assets/SvgButtons';
 import useFullscreen from '../hooks/useFullscreen';
 import styles from './styles/Menu.module.css';
+
+import SVG_ExitFullscreen from '../assets/exit-fullscreen.svg';
+import SVG_EnterFullscreen from '../assets/enter-fullscreen.svg';
+import SVG_Search from '../assets/search.svg';
+import SVG_Home from '../assets/home.svg';
 
 const Menu = ({ setIsSearchOpen }) => {
   const [isFullscreen, toggleFullscreen] = useFullscreen();
@@ -19,7 +17,7 @@ const Menu = ({ setIsSearchOpen }) => {
     <div className={styles.root}>
       <Link href={`/`}>
         <a className={styles.button} tabIndex="1">
-          <Home className={styles.svg} />
+          <SVG_Home className={styles.svg} />
         </a>
       </Link>
 
@@ -28,18 +26,14 @@ const Menu = ({ setIsSearchOpen }) => {
         className={styles.button}
         tabIndex="2"
       >
-        <SearchIcon className={styles.svg} />
-      </Button>
-
-      <Button className={styles.button} tabIndex="3">
-        <Backdrop className={styles.svg} />
+        <SVG_Search className={styles.svg} />
       </Button>
 
       <Button onClick={toggleFullscreen} className={styles.button} tabIndex="4">
         {isFullscreen ? (
-          <ExitFullscreen className={styles.svg} />
+          <SVG_ExitFullscreen className={styles.svg} />
         ) : (
-          <EnterFullscreen className={styles.svg} />
+          <SVG_EnterFullscreen className={styles.svg} />
         )}
       </Button>
     </div>
