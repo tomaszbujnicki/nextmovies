@@ -15,11 +15,6 @@
   line-height: 1;
 }
 
-.tagline {
-  font-size: var(--fs-4);
-  font-style: italic;
-}
-
 .genres {
   display: flex;
   margin: max(0.5rem, 0.5vw) 0;
@@ -27,10 +22,6 @@
 
 .genresItem {
   margin-right: max(1.5rem, 1.5vw);
-}
-
-.overview {
-  font-family: Montserrat, sans-serif;
 }
 
 .shortInfo {

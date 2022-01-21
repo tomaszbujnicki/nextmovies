@@ -20,29 +20,6 @@ const ProductionInfo = ({ movie }) => {
         <Timer time={movie.runtime} />
         <Certification globalReleaseDates={movie.release_dates.results} />
       </div>
-
-      {/*
-          <Tagline tagline={movie.tagline} />
-      <Overview overview={movie.overview} /> */}
-
-      {/* <div>
-        {belongs_to_collection ? belongs_to_collection.name : 'no collection'}
-      </div>
-      <div>
-        {budget > 0
-          ? budget.toLocaleString('en-US', {
-              style: 'currency',
-              currency: 'USD',
-            })
-          : '-'}
-      </div>
-      {homepage && (
-        <div>
-          <a target="_blank" href={homepage} rel="noopener noreferrer">
-            homepage
-          </a>
-        </div>
-      )} */}
     </div>
   );
 };
@@ -75,7 +52,19 @@ const Certification = ({ globalReleaseDates }) => {
   }
 
   const regionReleaseDates = regionObject.release_dates;
-  const certification = regionReleaseDates[0].certification;
+
+  let certification = '';
+
+  for (let i = 0; i < regionReleaseDates.length; i++) {
+    if (regionReleaseDates[i].certification !== '') {
+      certification = regionReleaseDates[i].certification;
+      break;
+    }
+  }
+
+  if (certification === '') {
+    return null;
+  }
 
   return (
     <Tag>

@@ -12,18 +12,14 @@
   transition: opacity 0.5s, background-color 0.5s;
 }
 
-.root:hover, .root:focus-within    {
+.root:hover, .root:focus-visible    {
   opacity: 1;
   background-color: var(--primary);
 }
 
-.root:hover .svg, .root:focus-within .svg {
+.root:hover .svg, .root:focus-visible .svg {
   fill: var(--on-primary);
   stroke: var(--on-primary);
-}
-
-.root:hover .svgClose, .root:focus-within .svgClose {
-  fill: var(--primary);
 }
 
 .root > *:first-child {

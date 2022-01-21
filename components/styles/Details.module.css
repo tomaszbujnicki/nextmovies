@@ -1,12 +1,96 @@
 .root {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2.5fr 0.7fr 1fr;
+  column-gap: max(2rem, 2vw);
 }
 
 .Poster {
-  flex-shrink: 0;
-  width: max(20rem, 20vw);
 }
 
-.info {
-  padding: max(1rem, 1vw);
+
+
+.tagline {
+  font-size: var(--fs-4);
+  font-style: italic;
+  font-weight: normal;
+  margin-bottom: max(1rem, 1vw);
+  font-family: Montserrat, sans-serif;
+  color: var(--white);
+}
+
+.overview {
+}
+
+.externals {
+  display: flex;
+  font-size: 0;
+}
+
+.externals > li {
+  width: max(1.5rem, 1.5vw);
+  margin-right: max(0.75rem, 0.75vw);
+}
+
+.external__link {
+  display: block;
+}
+
+.external__link > svg {
+  fill: var(--on-background);
+  stroke: var(--on-background);
+}
+
+.external__link:focus {
+outline: none;
+}
+
+.external__link:hover > svg, .external__link:focus-visible > svg {
+  fill: var(--accent);
+  stroke: var(--accent);
+}
+
+.keywords {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  font-size: var(--fs-8);
+  margin-top: max(2rem, 2vw);
+}
+
+.keyword {
+  padding: max(0.25rem, 0.25vw) max(0.5rem, 0.5vw);
+  background-color: var(--background-highlight);
+  border-radius: max(0.5rem, 0.5vw);
+  margin-right: max(0.5rem, 0.5vw);
+  margin-bottom: max(0.5rem, 0.5vw);
+}
+
+.keyword:hover {
+  color: var(--accent)
+}
+
+.list {
+}
+
+.list dt {
+  margin-top: max(1rem, 1vw);
+  font-size: var(--fs-8);
+  font-weight: 700;
+}
+
+.list dd {
+  font-family: Montserrat, sans-serif;
+  color: var(--white);
+}
+
+.link {
+  font-family: Montserrat, sans-serif;
+  color: var(--white);
+  outline: none;
+}
+
+.link:hover, .link:focus-visible {
+  color: var(--accent);
 }
