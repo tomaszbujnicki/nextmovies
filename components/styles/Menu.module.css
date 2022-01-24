@@ -42,8 +42,8 @@
 }
 
 .button {
-  height: max(4rem, 4vw);
-  width: max(4rem, 4vw);
+  height: max(3.5rem, 3.5vw);
+  width: max(3.5rem, 3.5vw);
   padding: max(1rem, 1vw);
   cursor: pointer;
   transition: background-color 0.5s;

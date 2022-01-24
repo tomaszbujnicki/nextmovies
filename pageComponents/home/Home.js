@@ -21,7 +21,7 @@ const Home = ({
 
       <Heading />
 
-      <ProductionBanner data={tvPopular.results} variant="2" type="tv" />
+      <ProductionBanner data={tvPopular.results} variant="1" type="tv" />
 
       <Section title="Now Playing in Theatres">
         <CardList data={inTheatres.results} type="movie" />

@@ -1,30 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import Rating from './Rating';
-import styles from './styles/ProductionInfo.module.css';
+import styles from './styles/MainInfo.module.css';
 import SVG_PeopleProhibited from '../assets/people-prohibited.svg';
 import SVG_Calendar from '../assets/calendar.svg';
 import SVG_Clock from '../assets/clock.svg';
 
-const ProductionInfo = ({ movie }) => {
-  console.log(movie);
+const MainInfo = ({ title, genres, rating, releaseDate, runtime }) => {
   return (
     <div className={styles.root}>
-      <Title title={movie.title || movie.name} />
+      <Title title={title} />
 
-      <Genres genres={movie.genres} />
+      <Genres genres={genres} />
 
-      <Rating rating={movie.vote_average} />
+      <Rating rating={rating} />
 
       <div className={styles.shortInfo}>
-        <ReleaseDate date={movie.release_date} />
-        <Timer time={movie.runtime} />
-        <Certification globalReleaseDates={movie.release_dates.results} />
+        <ReleaseDate date={releaseDate} />
+        <Timer time={runtime} />
+        {/* <Certification globalReleaseDates={movie.release_dates.results} /> */}
       </div>
     </div>
   );
 };
 
-export default ProductionInfo;
+export default MainInfo;
 
 const Title = ({ title }) => {
   return <h1 className={styles.title}>{title}</h1>;

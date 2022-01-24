@@ -1,64 +1,78 @@
 import Head from '../../components/Head';
-import ProductionInfo from '../../components/ProductionInfo';
-import Details from '../../components/Details';
-import Hero from '../../components/Hero';
-import Section from '../../components/Section';
-import CardList from '../../components/CardList';
-import { CastSection } from './CastSection';
-import styles from './Movie.module.css';
+import Header from '../Production/Header';
+import DetailSection from '../Production/DetailSection';
+import CastSection from '../Production/CastSection';
+import CardListSection from '../Production/CardListSection';
 
 const Movie = ({ data }) => {
   console.log(data);
+  const poster = data.poster_path;
+  const backdrop = data.backdrop_path;
+  const title = data.title;
+  const genres = data.genres;
+  const rating = data.vote_average;
+  const runtime = data.runtime;
+  const releaseDate = data.release_date;
+  const certification = data.release_dates;
+  const cast = data.credits.cast;
+  const crew = data.credits.crew;
+  const overview = data.overview;
+  const tagline = data.tagline;
+  const homepage = data.homepage;
+  const externals = data.external_ids;
+  const keywords = data.keywords.keywords;
+  const budget = data.budget;
+  const revenue = data.revenue;
+  const originalLanguage = data.originalLanguage;
+  const reviews = data.reviews.results;
+  const recommendations = data.recommendations.results;
+  const similar = data.similar.results;
+  const videos = data.videos.results
+    .map((video) => ({
+      ...video,
+      videoKey: video.key,
+    }))
+    .reverse();
 
   return (
     <>
-      <Head title={`${data.title} (${data.release_date?.slice(0, 4)})`} />
+      <Head title={`${title} (${releaseDate?.slice(0, 4)})`} />
 
-      <Hero img={data.backdrop_path}>
-        <div className={styles.hero}>
-          <ProductionInfo movie={data} />
-        </div>
-      </Hero>
+      <Header
+        img={backdrop}
+        title={title}
+        genres={genres}
+        rating={rating}
+        releaseDate={releaseDate}
+        runtime={runtime}
+      />
 
-      <Section>
-        <Details data={data} />
-      </Section>
+      <DetailSection
+        poster={poster}
+        overview={overview}
+        tagline={tagline}
+        homepage={homepage}
+        externals={externals}
+        keywords={keywords}
+        budget={budget}
+        revenue={revenue}
+        originalLanguage={originalLanguage}
+        crew={crew}
+      />
 
-      {data.videos?.results.length > 0 && (
-        <Section title="Videos">
-          <CardList
-            data={data.videos.results
-              .map((video) => ({
-                ...video,
-                videoKey: video.key,
-              }))
-              .reverse()}
-            type="video"
-          />
-        </Section>
-      )}
+      <CardListSection title="Videos" type="video" arr={videos} />
 
-      {(data.credits?.cast.length > 0 || data.credits?.crew.length > 0) && (
-        <CastSection credits={data.credits} />
-      )}
+      <CastSection cast={cast} crew={crew} />
 
-      {data.reviews?.results.length > 0 && (
-        <Section title="Reviews">
-          <CardList data={data.reviews.results} type="review" />
-        </Section>
-      )}
+      <CardListSection title="Reviews" type="review" arr={reviews} />
 
-      {data.recommendations?.results.length > 0 && (
-        <Section title="Recommendations">
-          <CardList data={data.recommendations.results} type="movie" />
-        </Section>
-      )}
+      <CardListSection
+        title="Recommendations"
+        type="movie"
+        arr={recommendations}
+      />
 
-      {data.similar?.results.length > 0 && (
-        <Section title="Similar Movies">
-          <CardList data={data.similar.results} type="movie" />
-        </Section>
-      )}
+      <CardListSection title="Similar Movies" type="movie" arr={similar} />
     </>
   );
 };

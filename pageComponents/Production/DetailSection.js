@@ -1,28 +1,47 @@
 import React from 'react';
-import Image from './Image';
-import styles from './styles/Details.module.css';
-import SVG_Instagram from '../assets/instagram.svg';
-import SVG_Facebook from '../assets/facebook.svg';
-import SVG_Twitter from '../assets/twitter.svg';
-import SVG_Link from '../assets/link.svg';
+import Image from '../../components/Image';
+import styles from './DetailSection.module.css';
+import SVG_Instagram from '../../assets/instagram.svg';
+import SVG_Facebook from '../../assets/facebook.svg';
+import SVG_Twitter from '../../assets/twitter.svg';
+import SVG_Link from '../../assets/link.svg';
 import Link from 'next/dist/client/link';
-import { LANGUAGES } from '../constants';
+import { LANGUAGES } from '../../constants';
+import Section from '../../components/Section';
 
-const Details = ({ data }) => {
+const DetailSection = ({
+  poster,
+  overview,
+  tagline,
+  homepage,
+  externals,
+  keywords,
+  budget,
+  revenue,
+  originalLanguage,
+  crew,
+}) => {
   return (
-    <div className={styles.root}>
-      <Poster path={data.poster_path} />
-      <Overview overview={data.overview} tagline={data.tagline} />
-      <List data={data} />
-      <div>
-        <Externals externals={data.external_ids} homepage={data.homepage} />
-        <Keywords keywords={data.keywords.keywords} />
+    <Section>
+      <div className={styles.main}>
+        <Poster path={poster} />
+        <Overview overview={overview} tagline={tagline} />
+        <List
+          budget={budget}
+          revenue={revenue}
+          originalLanguage={originalLanguage}
+          crew={crew}
+        />
+        <div>
+          <Externals externals={externals} homepage={homepage} />
+          <Keywords keywords={keywords} />
+        </div>
       </div>
-    </div>
+    </Section>
   );
 };
 
-export default Details;
+export default DetailSection;
 
 const Poster = ({ path }) => {
   return (
@@ -40,13 +59,6 @@ const Poster = ({ path }) => {
   );
 };
 
-{
-  /* <div>
-        {belongs_to_collection ? belongs_to_collection.name : 'no collection'}
-      </div>
- */
-}
-
 const intToCurrency = (int) =>
   int.toLocaleString('en-US', {
     style: 'currency',
@@ -55,15 +67,10 @@ const intToCurrency = (int) =>
     minimumFractionDigits: 0,
   });
 
-const List = ({ data }) => {
-  const budget = data.budget;
-  const revenue = data.revenue;
-  const language = data.original_language;
+const List = ({ budget, revenue, originalLanguage, crew }) => {
   const directors = [];
   const writers = [];
 
-  const crew = data.credits.crew;
-  console.log(crew);
   for (let i = 0; i < crew.length; i++) {
     if (crew[i].job === 'Director') {
       directors.push(crew[i]);
@@ -124,10 +131,10 @@ const List = ({ data }) => {
         </div>
       )}
 
-      {language && (
+      {originalLanguage && (
         <div>
           <dt>Original Language:</dt>
-          <dd>{LANGUAGES[language]}</dd>
+          <dd>{LANGUAGES[originalLanguage]}</dd>
         </div>
       )}
     </dl>

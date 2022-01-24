@@ -1,4 +1,4 @@
-.root {
+.main {
   display: grid;
   grid-template-columns: 1fr 2.5fr 0.7fr 1fr;
   column-gap: max(2rem, 2vw);

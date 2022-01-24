@@ -8,15 +8,22 @@ import Crew from '../../components/Crew';
 import styles from './CastSection.module.css';
 import ButtonGroup from '../../components/ButtonGroup';
 
-export const CastSection = ({ credits }) => {
+const CastSection = ({ cast, crew }) => {
+  if (cast.length === 0) {
+    return null;
+  }
+
   return (
     <Section title="Cast">
-      <CardList data={credits.cast.slice(0, 16)} type="person" />
-      <CastSection__Modal credits={credits} />
+      <CardList data={cast.slice(0, 16)} type="person" />
+      <CastSection__Modal cast={cast} crew={crew} />
     </Section>
   );
 };
-const CastSection__Modal = ({ credits }) => {
+
+export default CastSection;
+
+const CastSection__Modal = ({ cast, crew }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCastDisplayed, setIsCastDisplayed] = useState(true);
   const childRef = useRef(null);
@@ -56,26 +63,30 @@ const CastSection__Modal = ({ credits }) => {
           closeCallback={() => setIsModalOpen(false)}
           barContent={menuBar}
         >
-          <CastAndCrew credits={credits} isCastDisplayed={isCastDisplayed} />
+          <CastAndCrew
+            cast={cast}
+            crew={crew}
+            isCastDisplayed={isCastDisplayed}
+          />
         </Modal>
       )}
     </>
   );
 };
 
-const CastAndCrew = ({ credits, isCastDisplayed }) => {
+const CastAndCrew = ({ cast, crew, isCastDisplayed }) => {
   return (
     <div className={styles.root}>
       <h2 className={styles.title}>Full Cast & Crew</h2>
       <div className={styles.main}>
         <div className={!isCastDisplayed ? styles.hide : null}>
           <h3 className={styles.subtitle}>Cast</h3>
-          <PersonList people={credits.cast} />
+          <PersonList people={cast} />
         </div>
 
         <div className={isCastDisplayed ? styles.hide : null}>
           <h3 className={styles.subtitle}>Crew</h3>
-          <Crew crew={credits.crew} />
+          <Crew crew={crew} />
         </div>
       </div>
     </div>
