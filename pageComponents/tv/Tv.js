@@ -13,7 +13,6 @@ const Tv = ({ data }) => {
   const rating = data.vote_average;
   const runtime = data.episode_run_time[0];
   const releaseDate = data.first_air_date;
-  const certification = data.content_ratings;
   const numberOfSeasons = data.number_of_seasons;
   const cast = data.credits.cast;
   const crew = data.credits.crew;
@@ -34,6 +33,7 @@ const Tv = ({ data }) => {
       videoKey: video.key,
     }))
     .reverse();
+  const certification = getCertification(data.content_ratings.results);
 
   return (
     <>
@@ -46,6 +46,7 @@ const Tv = ({ data }) => {
         rating={rating}
         releaseDate={releaseDate}
         runtime={runtime}
+        certification={certification}
       />
 
       <DetailSection
@@ -79,3 +80,16 @@ const Tv = ({ data }) => {
 };
 
 export default Tv;
+
+const getCertification = (ratings) => {
+  console.log(ratings);
+  const region = ratings.find((rating) => rating.iso_3166_1 === 'US');
+
+  if (!region) {
+    return undefined;
+  }
+
+  const certification = region.rating;
+
+  return certification;
+};

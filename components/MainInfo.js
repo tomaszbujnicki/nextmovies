@@ -5,7 +5,14 @@ import SVG_PeopleProhibited from '../assets/people-prohibited.svg';
 import SVG_Calendar from '../assets/calendar.svg';
 import SVG_Clock from '../assets/clock.svg';
 
-const MainInfo = ({ title, genres, rating, releaseDate, runtime }) => {
+const MainInfo = ({
+  title,
+  genres,
+  rating,
+  releaseDate,
+  runtime,
+  certification,
+}) => {
   return (
     <div className={styles.root}>
       <Title title={title} />
@@ -17,7 +24,7 @@ const MainInfo = ({ title, genres, rating, releaseDate, runtime }) => {
       <div className={styles.shortInfo}>
         <ReleaseDate date={releaseDate} />
         <Timer time={runtime} />
-        {/* <Certification globalReleaseDates={movie.release_dates.results} /> */}
+        <Certification certification={certification} />
       </div>
     </div>
   );
@@ -41,27 +48,8 @@ const Genres = ({ genres }) => {
   );
 };
 
-const Certification = ({ globalReleaseDates }) => {
-  const regionObject = globalReleaseDates.find(
-    (releaseDates) => releaseDates.iso_3166_1 === 'US'
-  );
-
-  if (!regionObject) {
-    return null;
-  }
-
-  const regionReleaseDates = regionObject.release_dates;
-
-  let certification = '';
-
-  for (let i = 0; i < regionReleaseDates.length; i++) {
-    if (regionReleaseDates[i].certification !== '') {
-      certification = regionReleaseDates[i].certification;
-      break;
-    }
-  }
-
-  if (certification === '') {
+const Certification = ({ certification }) => {
+  if (!certification) {
     return null;
   }
 

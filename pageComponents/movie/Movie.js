@@ -13,7 +13,6 @@ const Movie = ({ data }) => {
   const rating = data.vote_average;
   const runtime = data.runtime;
   const releaseDate = data.release_date;
-  const certification = data.release_dates;
   const cast = data.credits.cast;
   const crew = data.credits.crew;
   const overview = data.overview;
@@ -33,6 +32,7 @@ const Movie = ({ data }) => {
       videoKey: video.key,
     }))
     .reverse();
+  const certification = getCertification(data.release_dates.results);
 
   return (
     <>
@@ -45,6 +45,7 @@ const Movie = ({ data }) => {
         rating={rating}
         releaseDate={releaseDate}
         runtime={runtime}
+        certification={certification}
       />
 
       <DetailSection
@@ -78,3 +79,30 @@ const Movie = ({ data }) => {
 };
 
 export default Movie;
+
+const getCertification = (globalReleaseDates) => {
+  const regionObject = globalReleaseDates.find(
+    (releaseDates) => releaseDates.iso_3166_1 === 'US'
+  );
+
+  if (!regionObject) {
+    return undefined;
+  }
+
+  const regionReleaseDates = regionObject.release_dates;
+
+  let certification = '';
+
+  for (let i = 0; i < regionReleaseDates.length; i++) {
+    if (regionReleaseDates[i].certification !== '') {
+      certification = regionReleaseDates[i].certification;
+      break;
+    }
+  }
+
+  if (certification === '') {
+    return undefined;
+  }
+
+  return certification;
+};

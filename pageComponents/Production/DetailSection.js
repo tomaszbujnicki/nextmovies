@@ -83,8 +83,6 @@ const List = ({ budget, revenue, originalLanguage, crew }) => {
     }
   }
 
-  console.log(directors, writers);
-
   return (
     <dl className={styles.list}>
       {directors.length > 0 && (

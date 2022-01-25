@@ -4,40 +4,25 @@ import styles from './styles/Background.module.css';
 
 const root = 'http://image.tmdb.org/t/p/';
 
-const Background = ({
-  path,
-  style,
-  low,
-  high = 'original',
-  handleLoad,
-  ...rest
-}) => {
-  const [oldPath, setOldPath] = useState(null);
+const Background = ({ path, low, high = 'original' }) => {
+  const [firstRender, setFirstRender] = useState(true);
   const [isHighLoaded, setIsHighLoaded] = useState(false);
   const [isLowLoaded, setIsLowLoaded] = useState(false);
 
   useEffect(() => {
-    setOldPath(path);
-    return () => {
-      setIsHighLoaded(false);
-      setIsLowLoaded(false);
-    };
+    setIsHighLoaded(false);
+    setIsLowLoaded(false);
   }, [path]);
 
-  if (oldPath === null) return null;
+  useEffect(() => {
+    setFirstRender(false);
+  }, []);
+
+  if (firstRender) return null;
 
   return (
-    <div
-      style={{
-        width: '100%',
-        height: '100%',
-        position: 'absolute',
-        zIndex: '-1',
-        ...style,
-      }}
-      {...rest}
-    >
-      <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+    <div className={styles.root}>
+      <div className={styles.inner}>
         <Image
           priority
           layout="fill"
@@ -47,11 +32,10 @@ const Background = ({
           alt=""
           onLoad={(e) => {
             if (e.target.src.indexOf('data:image/gif;base64') < 0) {
-              console.log('Low Loaded');
               setIsLowLoaded(true);
             }
           }}
-          className={styles.blur}
+          className={isLowLoaded ? styles.show : styles.hide}
         />
         <Image
           priority
@@ -62,15 +46,10 @@ const Background = ({
           alt=""
           onLoad={(e) => {
             if (e.target.src.indexOf('data:image/gif;base64') < 0) {
-              console.log('High Loaded');
               setIsHighLoaded(true);
             }
           }}
-          className={
-            isLowLoaded && !isHighLoaded
-              ? styles.hidden + ' ' + styles.high
-              : styles.high
-          }
+          className={isHighLoaded ? styles.show : styles.hide}
         />
       </div>
     </div>
