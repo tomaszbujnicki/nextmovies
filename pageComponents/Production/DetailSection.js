@@ -5,7 +5,7 @@ import SVG_Instagram from '../../assets/instagram.svg';
 import SVG_Facebook from '../../assets/facebook.svg';
 import SVG_Twitter from '../../assets/twitter.svg';
 import SVG_Link from '../../assets/link.svg';
-import Link from 'next/dist/client/link';
+import Link from 'next/link';
 import { LANGUAGES } from '../../constants';
 import Section from '../../components/Section';
 

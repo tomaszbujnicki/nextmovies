@@ -2,21 +2,19 @@
   display: flex;
   width: 100%;
   position: relative;
-  padding-left: max(4rem, 4vw);
+  padding: max(4rem, 4vw) max(8rem, 8vw);
 }
 
-.PersonalInfoContainer {
-  width: 25%;
+.sideContainer {
+  width: 22%;
   display: flex;
   flex-direction: column;
-  padding: max(3rem, 3vw);
   overflow: hidden;
-
 }
 
-.MainInfoContainer {
-  width: 75%;
-  padding: max(4rem, 4vw) max(8rem, 8vw) max(4rem, 4vw) max(4rem, 4vw);
+.mainContainer {
+  width: 78%;
+  padding-left: max(4rem, 4vw);
 }
 
 .Poster {

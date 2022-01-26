@@ -1,0 +1,65 @@
+.root {
+  display: flex;
+  width: 100%;
+  position: relative;
+  padding: max(4rem, 4vw) max(8rem, 8vw);
+}
+
+.sideContainer {
+  width: 22%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.buttonList {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  background-color: var(--background-highlight);
+  margin-bottom: max(1rem, 1vw);
+  height: max(5rem, 5vw);
+  font-size: var(--fs-6);
+  border-radius: max(1rem, 1vw);
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 max(3rem, 3vw);
+  transition: background-color 0.5s, border 0.5s, color 0.5s;
+  outline: none;
+}
+
+.buttonActive {
+  background: var(--primary-dark); 
+}
+
+.button:hover,
+.button:focus {
+  background: var(--primary-dark);      
+  color: var(--accent);
+}
+
+.mainContainer {
+  width: 78%;
+  padding-left: max(4rem, 4vw);
+}
+
+.content {
+  left: 8%;
+  top: max(3rem, 3vw);
+  top: 5.5rem;
+  z-index: 9998;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.noResults {
+  padding: max(2rem, 2vw);
+  font-size: var(--fs-3);
+}

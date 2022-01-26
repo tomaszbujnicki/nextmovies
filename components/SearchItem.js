@@ -14,6 +14,7 @@ const SearchItem = ({
   release_date,
   genre_ids,
   known_for_department,
+  known_for,
   gender,
   first_air_date,
 }) => {
@@ -50,7 +51,11 @@ const SearchItem = ({
               first_air_date={first_air_date}
             />
           ) : media_type === 'person' ? (
-            <Person job={known_for_department} name={name} />
+            <Person
+              job={known_for_department}
+              name={name}
+              known_for={known_for}
+            />
           ) : null}
         </div>
       </a>
@@ -60,11 +65,18 @@ const SearchItem = ({
 
 export default SearchItem;
 
-const Person = ({ name, job }) => {
+const Person = ({ name, job, known_for }) => {
   return (
     <>
       <div className={styles.title}>{name}</div>
       <div>{job}</div>
+      <ul className={styles.list}>
+        {known_for.map((production, index) => (
+          <li key={index} className={styles.listItem}>
+            {production.title || production.name}
+          </li>
+        ))}
+      </ul>
     </>
   );
 };
@@ -73,9 +85,9 @@ const Tv = ({ name, genre_ids, first_air_date }) => {
     <>
       <div className={styles.title}>{name}</div>
       <div>{first_air_date?.slice(0, 4)}</div>
-      <ul className={styles.genres}>
+      <ul className={styles.list}>
         {genre_ids.map((id) => (
-          <li key={id} className={styles.genresItem}>
+          <li key={id} className={styles.listItem}>
             {TV_GENRES[id]}
           </li>
         ))}
@@ -89,9 +101,9 @@ const Movie = ({ title, release_date, genre_ids }) => {
     <>
       <div className={styles.title}>{title}</div>
       <div>{release_date?.slice(0, 4)}</div>
-      <ul className={styles.genres}>
+      <ul className={styles.list}>
         {genre_ids.map((id) => (
-          <li key={id} className={styles.genresItem}>
+          <li key={id} className={styles.listItem}>
             {MOVIE_GENRES[id]}
           </li>
         ))}

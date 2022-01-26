@@ -1,15 +1,17 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useRouter } from 'next/router';
 import SVG_Search from '../assets/search.svg';
 import useFetch from '../hooks/useFetch';
 import SearchItem from './SearchItem';
 import Modal from './Modal';
-import styles from './styles/Search.module.css';
+import styles from './styles/SearchBar.module.css';
 
-const Search = ({ isOpen, closeCallback }) => {
+const SearchBar = ({ isOpen, closeCallback }) => {
   const [value, setValue] = useState('');
   const [query, setQuery] = useState(null);
   const data = useFetch(query);
   const childRef = useRef(null);
+  const router = useRouter();
 
   console.log(data);
 
@@ -23,7 +25,7 @@ const Search = ({ isOpen, closeCallback }) => {
     const timeout = setTimeout(() => {
       const trimedValue = value.trim();
       if (trimedValue.length > 0) {
-        setQuery(`search/${value}`);
+        setQuery(`search/${trimedValue}`);
       } else {
         setQuery(null);
       }
@@ -38,10 +40,11 @@ const Search = ({ isOpen, closeCallback }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setQuery(`search/${value}`);
+    const query = e.target.search.value.trim();
+    router.push(`/search/${query}`);
   };
 
-  const searchBar = (
+  const Bar = (
     <form className={styles.form} onSubmit={handleSubmit}>
       <input
         autoComplete="off"
@@ -65,7 +68,7 @@ const Search = ({ isOpen, closeCallback }) => {
         <Modal
           forwardedRef={childRef}
           closeCallback={closeCallback}
-          barContent={searchBar}
+          barContent={Bar}
         >
           <div className={styles.bar}></div>
           <Content data={data} />
@@ -75,9 +78,10 @@ const Search = ({ isOpen, closeCallback }) => {
   );
 };
 
-export default Search;
+export default SearchBar;
 
 const Content = ({ data }) => {
+  if (!data) return null;
   return (
     <div className={styles.content} tabIndex="-1">
       {data?.results?.length > 0 && (
@@ -90,7 +94,7 @@ const Content = ({ data }) => {
         </ul>
       )}
 
-      {data?.results?.length === 0 && (
+      {data.results.length === 0 && (
         <div className={styles.noResults}>No results found.</div>
       )}
     </div>

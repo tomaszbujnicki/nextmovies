@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 import Menu from '../components/Menu';
-import Search from '../components/Search';
+import SearchBar from '../components/SearchBar';
 import '../styles/styles.scss';
 
 function MyApp({ Component, pageProps }) {
@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       <main>
-        <Search
+        <SearchBar
           isOpen={isSearchOpen}
           closeCallback={() => setIsSearchOpen(false)}
         />

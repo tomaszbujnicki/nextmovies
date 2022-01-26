@@ -21,12 +21,12 @@ const Person = ({ data }) => {
       <Head title={data.name} />
 
       <div className={styles.root}>
-        <div className={styles.PersonalInfoContainer}>
+        <div className={styles.sideContainer}>
           <Poster data={data} />
           <PersonalInfo data={data} />
         </div>
 
-        <div className={styles.MainInfoContainer}>
+        <div className={styles.mainContainer}>
           <Header>
             <Title title={data.name} />
             <Subtitle subtitle={data.known_for_department} />

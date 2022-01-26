@@ -35,10 +35,10 @@
   font-size: var(--fs-5);
 }
 
-.genres {
+.list {
   display: flex;
 }
 
-.genresItem {
+.listItem {
   margin-right: max(1rem, 1vw);
 }
