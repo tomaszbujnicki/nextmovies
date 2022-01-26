@@ -16,22 +16,6 @@ const Person = ({ data }) => {
     data.known_for_department
   );
 
-  /* 
-  popularity: 18.618
-​​​
-poster_path: "/cwNeP2fz0vqNhmKIcSgLD0xc6g2.jpg"
-​​​
-release_date: "2003-09-26"
-​​​
-title: "The Rundown"
-​​​
-video: false
-​​​
-vote_average: 6.4
-​​​
-vote_count: 1497
-  */
-
   return (
     <>
       <Head title={data.name} />
@@ -69,67 +53,6 @@ vote_count: 1497
             </Section>
           )}
         </div>
-      </div>
-
-      <div>
-        <ul>
-          {data.tagged_images.results.map((x) => {
-            if (x.image_type === 'still') {
-              return (
-                <li key={x.id}>
-                  <Image
-                    id={x.file_path}
-                    size="original"
-                    width={1280}
-                    height={720}
-                    media="tmdb"
-                  />
-                </li>
-              );
-            }
-            if (x.image_type === 'backdrop') {
-              return (
-                <li key={x.id}>
-                  <Image
-                    id={x.file_path}
-                    size="original"
-                    width={1280}
-                    height={720}
-                    media="tmdb"
-                  />
-                </li>
-              );
-            }
-            if (x.image_type === 'poster') {
-              return (
-                <li key={x.id}>
-                  <Image
-                    id={x.file_path}
-                    size="original"
-                    width={500}
-                    height={750}
-                    media="tmdb"
-                  />
-                </li>
-              );
-            }
-            if (x.image_type === 'profile') {
-              return (
-                <li key={x.id}>
-                  <Image
-                    id={x.file_path}
-                    size="original"
-                    width={500}
-                    height={750}
-                    media="tmdb"
-                  />
-                </li>
-              );
-            }
-
-            return null;
-          })}
-        </ul>
       </div>
     </>
   );

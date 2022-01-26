@@ -16,7 +16,7 @@
 
 .MainInfoContainer {
   width: 75%;
-  padding: max(3rem, 3vw);
+  padding: max(4rem, 4vw) max(8rem, 8vw) max(4rem, 4vw) max(4rem, 4vw);
 }
 
 .Poster {
