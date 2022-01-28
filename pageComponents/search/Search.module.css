@@ -33,12 +33,12 @@
 }
 
 .buttonActive {
-  background: var(--primary-dark); 
+  background: var(--primary-dark);
 }
 
 .button:hover,
 .button:focus {
-  background: var(--primary-dark);      
+  background: var(--primary-dark);
   color: var(--accent);
 }
 
@@ -62,4 +62,36 @@
 .noResults {
   padding: max(2rem, 2vw);
   font-size: var(--fs-3);
+}
+
+.Pagination {
+  list-style: none;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.Pagination__element {
+  width: max(2rem, 2vw);
+  height: max(2rem, 2vw);
+  font-size: var(--fs-7);
+}
+
+.Pagination__element:hover,
+.Pagination__element:focus-visible,
+.active {
+  background-color: var(--primary);
+}
+
+.Pagination__element:focus-visible {
+  outline: max(0.125rem, 0.125vw) solid var(--accent);
+}
+
+.li {
+  display: flex;
+  margin-right: max(0.25rem, 0.25vw);
+}
+
+.dots {
+  font-size: var(--fs-7);
+  padding: 0 max(0.25rem, 0.25vw);
 }

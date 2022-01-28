@@ -18,6 +18,8 @@ const Background = ({ path, low, high = 'original' }) => {
     setFirstRender(false);
   }, []);
 
+  if (!path) return null;
+
   if (firstRender) return null;
 
   return (

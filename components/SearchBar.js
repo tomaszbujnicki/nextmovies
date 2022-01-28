@@ -13,8 +13,6 @@ const SearchBar = ({ isOpen, closeCallback }) => {
   const childRef = useRef(null);
   const router = useRouter();
 
-  console.log(data);
-
   useEffect(() => {
     if (!isOpen) {
       setQuery(null);
@@ -25,7 +23,7 @@ const SearchBar = ({ isOpen, closeCallback }) => {
     const timeout = setTimeout(() => {
       const trimedValue = value.trim();
       if (trimedValue.length > 0) {
-        setQuery(`search/${trimedValue}`);
+        setQuery(`search/multi/&query=${trimedValue}`);
       } else {
         setQuery(null);
       }

@@ -59,15 +59,15 @@ const Image = ({
         onLoad();
       } else {
         window.addEventListener('load', onLoad);
-
-        return () => {
-          // Clean up the load event listener and an eventual defer
-          window.removeEventListener('load', onLoad);
-          if (clearDefer) {
-            clearDefer();
-          }
-        };
       }
+
+      return () => {
+        // Clean up the load event listener and an eventual defer
+        window.removeEventListener('load', onLoad);
+        if (clearDefer) {
+          clearDefer();
+        }
+      };
     }
   }, [propsLoading, priority]);
 

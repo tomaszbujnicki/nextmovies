@@ -86,8 +86,8 @@ const Tv = ({ name, genre_ids, first_air_date }) => {
       <div className={styles.title}>{name}</div>
       <div>{first_air_date?.slice(0, 4)}</div>
       <ul className={styles.list}>
-        {genre_ids.map((id) => (
-          <li key={id} className={styles.listItem}>
+        {genre_ids.map((id, index) => (
+          <li key={index} className={styles.listItem}>
             {TV_GENRES[id]}
           </li>
         ))}
@@ -102,8 +102,8 @@ const Movie = ({ title, release_date, genre_ids }) => {
       <div className={styles.title}>{title}</div>
       <div>{release_date?.slice(0, 4)}</div>
       <ul className={styles.list}>
-        {genre_ids.map((id) => (
-          <li key={id} className={styles.listItem}>
+        {genre_ids.map((id, index) => (
+          <li key={index} className={styles.listItem}>
             {MOVIE_GENRES[id]}
           </li>
         ))}

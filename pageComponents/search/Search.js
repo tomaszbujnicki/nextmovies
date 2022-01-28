@@ -1,46 +1,77 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Head from '../../components/Head';
 import SearchItem from '../../components/SearchItem';
+import useFetch from '../../hooks/useFetch';
 import styles from './Search.module.css';
 
 const Search = (props) => {
-  const [media_type, setMedia_type] = useState('movie');
+  const [state, setState] = useState({
+    media_type: 'movie',
+    query: null,
+    page: 1,
+  });
+
+  const ref = useRef(null);
+
+  const fetchedData = useFetch(state.query);
+
+  const data =
+    state.page > 1 && fetchedData ? fetchedData : props[state.media_type];
+
+  const fetch = (page) => {
+    if (ref.current) {
+      setState((state) => ({
+        ...state,
+        page: page,
+        query: `search/${state.media_type}/&query=${props.query}&page=${page}`,
+      }));
+    }
+
+    ref.current.scrollIntoView();
+  };
+
   return (
     <>
       <Head title={props.query} />
-
-      <div className={styles.root}>
+      <button onClick={() => fetch(2)}>SECOND PAGE</button>
+      <div ref={ref} className={styles.root}>
         <div className={styles.sideContainer}>
           <div className={styles.buttonList}>
             <button
               className={
-                media_type === 'movie'
+                state.media_type === 'movie'
                   ? styles.button + ' ' + styles.buttonActive
                   : styles.button
               }
-              onClick={() => setMedia_type('movie')}
+              onClick={() => {
+                setState({ media_type: 'movie', query: null, page: 1 });
+              }}
             >
               <span>Movie</span>
               <span>{props.movie.total_results}</span>
             </button>
             <button
               className={
-                media_type === 'tv'
+                state.media_type === 'tv'
                   ? styles.button + ' ' + styles.buttonActive
                   : styles.button
               }
-              onClick={() => setMedia_type('tv')}
+              onClick={() => {
+                setState({ media_type: 'tv', query: null, page: 1 });
+              }}
             >
               <span>TV Shows</span>
               <span>{props.tv.total_results}</span>
             </button>
             <button
               className={
-                media_type === 'person'
+                state.media_type === 'person'
                   ? styles.button + ' ' + styles.buttonActive
                   : styles.button
               }
-              onClick={() => setMedia_type('person')}
+              onClick={() => {
+                setState({ media_type: 'person', query: null, page: 1 });
+              }}
             >
               <span>People</span>
               <span>{props.person.total_results}</span>
@@ -49,7 +80,12 @@ const Search = (props) => {
         </div>
 
         <div className={styles.mainContainer}>
-          <Content data={props[media_type]} media_type={media_type} />
+          <Content data={data} media_type={state.media_type} />
+          <Pagination
+            page={state.page}
+            total_pages={data?.total_pages}
+            callback={fetch}
+          />
         </div>
       </div>
     </>
@@ -65,16 +101,57 @@ const Content = ({ data, media_type }) => {
         <ul className={styles.list}>
           {data.results.map((item) => (
             <li key={`${media_type}_${item.id}`}>
-              {console.log(`${media_type}_${item.id}`)}
               <SearchItem {...item} media_type={media_type} />
             </li>
           ))}
         </ul>
       )}
 
-      {data.results.length === 0 && (
+      {data?.results?.length === 0 && (
         <div className={styles.noResults}>No results found.</div>
       )}
     </div>
   );
+};
+
+const Pagination = ({ page, total_pages, callback }) => {
+  let pages = [
+    1,
+    2,
+    page - 1,
+    page,
+    page + 1,
+    page + 2,
+    total_pages - 1,
+    total_pages,
+  ];
+
+  const uniqueInRange = (value, index, self) => {
+    return self.indexOf(value) === index && value > 0 && value <= total_pages;
+  };
+
+  pages = pages.filter(uniqueInRange);
+
+  const buttons = [];
+  for (let i = 0; i < pages.length; i++) {
+    buttons.push(
+      <li key={i} className={styles.li}>
+        <button
+          onClick={() => callback(pages[i])}
+          className={
+            pages[i] === page
+              ? styles.Pagination__element + ' ' + styles.active
+              : styles.Pagination__element
+          }
+        >
+          {pages[i]}
+        </button>
+        {pages[i] + 1 !== pages[i + 1] && i !== pages.length - 1 && (
+          <div className={styles.dots}>...</div>
+        )}
+      </li>
+    );
+  }
+
+  return <ul className={styles.Pagination}>{buttons}</ul>;
 };

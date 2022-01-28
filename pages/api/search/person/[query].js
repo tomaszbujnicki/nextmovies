@@ -1,9 +1,9 @@
-import getData from '../../../adapters/getData';
+import getData from '../../../../adapters/getData';
 
 export default async function handler(req, res) {
   const { query } = req.query;
 
-  const data = await getData('search/multi', `&query=${query}`);
+  const data = await getData('search/person', query);
 
   if (!data || data.success === false) {
     res.status(404).json();

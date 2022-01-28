@@ -82,7 +82,6 @@ const Tv = ({ data }) => {
 export default Tv;
 
 const getCertification = (ratings) => {
-  console.log(ratings);
   const region = ratings.find((rating) => rating.iso_3166_1 === 'US');
 
   if (!region) {
