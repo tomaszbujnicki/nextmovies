@@ -33,7 +33,6 @@ const Search = (props) => {
   return (
     <>
       <Head title={props.query} />
-      <button onClick={() => fetch(2)}>SECOND PAGE</button>
       <div ref={ref} className={styles.root}>
         <div className={styles.sideContainer}>
           <div className={styles.buttonList}>
@@ -115,22 +114,29 @@ const Content = ({ data, media_type }) => {
 };
 
 const Pagination = ({ page, total_pages, callback }) => {
-  let pages = [
-    1,
-    2,
-    page - 1,
-    page,
-    page + 1,
-    page + 2,
-    total_pages - 1,
-    total_pages,
-  ];
+  let pages = [];
 
-  const uniqueInRange = (value, index, self) => {
-    return self.indexOf(value) === index && value > 0 && value <= total_pages;
-  };
+  if (total_pages < 7) {
+    pages = [1, 2, 3, 4, 5, 6];
+    pages.length = total_pages;
+  } else {
+    pages = [
+      1,
+      2,
+      page - 1,
+      page,
+      page + 1,
+      page + 2,
+      total_pages - 1,
+      total_pages,
+    ];
 
-  pages = pages.filter(uniqueInRange);
+    const uniqueInRange = (value, index, self) => {
+      return self.indexOf(value) === index && value > 0 && value <= total_pages;
+    };
+
+    pages = pages.filter(uniqueInRange);
+  }
 
   const buttons = [];
   for (let i = 0; i < pages.length; i++) {

@@ -60,6 +60,7 @@ const Tv = ({ data }) => {
         revenue={revenue}
         originalLanguage={originalLanguage}
         crew={crew}
+        type="tv"
       />
 
       <CardListSection title="Videos" type="video" arr={videos} />

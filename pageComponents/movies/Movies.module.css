@@ -5,6 +5,11 @@
   padding: max(4rem, 4vw) max(8rem, 8vw);
 }
 
+.title {
+  text-align: center;
+  font-size: var(--fs-2);
+}
+
 .sideContainer {
   width: 22%;
   display: flex;
@@ -12,7 +17,7 @@
   overflow: hidden;
 }
 
-.buttonList {
+.form {
   display: flex;
   flex-direction: column;
 }
@@ -77,6 +82,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .Pagination__element:hover,

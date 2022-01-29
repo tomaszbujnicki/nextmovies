@@ -59,6 +59,7 @@ const Movie = ({ data }) => {
         revenue={revenue}
         originalLanguage={originalLanguage}
         crew={crew}
+        type="movie"
       />
 
       <CardListSection title="Videos" type="video" arr={videos} />

@@ -20,6 +20,7 @@ const DetailSection = ({
   revenue,
   originalLanguage,
   crew,
+  type,
 }) => {
   return (
     <Section>
@@ -34,7 +35,7 @@ const DetailSection = ({
         />
         <div>
           <Externals externals={externals} homepage={homepage} />
-          <Keywords keywords={keywords} />
+          <Keywords keywords={keywords} type={type} />
         </div>
       </div>
     </Section>
@@ -148,12 +149,15 @@ const Overview = ({ overview, tagline }) => {
   );
 };
 
-const Keywords = ({ keywords }) => {
+const Keywords = ({ keywords, type }) => {
+  let productionType = type === 'movie' ? 'movies' : 'tv-shows';
   return (
     <ul className={styles.keywords}>
       {keywords.map((item, index) => (
         <li key={index} className={styles.keyword}>
-          {item.name}
+          <Link href={`/${productionType}?with_keywords=${item.id}`}>
+            <a>{item.name}</a>
+          </Link>
         </li>
       ))}
     </ul>

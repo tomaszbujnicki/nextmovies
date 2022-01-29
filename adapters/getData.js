@@ -3,7 +3,7 @@ const API_ROOT = 'https://api.themoviedb.org/3/';
 
 async function getData(path, params = '') {
   const url = `${API_ROOT}${path}?api_key=${API_KEY}${params}`;
-
+  console.log(url);
   const data = await fetch(url)
     .then((res) => {
       if (!res.ok) {
