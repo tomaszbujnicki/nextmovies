@@ -1,10 +1,11 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Head from '../../components/Head';
 import SearchItem from '../../components/SearchItem';
 import styles from './Movies.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { MOVIE_GENRES, MOVIE_CERTIFICATION } from '../../constants';
+import { MOVIE_GENRES_ARRAY, MOVIE_CERTIFICATION_ARRAY } from '../../constants';
+import Rating from '../../components/Rating';
 
 const Movies = ({ data }) => {
   const router = useRouter();
@@ -20,9 +21,6 @@ const Movies = ({ data }) => {
 
   const total_pages = data.total_pages < 500 ? data.total_pages : 500;
 
-  const genres = Object.entries(MOVIE_GENRES);
-  const certifications = Object.entries(MOVIE_CERTIFICATION);
-
   return (
     <>
       <Head title="Movies" />
@@ -30,30 +28,60 @@ const Movies = ({ data }) => {
         <aside className={styles.sideContainer}>
           <h2>Filters</h2>
           <form className={styles.form}>
-            <fieldset>
-              <legend>Release Dates</legend>
-              {genres.map((genre) => (
-                <>
-                  <input type="checkbox" id="kraken" name="monster" />
-                  <label htmlFor="kraken">Kraken</label>
-                </>
-              ))}
+            <fieldset className={styles.fieldset}>
+              <legend className={styles.legend}>Genres</legend>
+              <ul className={styles.checkboxList}>
+                {MOVIE_GENRES_ARRAY.map((genre) => (
+                  <li key={genre.id} className={styles.checkboxItem}>
+                    <input
+                      className={styles.checkboxItemInput}
+                      type="checkbox"
+                      id={`genre_${genre.id}`}
+                      name="genre"
+                      value={genre.id}
+                    />
+                    <label
+                      className={styles.checkboxItemLabel}
+                      htmlFor={`genre_${genre.id}`}
+                    >
+                      {genre.name}
+                    </label>
+                  </li>
+                ))}
+              </ul>
             </fieldset>
 
-            <fieldset>
-              <legend>Genres</legend>
+            <fieldset className={styles.fieldset}>
+              <legend className={styles.legend}>Release Dates</legend>
             </fieldset>
 
-            <fieldset>
-              <legend>Rating</legend>
+            <RatingFieldset />
+
+            <fieldset className={styles.fieldset}>
+              <legend className={styles.legend}>Certifications</legend>
+              <ul className={styles.checkboxList}>
+                {MOVIE_CERTIFICATION_ARRAY.map((certification) => (
+                  <li key={certification.order} className={styles.checkboxItem}>
+                    <input
+                      className={styles.checkboxItemInput}
+                      type="checkbox"
+                      id={`certification_${certification.order}`}
+                      name="certification"
+                      value={certification.order}
+                    />
+                    <label
+                      className={styles.checkboxItemLabel}
+                      htmlFor={`certification_${certification.order}`}
+                    >
+                      {certification.certification}
+                    </label>
+                  </li>
+                ))}
+              </ul>
             </fieldset>
 
-            <fieldset>
-              <legend>Certification</legend>
-            </fieldset>
-
-            <fieldset>
-              <legend>Keywords</legend>
+            <fieldset className={styles.fieldset}>
+              <legend className={styles.legend}>Keywords</legend>
             </fieldset>
           </form>
         </aside>
@@ -143,4 +171,71 @@ const Pagination = ({ total_pages, query, page }) => {
   }
 
   return <ul className={styles.Pagination}>{buttons}</ul>;
+};
+
+const RatingFieldset = () => {
+  const [min, setMin] = useState(1);
+  const [max, setMax] = useState(10);
+
+  const refMin = useRef(null);
+  const refMax = useRef(null);
+
+  useEffect(() => {
+    refMin.current.value = min;
+    refMax.current.value = max;
+  }, [min, max]);
+
+  return (
+    <fieldset className={styles.fieldset}>
+      <legend className={styles.legend}>Rating</legend>
+      <div className={styles.ratingContainer}>
+        <label htmlFor="rating" className={styles.ratingLabel}>
+          Minimum Stars
+        </label>
+        <input
+          ref={refMin}
+          type="range"
+          id="rating"
+          name="rating"
+          min="1"
+          max="10"
+          step="1"
+          className={styles.ratingInput}
+          onChange={({ target }) => {
+            if (+target.value > max) {
+              setMin(+max);
+              refMin.current.value = max;
+            } else {
+              setMin(+target.value);
+            }
+          }}
+        />
+        <Rating rating={min} />
+      </div>
+      <div className={styles.ratingContainer}>
+        <label htmlFor="rating" className={styles.ratingLabel}>
+          Maximum Stars
+        </label>
+        <input
+          ref={refMax}
+          type="range"
+          id="rating"
+          name="rating"
+          min="1"
+          max="10"
+          step="1"
+          className={styles.ratingInput}
+          onChange={({ target }) => {
+            if (+target.value < min) {
+              setMax(+min);
+              refMax.current.value = min;
+            } else {
+              setMax(+target.value);
+            }
+          }}
+        />
+        <Rating rating={max} />
+      </div>
+    </fieldset>
+  );
 };

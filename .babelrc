@@ -3,7 +3,12 @@
     "next/babel"
   ],
   "plugins": [
-    "inline-react-svg",
+    [
+      "inline-react-svg",
+      {
+        "ssr": true
+      }
+    ],
     "@babel/plugin-syntax-jsx"
   ]
 }

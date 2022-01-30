@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from './Image';
 import styles from './styles/SearchItem.module.css';
-import { MOVIE_GENRES, TV_GENRES } from '../constants';
+import { MOVIE_GENRES_OBJECT, TV_GENRES_OBJECT } from '../constants';
 
 const SearchItem = ({
   id,
@@ -88,7 +88,7 @@ const Tv = ({ name, genre_ids, first_air_date }) => {
       <ul className={styles.list}>
         {genre_ids.map((id, index) => (
           <li key={index} className={styles.listItem}>
-            {TV_GENRES[id]}
+            {TV_GENRES_OBJECT[id]}
           </li>
         ))}
       </ul>
@@ -104,7 +104,7 @@ const Movie = ({ title, release_date, genre_ids }) => {
       <ul className={styles.list}>
         {genre_ids.map((id, index) => (
           <li key={index} className={styles.listItem}>
-            {MOVIE_GENRES[id]}
+            {MOVIE_GENRES_OBJECT[id]}
           </li>
         ))}
       </ul>
