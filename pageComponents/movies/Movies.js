@@ -1,11 +1,12 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import Head from '../../components/Head';
 import SearchItem from '../../components/SearchItem';
 import styles from './Movies.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { MOVIE_GENRES_ARRAY, MOVIE_CERTIFICATION_ARRAY } from '../../constants';
-import Rating from '../../components/Rating';
+import { MinMaxRating } from './MinMaxRating';
+import { Fieldset, Form, CheckboxList } from '../../components/Form';
 
 const Movies = ({ data }) => {
   const router = useRouter();
@@ -26,64 +27,61 @@ const Movies = ({ data }) => {
       <Head title="Movies" />
       <div ref={ref} className={styles.root}>
         <aside className={styles.sideContainer}>
-          <h2>Filters</h2>
-          <form className={styles.form}>
-            <fieldset className={styles.fieldset}>
-              <legend className={styles.legend}>Genres</legend>
-              <ul className={styles.checkboxList}>
-                {MOVIE_GENRES_ARRAY.map((genre) => (
-                  <li key={genre.id} className={styles.checkboxItem}>
-                    <input
-                      className={styles.checkboxItemInput}
-                      type="checkbox"
-                      id={`genre_${genre.id}`}
-                      name="genre"
-                      value={genre.id}
-                    />
-                    <label
-                      className={styles.checkboxItemLabel}
-                      htmlFor={`genre_${genre.id}`}
-                    >
-                      {genre.name}
-                    </label>
-                  </li>
-                ))}
-              </ul>
-            </fieldset>
+          <Form>
+            <h2>Filters</h2>
+            <Fieldset title="Genres">
+              <CheckboxList
+                arr={MOVIE_GENRES_ARRAY}
+                name="genre"
+                propValue="id"
+                propLabel="name"
+              />
+            </Fieldset>
 
-            <fieldset className={styles.fieldset}>
-              <legend className={styles.legend}>Release Dates</legend>
-            </fieldset>
+            <Fieldset title="Year">
+              <div className={styles.year}>
+                <label className={styles.yearLabel} htmlFor="fromYear">
+                  From:
+                </label>
+                <input
+                  className={styles.yearInput}
+                  type="text"
+                  id="fromYear"
+                  name="fromYear"
+                  minLength="4"
+                  maxLength="4"
+                  pattern="[0-9]{4}"
+                />
+                <label className={styles.yearLabel} htmlFor="toYear">
+                  To:
+                </label>
+                <input
+                  className={styles.yearInput}
+                  type="text"
+                  id="toYear"
+                  name="toYear"
+                  minLength="4"
+                  maxLength="4"
+                  pattern="[0-9]{4}"
+                />
+              </div>
+            </Fieldset>
 
-            <RatingFieldset />
+            <Fieldset title="Rating">
+              <MinMaxRating />
+            </Fieldset>
 
-            <fieldset className={styles.fieldset}>
-              <legend className={styles.legend}>Certifications</legend>
-              <ul className={styles.checkboxList}>
-                {MOVIE_CERTIFICATION_ARRAY.map((certification) => (
-                  <li key={certification.order} className={styles.checkboxItem}>
-                    <input
-                      className={styles.checkboxItemInput}
-                      type="checkbox"
-                      id={`certification_${certification.order}`}
-                      name="certification"
-                      value={certification.order}
-                    />
-                    <label
-                      className={styles.checkboxItemLabel}
-                      htmlFor={`certification_${certification.order}`}
-                    >
-                      {certification.certification}
-                    </label>
-                  </li>
-                ))}
-              </ul>
-            </fieldset>
+            <Fieldset title="Certifications">
+              <CheckboxList
+                arr={MOVIE_CERTIFICATION_ARRAY}
+                name="certification"
+                propValue="order"
+                propLabel="certification"
+              />
+            </Fieldset>
 
-            <fieldset className={styles.fieldset}>
-              <legend className={styles.legend}>Keywords</legend>
-            </fieldset>
-          </form>
+            <Fieldset title="Keywords">content</Fieldset>
+          </Form>
         </aside>
 
         <div className={styles.mainContainer}>
@@ -171,71 +169,4 @@ const Pagination = ({ total_pages, query, page }) => {
   }
 
   return <ul className={styles.Pagination}>{buttons}</ul>;
-};
-
-const RatingFieldset = () => {
-  const [min, setMin] = useState(1);
-  const [max, setMax] = useState(10);
-
-  const refMin = useRef(null);
-  const refMax = useRef(null);
-
-  useEffect(() => {
-    refMin.current.value = min;
-    refMax.current.value = max;
-  }, [min, max]);
-
-  return (
-    <fieldset className={styles.fieldset}>
-      <legend className={styles.legend}>Rating</legend>
-      <div className={styles.ratingContainer}>
-        <label htmlFor="rating" className={styles.ratingLabel}>
-          Minimum Stars
-        </label>
-        <input
-          ref={refMin}
-          type="range"
-          id="rating"
-          name="rating"
-          min="1"
-          max="10"
-          step="1"
-          className={styles.ratingInput}
-          onChange={({ target }) => {
-            if (+target.value > max) {
-              setMin(+max);
-              refMin.current.value = max;
-            } else {
-              setMin(+target.value);
-            }
-          }}
-        />
-        <Rating rating={min} />
-      </div>
-      <div className={styles.ratingContainer}>
-        <label htmlFor="rating" className={styles.ratingLabel}>
-          Maximum Stars
-        </label>
-        <input
-          ref={refMax}
-          type="range"
-          id="rating"
-          name="rating"
-          min="1"
-          max="10"
-          step="1"
-          className={styles.ratingInput}
-          onChange={({ target }) => {
-            if (+target.value < min) {
-              setMax(+min);
-              refMax.current.value = min;
-            } else {
-              setMax(+target.value);
-            }
-          }}
-        />
-        <Rating rating={max} />
-      </div>
-    </fieldset>
-  );
 };

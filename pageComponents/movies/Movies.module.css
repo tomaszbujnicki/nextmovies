@@ -73,185 +73,30 @@
   font-size: var(--fs-7);
   padding: 0 max(0.25rem, 0.25vw);
 }
-.form {
+
+.year {
   display: flex;
   flex-direction: column;
 }
 
-.fieldset {
-  padding: max(1rem, 1vw);
+.yearInput {
   margin-bottom: max(1rem, 1vw);
-  border-color: var(--primary);
-  border-radius: max(1rem, 1vw);
-}
-
-.legend {
-  padding: 0 max(1rem, 1vw);
-  font-size: var(--fs-5);
-}
-
-.checkboxList {
-  display: flex;
-  flex-direction: column;
-}
-
-.checkboxItem {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.checkboxItemInput {
-  position: relative;
-  width: max(1rem, 1vw);
-  height: max(1rem, 1vw);
-  border: max(0.0625rem, 0.0625vw) solid var(--on-background);
-  border-radius: 4px;
-  appearance: none;
-  outline: 0;
-  cursor: pointer;
-  transition: background-color 175ms cubic-bezier(0.1, 0.1, 0.25, 1),
-    border-color 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
-}
-.checkboxItemInput::before {
-  position: absolute;
-  content: '';
-  display: block;
-  width: max(1rem, 1vw);
-  height: max(1rem, 1vw);
-  border-style: solid;
-  opacity: 0;
-}
-
-.checkboxItemInput:checked {
-  border-color: var(--primary);
-  background: var(--primary);
-}
-
-.checkboxItemLabel {
+  border-radius: max(0.5rem, 0.5vw);
+  border: solid max(0.0625rem, 0.0625vw) var(--primary);
+  font-size: var(--fs-6);
+  background-color: var(--background-highlight);
   padding-left: max(1rem, 1vw);
-  color: var(--on-background);
-  transition: color 175ms;
-}
-.checkboxItemInput:checked + .checkboxItemLabel {
-  color: var(--primary);
 }
 
-.checkboxItemInput:hover + .checkboxItemLabel,
-.checkboxItemInput:focus-visible + .checkboxItemLabel {
-  cursor: pointer;
-  font-weight: bold;
+.yearInput:focus {
+  outline: solid max(0.0625rem, 0.0625vw) var(--accent);
+  color: var(--accent)
 }
 
-.checkboxItemInput:hover,
-.checkboxItemInput:focus-visible {
-  border-color: var(--accent);
+.yearInput:invalid:focus {
+  color: var(--on-background)
 }
 
-.ratingContainer {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: max(2rem, 2vw);
-  justify-content: center;
-  align-items: center;
-}
-
-.ratingLabel {
-  margin-bottom: max(0.5rem, 0.5vw);
-}
-
-.ratingInput {
-  margin-bottom: max(1rem, 1vw);
-  width: max(13rem, 13vw);
-  background: transparent;
-  -webkit-appearance: none;
-}
-
-.ratingInput::-webkit-slider-thumb {
-  -webkit-appearance: none;
-}
-
-.ratingInput::-ms-track {
-  width: 100%;
-  cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-}
-
-/* Special styling for WebKit/Blink */
-.ratingInput::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  border: none;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: var(--on-background);
-  cursor: pointer;
-  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-  /* Add cool effects to your sliders! */
-}
-
-/* All the same stuff for Firefox */
-.ratingInput::-moz-range-thumb {
-  border: none;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: var(--on-background);
-  cursor: pointer;
-}
-
-/* All the same stuff for IE */
-.ratingInput::-ms-thumb {
-  border: none;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: var(--on-background);
-  cursor: pointer;
-}
-
-.ratingInput::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  background: var(--primary);
-  border-radius: 1.3px;
-}
-
-.ratingInput:focus::-webkit-slider-runnable-track {
-  background: var(--primary);
-}
-
-.ratingInput::-moz-range-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  background: var(--primary);
-  border-radius: 1.3px;
-}
-
-.ratingInput::-ms-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  border-width: 16px 0;
-  color: transparent;
-}
-.ratingInput::-ms-fill-lower {
-  background: var(--primary);
-  border-radius: 2.6px;
-}
-.ratingInput:focus::-ms-fill-lower {
-  background: var(--primary);
-}
-.ratingInput::-ms-fill-upper {
-  background: var(--primary);
-  border-radius: 2.6px;
-}
-.ratingInput:focus::-ms-fill-upper {
-  background: var(--primary);
+.yearLabel {
+  font-size: var(--fs-7);
 }

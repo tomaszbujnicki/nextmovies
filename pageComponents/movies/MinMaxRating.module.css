@@ -1,0 +1,72 @@
+.ratingContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: max(2rem, 2vw);
+  justify-content: center;
+  align-items: center;
+}
+
+.ratingLabel {
+  margin-bottom: max(0.5rem, 0.5vw);
+}
+
+.ratingInput {
+  margin-bottom: max(1rem, 1vw);
+  width: max(13rem, 13vw);
+  background: transparent;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+/* Special styling for WebKit/Blink */
+.ratingInput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: max(1.75rem, 1.75vw);
+  width: max(0.75rem, 0.75vw);
+  border-radius: max(0.125rem, 0.125vw);
+  background: var(--on-background);
+  cursor: pointer;
+  margin-top: min(-0.625rem, -0.625vw);
+}
+
+/* All the same stuff for Firefox */
+.ratingInput::-moz-range-thumb {
+  border: none;
+  height: max(1.75rem, 1.75vw);
+  width: max(0.75rem, 0.75vw);
+  border-radius: max(0.125rem, 0.125vw);
+  background: var(--on-background);
+  cursor: pointer;
+}
+
+.ratingInput::-webkit-slider-runnable-track {
+  width: 100%;
+  height: max(0.5rem, 0.5vw);
+  cursor: pointer;
+  background: var(--primary);
+  border-radius: max(0.0625rem, 0.0625vw);
+}
+
+.ratingInput::-moz-range-track {
+  width: 100%;
+  height: max(0.5rem, 0.5vw);
+  cursor: pointer;
+  background: var(--primary);
+  border-radius: max(0.0625rem, 0.0625vw);
+}
+
+.ratingInput:focus-visible::-moz-range-thumb {
+  background-color: var(--accent);
+}
+
+.ratingInput:focus-visible::-webkit-slider-thumb {
+  background-color: var(--accent);
+}
+
+.ratingInput:focus-visible::-moz-range-track {
+  outline: max(0.0625rem, 0.0625vw) solid var(--accent);
+}
+.ratingInput:focus-visible::-webkit-slider-runnable-track {
+  outline: max(0.0625rem, 0.0625vw) solid var(--accent);
+}

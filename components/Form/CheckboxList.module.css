@@ -1,0 +1,57 @@
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkboxItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.checkboxItemInput {
+  position: relative;
+  width: max(1rem, 1vw);
+  height: max(1rem, 1vw);
+  border: max(0.0625rem, 0.0625vw) solid var(--on-background);
+  border-radius: 4px;
+  appearance: none;
+  outline: 0;
+  cursor: pointer;
+  transition: background-color 175ms cubic-bezier(0.1, 0.1, 0.25, 1),
+    border-color 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
+}
+.checkboxItemInput::before {
+  position: absolute;
+  content: '';
+  display: block;
+  width: max(1rem, 1vw);
+  height: max(1rem, 1vw);
+  border-style: solid;
+  opacity: 0;
+}
+
+.checkboxItemInput:checked {
+  border-color: var(--primary);
+  background: var(--primary);
+}
+
+.checkboxItemLabel {
+  padding-left: max(1rem, 1vw);
+  color: var(--on-background);
+  transition: color 175ms;
+}
+.checkboxItemInput:checked + .checkboxItemLabel {
+  color: var(--primary);
+}
+
+.checkboxItemInput:hover + .checkboxItemLabel,
+.checkboxItemInput:focus-visible + .checkboxItemLabel {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.checkboxItemInput:hover,
+.checkboxItemInput:focus-visible {
+  border-color: var(--accent);
+}
