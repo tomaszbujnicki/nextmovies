@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import { MOVIE_GENRES_ARRAY, MOVIE_CERTIFICATION_ARRAY } from '../../constants';
 import { MinMaxRating } from './MinMaxRating';
 import { Fieldset, Form, CheckboxList } from '../../components/Form';
+import Keywords from './Keywords';
 
 const Movies = ({ data }) => {
   const router = useRouter();
@@ -71,6 +72,10 @@ const Movies = ({ data }) => {
               <MinMaxRating />
             </Fieldset>
 
+            <Fieldset title="Keywords">
+              <Keywords />
+            </Fieldset>
+
             <Fieldset title="Certifications">
               <CheckboxList
                 arr={MOVIE_CERTIFICATION_ARRAY}
@@ -79,8 +84,6 @@ const Movies = ({ data }) => {
                 propLabel="certification"
               />
             </Fieldset>
-
-            <Fieldset title="Keywords">content</Fieldset>
           </Form>
         </aside>
 
