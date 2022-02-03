@@ -1,0 +1,19 @@
+.root {
+  padding: max(0.75rem, 0.75vw);
+  font-family: Montserrat, sans-serif;
+  font-size: var(--fs-5);
+  font-weight: 500;
+  border-radius: max(0.75rem, 0.75vw);
+  transition: background-color 0.5s, color 0.5s;
+  width: 100%;
+  border: none;
+  background-color: var(--primary);
+  color: var(--white);
+  outline: none;
+}
+
+.root:hover, .root:focus-visible {
+  background-color: var(--accent);
+  color: var(--background);
+  cursor: pointer;
+}

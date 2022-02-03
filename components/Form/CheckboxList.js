@@ -1,40 +1,37 @@
 import React from 'react';
+import { Formik, Form, Field, FieldArray } from 'formik';
 import styles from './CheckboxList.module.css';
 
-const CheckboxList = ({ arr, name, propValue, propLabel }) => {
+const CheckboxList = ({ values, arr, name, propValue, propLabel }) => {
   return (
-    <ul className={styles.root}>
-      {arr.map((item) => (
-        <li key={item[propValue]} className={styles.checkboxItem}>
-          <CheckboxInput
-            id={`${name}_${item[propValue]}`}
-            name={name}
-            value={item[propValue]}
-          />
-          <CheckboxLabel
-            htmlFor={`${name}_${item[propValue]}`}
-            label={item[propLabel]}
-          />
-        </li>
-      ))}
-    </ul>
+    <FieldArray
+      name={name}
+      render={(arrayHelpers) => (
+        <div className={styles.root}>
+          {arr.map((item) => (
+            <label key={item[propValue]} className={styles.checkboxItemLabel}>
+              <Field
+                className={styles.checkboxItemInput}
+                name={name}
+                type="checkbox"
+                value={item[propValue]}
+                checked={values[name].includes(item[propValue])}
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    arrayHelpers.push(item[propValue]);
+                  } else {
+                    const idx = values[name].indexOf(item[propValue]);
+                    arrayHelpers.remove(idx);
+                  }
+                }}
+              />
+              <span className={styles.checkboxItemSpan}>{item[propLabel]}</span>
+            </label>
+          ))}
+        </div>
+      )}
+    />
   );
 };
 
 export default CheckboxList;
-
-const CheckboxLabel = ({ label, htmlFor }) => (
-  <label className={styles.checkboxItemLabel} htmlFor={htmlFor}>
-    {label}
-  </label>
-);
-
-const CheckboxInput = ({ id, name, value }) => (
-  <input
-    className={styles.checkboxItemInput}
-    type="checkbox"
-    id={id}
-    name={name}
-    value={value}
-  />
-);

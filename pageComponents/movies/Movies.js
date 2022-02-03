@@ -4,10 +4,7 @@ import SearchItem from '../../components/SearchItem';
 import styles from './Movies.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { MOVIE_GENRES_ARRAY, MOVIE_CERTIFICATION_ARRAY } from '../../constants';
-import { MinMaxRating } from './MinMaxRating';
-import { Fieldset, Form, CheckboxList } from '../../components/Form';
-import Keywords from './Keywords';
+import FilterForm from './FilterForm';
 
 const Movies = ({ data }) => {
   const router = useRouter();
@@ -19,6 +16,26 @@ const Movies = ({ data }) => {
     .replace(/\/movies\??/, '')
     .replace(/&?page=\d*/, '');
 
+  const searchData = (values) => {
+    console.log(values);
+
+    let params = '';
+
+    for (const [key, value] of Object.entries(values)) {
+      console.log(`${key}: ${value}`);
+      if (value?.length > 0) {
+        params += key + '=' + value + '&';
+      }
+    }
+    if (params.match('certification')) {
+      console.log('YEA');
+      params += 'certification_country=US';
+    }
+    params = params.replace(/\-/g, '.');
+
+    router.push(`/movies?${params}`);
+  };
+
   const page = query.page > 0 ? +query.page : 1;
 
   const total_pages = data.total_pages < 500 ? data.total_pages : 500;
@@ -28,63 +45,7 @@ const Movies = ({ data }) => {
       <Head title="Movies" />
       <div ref={ref} className={styles.root}>
         <aside className={styles.sideContainer}>
-          <Form>
-            <h2>Filters</h2>
-            <Fieldset title="Genres">
-              <CheckboxList
-                arr={MOVIE_GENRES_ARRAY}
-                name="genre"
-                propValue="id"
-                propLabel="name"
-              />
-            </Fieldset>
-
-            <Fieldset title="Year">
-              <div className={styles.year}>
-                <label className={styles.yearLabel} htmlFor="fromYear">
-                  From:
-                </label>
-                <input
-                  className={styles.yearInput}
-                  type="text"
-                  id="fromYear"
-                  name="fromYear"
-                  minLength="4"
-                  maxLength="4"
-                  pattern="[0-9]{4}"
-                />
-                <label className={styles.yearLabel} htmlFor="toYear">
-                  To:
-                </label>
-                <input
-                  className={styles.yearInput}
-                  type="text"
-                  id="toYear"
-                  name="toYear"
-                  minLength="4"
-                  maxLength="4"
-                  pattern="[0-9]{4}"
-                />
-              </div>
-            </Fieldset>
-
-            <Fieldset title="Rating">
-              <MinMaxRating />
-            </Fieldset>
-
-            <Fieldset title="Keywords">
-              <Keywords />
-            </Fieldset>
-
-            <Fieldset title="Certifications">
-              <CheckboxList
-                arr={MOVIE_CERTIFICATION_ARRAY}
-                name="certification"
-                propValue="order"
-                propLabel="certification"
-              />
-            </Fieldset>
-          </Form>
+          <FilterForm handleSubmit={searchData} query={query} />
         </aside>
 
         <div className={styles.mainContainer}>

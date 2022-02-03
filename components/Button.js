@@ -27,6 +27,14 @@ export const PrimaryButton = ({ children, size, ...rest }) => {
   );
 };
 
+export const SecondaryButton = ({ children, size, ...rest }) => {
+  return (
+    <Button className={styles.SecondaryButton + ' ' + styles[size]} {...rest}>
+      {children}
+    </Button>
+  );
+};
+
 export const CloseButton = ({ className, classNameInner, ...rest }) => {
   return (
     <Button className={className} {...rest}>

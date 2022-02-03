@@ -19,7 +19,28 @@
   color: var(--on-accent);
 }
 
-.PrimaryButton.sm {
+.SecondaryButton {
+  padding: max(0.75rem, 0.75vw);
+  background-color: var(--background-highlight);
+  color: var(--on-primary);
+  font-family: Montserrat, sans-serif;
+  font-size: var(--fs-5);
+  font-weight: 500;
+  border-radius: max(0.75rem, 0.75vw);
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.SecondaryButton:hover {
+  background-color: var(--secondary);
+  color: var(--on-secondary);
+}
+
+.SecondaryButton.active {
+  background-color: var(--secondary);
+  color: var(--on-secondary);
+}
+
+.sm {
   padding: max(0.3rem, 0.3vw) max(0.6rem, 0.6vw);
   font-size: var(--fs-8);
   font-weight: 400;
