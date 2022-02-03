@@ -12,19 +12,26 @@ import Keywords from './Keywords';
 import { SecondaryButton } from '../../components/Button';
 import styles from './FilterForm.module.css';
 
+const emptyValues = {
+  with_genres: [],
+  certification: '',
+  primary_release_date_gte: '',
+  primary_release_date_lte: '',
+  vote_average_gte: 1,
+  vote_average_lte: 10,
+};
+
 const FilterForm = ({ handleSubmit, query }) => {
   console.log('FilterForm');
 
-  let with_genres = [];
+  const initialValues = {};
 
   if (query.with_genres) {
-    with_genres = query.with_genres
+    initialValues.with_genres = query.with_genres
       .split(',')
       .map((item) => parseInt(item, 10))
       .filter((item) => Number.isInteger(item));
   }
-
-  let certification;
 
   if (query.certification) {
     if (
@@ -32,18 +39,25 @@ const FilterForm = ({ handleSubmit, query }) => {
         (item) => item.certification === query.certification
       )
     ) {
-      certification = query.certification;
+      initialValues.certification = query.certification;
     }
-    console.log(certification);
   }
+
+  const fromYear = query['primary_release_date.gte'];
+  if (fromYear?.length === 10) {
+    initialValues.primary_release_date_gte = fromYear.slice(0, 4);
+  }
+
+  console.log(query);
 
   return (
     <div>
       <Formik
-        initialValues={{ with_genres, certification }}
+        initialValues={{ ...emptyValues, ...initialValues }}
         onSubmit={(values, { setSubmitting }) => {
           handleSubmit(values);
           setSubmitting(false);
+          console.log(values);
         }}
       >
         {({
@@ -73,7 +87,7 @@ const FilterForm = ({ handleSubmit, query }) => {
                 onClick={() =>
                   resetForm({
                     values: {
-                      with_genres: [],
+                      ...emptyValues,
                     },
                   })
                 }
@@ -98,21 +112,21 @@ const FilterForm = ({ handleSubmit, query }) => {
                 <Field
                   className={styles.yearInput}
                   type="text"
-                  name="primary_release_date-gte"
+                  name="primary_release_date_gte"
                   minLength="4"
                   maxLength="4"
                   pattern="[0-9]{4}"
-                  autocomplete="off"
+                  autoComplete="off"
                 />
                 <label className={styles.yearLabel}>To:</label>
                 <Field
                   className={styles.yearInput}
                   type="text"
-                  name="primary_release_date-lte"
+                  name="primary_release_date_lte"
                   minLength="4"
                   maxLength="4"
                   pattern="[0-9]{4}"
-                  autocomplete="off"
+                  autoComplete="off"
                 />
               </div>
             </Fieldset>

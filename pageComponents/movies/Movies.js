@@ -6,6 +6,49 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import FilterForm from './FilterForm';
 
+const getParam = (key, value) => {
+  switch (key) {
+    case 'with_genres':
+      if (value?.length > 0) {
+        return 'with_genres=' + value + '&';
+      }
+      return '';
+
+    case 'certification':
+      if (value?.length > 0) {
+        return 'certification=' + value + '&certification_country=US&';
+      }
+      return '';
+
+    case 'primary_release_date_gte':
+      if (value?.length === 4) {
+        return 'primary_release_date.gte=' + value + '-01-01&';
+      }
+      return '';
+
+    case 'primary_release_date_lte':
+      if (value?.length === 4) {
+        return 'primary_release_date.lte=' + value + '-12-31&';
+      }
+      return '';
+
+    case 'vote_average_gte':
+      if (value >= 1 && value <= 10) {
+        return 'vote_average.gte=' + value + '&';
+      }
+      return '';
+
+    case 'vote_average_lte':
+      if (value >= 1 && value <= 10) {
+        return 'vote_average.lte=' + value + '&';
+      }
+      return '';
+
+    default:
+      return '';
+  }
+};
+
 const Movies = ({ data }) => {
   const router = useRouter();
   const ref = useRef(null);
@@ -23,15 +66,9 @@ const Movies = ({ data }) => {
 
     for (const [key, value] of Object.entries(values)) {
       console.log(`${key}: ${value}`);
-      if (value?.length > 0) {
-        params += key + '=' + value + '&';
-      }
+
+      params += getParam(key, value);
     }
-    if (params.match('certification')) {
-      console.log('YEA');
-      params += 'certification_country=US';
-    }
-    params = params.replace(/\-/g, '.');
 
     router.push(`/movies?${params}`);
   };

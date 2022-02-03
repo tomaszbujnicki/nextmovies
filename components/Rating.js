@@ -3,7 +3,7 @@ import Empty from '../assets/star-empty.svg';
 import Half from '../assets/star-half.svg';
 import Full from '../assets/star.svg';
 
-const Rating = ({ rating }) => {
+const Rating = ({ rating, size = '' }) => {
   if (!rating) return null;
 
   const star1 = rating > 1.9 ? <Full /> : <Half />;
@@ -13,7 +13,7 @@ const Rating = ({ rating }) => {
   const star5 = rating > 9.1 ? <Full /> : rating > 8.2 ? <Half /> : <Empty />;
 
   return (
-    <div className={styles.root}>
+    <div className={styles.root + ' ' + styles[size]}>
       {star1}
       {star2}
       {star3}

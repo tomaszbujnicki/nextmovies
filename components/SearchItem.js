@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from './Image';
 import styles from './styles/SearchItem.module.css';
 import { MOVIE_GENRES_OBJECT, TV_GENRES_OBJECT } from '../constants';
+import Rating from './Rating';
 
 const SearchItem = ({
   id,
@@ -17,6 +18,7 @@ const SearchItem = ({
   known_for,
   gender,
   first_air_date,
+  vote_average,
 }) => {
   return (
     <Link href={`/${media_type}/${id}`}>
@@ -43,12 +45,14 @@ const SearchItem = ({
               title={title}
               release_date={release_date}
               genre_ids={genre_ids}
+              vote_average={vote_average}
             />
           ) : media_type === 'tv' ? (
             <Tv
               name={name}
               genre_ids={genre_ids}
               first_air_date={first_air_date}
+              vote_average={vote_average}
             />
           ) : media_type === 'person' ? (
             <Person
@@ -80,10 +84,11 @@ const Person = ({ name, job, known_for }) => {
     </>
   );
 };
-const Tv = ({ name, genre_ids, first_air_date }) => {
+const Tv = ({ name, genre_ids, first_air_date, vote_average }) => {
   return (
     <>
       <div className={styles.title}>{name}</div>
+      <Rating rating={vote_average} size="sm" />
       <div>{first_air_date?.slice(0, 4)}</div>
       <ul className={styles.list}>
         {genre_ids.map((id, index) => (
@@ -96,10 +101,11 @@ const Tv = ({ name, genre_ids, first_air_date }) => {
   );
 };
 
-const Movie = ({ title, release_date, genre_ids }) => {
+const Movie = ({ title, release_date, genre_ids, vote_average }) => {
   return (
     <>
       <div className={styles.title}>{title}</div>
+      <Rating rating={vote_average} size="sm" />
       <div>{release_date?.slice(0, 4)}</div>
       <ul className={styles.list}>
         {genre_ids.map((id, index) => (
