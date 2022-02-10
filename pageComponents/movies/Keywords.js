@@ -1,29 +1,33 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import useFetch from '../../hooks/useFetch';
+import { useField } from 'formik';
 import styles from './Keywords.module.css';
 
 const Keywords = () => {
-  const [keywordlist, setKeywordList] = useState([]);
   const [query, setQuery] = useState(null);
   const ref = useRef(null);
   const data = useFetch(query);
   const suggestionList = data?.results;
 
+  const [field, meta, helpers] = useField('with_keywords');
+  const { value } = meta;
+  const { setValue } = helpers;
+
   const removeKeyword = (e) => {
     e.preventDefault();
     const name = e.target.textContent;
-    setKeywordList((list) => list.filter((keyword) => keyword.name != name));
+    const list = value.filter((keyword) => keyword.name != name);
+    setValue(list);
   };
 
   const addKeyword = (e) => {
     e.preventDefault();
+
     const name = e.target.textContent;
-    const isOnKeywordList = keywordlist.some((x) => x.name === name);
+    const isOnKeywordList = value.some((x) => x.name === name);
     if (!isOnKeywordList) {
       const keyword = suggestionList.find((keyword) => keyword.name === name);
-      setKeywordList((list) => {
-        return [...list, keyword];
-      });
+      setValue([...value, keyword]);
     }
     ref.current.value = '';
     setQuery(null);
@@ -32,7 +36,7 @@ const Keywords = () => {
 
   const searchForSuggestions = (e) => {
     const value = e.target.value;
-    setQuery(`search/multi/&query=${value}`);
+    setQuery(`search/keyword/&query=${value}`);
   };
 
   const setFocus = () => {
@@ -42,7 +46,7 @@ const Keywords = () => {
   return (
     <div className={styles.root} onClick={setFocus}>
       <ul className={styles.keywordList}>
-        {keywordlist.map((keyword) => (
+        {value.map((keyword) => (
           <li key={keyword.id}>
             <div onClick={removeKeyword} className={styles.keyword}>
               {keyword.name}

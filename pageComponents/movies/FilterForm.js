@@ -14,11 +14,12 @@ import styles from './FilterForm.module.css';
 
 const emptyValues = {
   with_genres: [],
+  with_keywords: [],
   certification: '',
   primary_release_date_gte: '',
   primary_release_date_lte: '',
-  vote_average_gte: 1,
-  vote_average_lte: 10,
+  vote_average_gte: '1.00',
+  vote_average_lte: '10',
 };
 
 const FilterForm = ({ handleSubmit, query }) => {
@@ -43,9 +44,22 @@ const FilterForm = ({ handleSubmit, query }) => {
     }
   }
 
+  if (query['vote_average.gte']) {
+    initialValues.vote_average_gte = query['vote_average.gte'];
+  }
+
+  if (query['vote_average.lte']) {
+    initialValues.vote_average_lte = query['vote_average.lte'];
+  }
+
   const fromYear = query['primary_release_date.gte'];
   if (fromYear?.length === 10) {
     initialValues.primary_release_date_gte = fromYear.slice(0, 4);
+  }
+
+  const toYear = query['primary_release_date.lte'];
+  if (toYear?.length === 10) {
+    initialValues.primary_release_date_lte = toYear.slice(0, 4);
   }
 
   console.log(query);
@@ -132,7 +146,10 @@ const FilterForm = ({ handleSubmit, query }) => {
             </Fieldset>
 
             <Fieldset title="Rating">
-              <MinMaxRating />
+              <MinMaxRating
+                bin={values.vote_average_gte}
+                bax={values.vote_average_lte}
+              />
             </Fieldset>
 
             <Fieldset title="Keywords">

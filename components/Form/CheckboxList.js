@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik, Form, Field, FieldArray } from 'formik';
+import { Field, FieldArray } from 'formik';
 import styles from './CheckboxList.module.css';
 
 const CheckboxList = ({ values, arr, name, propValue, propLabel }) => {

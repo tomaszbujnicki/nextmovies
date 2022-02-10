@@ -14,6 +14,13 @@ const getParam = (key, value) => {
       }
       return '';
 
+    case 'with_keywords':
+      if (value?.length > 0) {
+        const keywords = value.map((keyword) => keyword.id);
+        return 'with_keywords=' + keywords + '&';
+      }
+      return '';
+
     case 'certification':
       if (value?.length > 0) {
         return 'certification=' + value + '&certification_country=US&';
@@ -33,13 +40,13 @@ const getParam = (key, value) => {
       return '';
 
     case 'vote_average_gte':
-      if (value >= 1 && value <= 10) {
+      if (parseFloat(value) <= 10) {
         return 'vote_average.gte=' + value + '&';
       }
       return '';
 
     case 'vote_average_lte':
-      if (value >= 1 && value <= 10) {
+      if (parseFloat(value) >= 1 && parseFloat(value) < 10) {
         return 'vote_average.lte=' + value + '&';
       }
       return '';

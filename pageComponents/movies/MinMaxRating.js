@@ -15,6 +15,8 @@ export const MinMaxRating = () => {
   const { value: max } = metaMax;
   const { setValue: setMax } = helpersMax;
 
+  console.log(min, max);
+
   useEffect(() => {
     refMin.current.value = min;
     refMax.current.value = max;
@@ -31,14 +33,18 @@ export const MinMaxRating = () => {
           type="range"
           name="vote_average_gte"
           min="1"
-          max="10"
-          step="1"
+          max="9.19"
+          step="0.91"
           className={styles.ratingInput}
           onChange={({ target }) => {
-            setMin(+target.value);
-            if (+target.value > max) {
-              refMax.current.value = +target.value;
-              setMax(+target.value);
+            const valueMinStr = target.value;
+            setMin(valueMinStr);
+
+            const valueMinNum = parseFloat(valueMinStr.slice(0, 3));
+            if (valueMinNum >= parseFloat(max)) {
+              const valueMaxNum = valueMinNum + 0.9;
+              const valueMaxStr = parseFloat(valueMaxNum).toPrecision(2);
+              setMax(valueMaxStr);
             }
           }}
         />
@@ -52,15 +58,20 @@ export const MinMaxRating = () => {
           ref={refMax}
           type="range"
           name="vote_average_lte"
-          min="1"
+          min="1.9"
           max="10"
-          step="1"
+          step="0.9"
           className={styles.ratingInput}
           onChange={({ target }) => {
-            setMax(+target.value);
-            if (+target.value < min) {
-              refMin.current.value = +target.value;
-              setMin(+target.value);
+            const valueMaxStr = target.value;
+            setMax(valueMaxStr);
+
+            const valueMaxNum = parseFloat(valueMaxStr);
+            if (valueMaxNum < parseFloat(min)) {
+              const level = Math.trunc(valueMaxNum) - 1;
+              const valueMinNum = valueMaxNum - 0.9 + level * 0.01;
+              const valueMinStr = parseFloat(valueMinNum).toPrecision(3);
+              setMin(valueMinStr);
             }
           }}
         />
