@@ -8,8 +8,7 @@
   border-radius: max(1rem, 1vw);
   background-color: var(--background-highlight);
   margin: max(0.5rem, 0.5vw) max(4rem, 4vw) max(0.5rem, 0.5vw) max(2rem, 2vw);
-  border: solid max(0.125rem, 0.125vw) transparent;
-  outline: none;
+  outline: solid max(0.125rem, 0.125vw) transparent;
 }
 
 .image {
@@ -24,7 +23,7 @@
 }
 
 .root:focus {
-  border: solid max(0.125rem, 0.125vw) var(--accent);
+  outline: solid max(0.125rem, 0.125vw) var(--accent);
 }
 
 .body {
