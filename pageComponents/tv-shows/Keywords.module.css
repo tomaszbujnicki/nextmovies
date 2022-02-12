@@ -1,0 +1,60 @@
+.root {
+  cursor: text;
+  border-radius:  max(0.5rem, 0.5vw);
+  background-color: var(--background-highlight);
+  position: relative;
+}
+
+.input {
+  outline: none;
+  background: transparent;
+  border: none;
+  font-size: var(--fs-8);
+  padding: max(0.25rem, 0.25vw) max(0.5rem, 0.5vw);
+  margin-right: max(0.5rem, 0.5vw);
+  margin-bottom: max(0.5rem, 0.5vw);
+  width: 100%;
+}
+
+.input:focus {
+  color: var(--accent);
+} 
+
+.keywordList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  font-size: var(--fs-8);
+}
+
+.keyword {
+  padding: max(0.25rem, 0.25vw) max(0.5rem, 0.5vw);
+  background-color: var(--primary);
+  border-radius: max(0.5rem, 0.5vw);
+  margin-right: max(0.5rem, 0.5vw);
+  margin-bottom: max(0.5rem, 0.5vw);
+}
+
+.keyword:hover {
+  color: var(--accent);
+  text-decoration: line-through;
+  cursor: pointer;
+}
+
+
+.suggestionList {
+  position: absolute;
+  background-color: var(--background-highlight);
+  padding: max(1rem, 1vw);
+  z-index: 100;
+  border:solid max(0.0625rem, 0.0625vw) var(--primary);
+  border-radius: max(1rem, 1vw);
+  min-width: 100%;
+}
+
+.suggestion:hover {
+  cursor: pointer;
+  color: var(--accent);
+}

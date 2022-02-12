@@ -8,16 +8,18 @@
   top: max(2rem, 2vw);
   background-color: var(--background);
   opacity: 0.5;
-  border-radius: 0 max(1rem, 1vw) max(1rem, 1vw)   0;
+  border-radius: 0 max(1rem, 1vw) max(1rem, 1vw) 0;
   transition: opacity 0.5s, background-color 0.5s;
 }
 
-.root:hover, .root:focus-visible    {
+.root:hover,
+.root:focus-within {
   opacity: 1;
   background-color: var(--primary);
 }
 
-.root:hover .svg, .root:focus-visible .svg {
+.root:hover .svg,
+.root:focus-within .svg {
   fill: var(--on-primary);
   stroke: var(--on-primary);
 }
@@ -32,13 +34,10 @@
 
 .svg {
   fill: var(--on-background);
+  stroke: var(--on-background);
   transition: fill 0.5s, stroke 0.5s;
   height: 100%;
   width: 100%;
-}
-
-.svgClose {
-  fill: var(--background);
 }
 
 .button {
@@ -47,16 +46,16 @@
   padding: max(1rem, 1vw);
   cursor: pointer;
   transition: background-color 0.5s;
+  outline: none;
 }
 
-.button:hover {
+.button:hover,
+.button:focus-visible {
   background-color: var(--accent);
 }
 
-.button:hover .svg {
+.button:hover .svg,
+.button:focus-visible .svg {
   fill: var(--on-accent);
-}
-
-.button:hover .svgClose {
-  fill: var(--accent);
+  stroke: var(--on-accent);
 }

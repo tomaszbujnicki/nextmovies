@@ -1,0 +1,32 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.year {
+  display: flex;
+  flex-direction: column;
+}
+
+.yearInput {
+  margin-bottom: max(1rem, 1vw);
+  border-radius: max(0.5rem, 0.5vw);
+  border: solid max(0.0625rem, 0.0625vw) var(--primary);
+  font-size: var(--fs-6);
+  background-color: var(--background-highlight);
+  padding-left: max(1rem, 1vw);
+}
+
+.yearInput:focus {
+  outline: solid max(0.0625rem, 0.0625vw) var(--accent);
+  color: var(--accent)
+}
+
+.yearInput:invalid:focus {
+  color: var(--on-background)
+}
+
+.yearLabel {
+  font-size: var(--fs-7);
+}

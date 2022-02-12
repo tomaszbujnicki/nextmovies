@@ -9,6 +9,8 @@ import SVG_ExitFullscreen from '../assets/exit-fullscreen.svg';
 import SVG_EnterFullscreen from '../assets/enter-fullscreen.svg';
 import SVG_Search from '../assets/search.svg';
 import SVG_Home from '../assets/home.svg';
+import SVG_Tv from '../assets/tv.svg';
+import SVG_Cinema from '../assets/cinema.svg';
 
 const Menu = ({ setIsSearchOpen }) => {
   const [isFullscreen, toggleFullscreen] = useFullscreen();
@@ -29,13 +31,25 @@ const Menu = ({ setIsSearchOpen }) => {
         <SVG_Search className={styles.svg} />
       </Button>
 
-      <Button onClick={toggleFullscreen} className={styles.button} tabIndex="4">
+      <Button onClick={toggleFullscreen} className={styles.button} tabIndex="3">
         {isFullscreen ? (
           <SVG_ExitFullscreen className={styles.svg} />
         ) : (
           <SVG_EnterFullscreen className={styles.svg} />
         )}
       </Button>
+
+      <Link href={`/movies`}>
+        <a className={styles.button} tabIndex="4">
+          <SVG_Cinema className={styles.svg} />
+        </a>
+      </Link>
+
+      <Link href={`/tv-shows`}>
+        <a className={styles.button} tabIndex="5">
+          <SVG_Tv className={styles.svg} />
+        </a>
+      </Link>
     </div>
   );
 };
