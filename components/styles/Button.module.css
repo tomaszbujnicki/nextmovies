@@ -7,9 +7,10 @@
   font-weight: 500;
   border-radius: max(0.75rem, 0.75vw);
   transition: background-color 0.5s, color 0.5s;
+  outline: none;
 }
 
-.PrimaryButton:hover {
+.PrimaryButton:hover, .PrimaryButton:focus-visible {
   background-color: var(--accent);
   color: var(--on-accent);
 }

@@ -43,7 +43,7 @@
 .button {
   height: max(3.5rem, 3.5vw);
   width: max(3.5rem, 3.5vw);
-  padding: max(1rem, 1vw);
+  padding: max(1rem, 1vw) max(0.5rem, 0.5vw);
   cursor: pointer;
   transition: background-color 0.5s;
   outline: none;
@@ -58,4 +58,17 @@
 .button:focus-visible .svg {
   fill: var(--on-accent);
   stroke: var(--on-accent);
+}
+
+.button:disabled .svg {
+  opacity: 0.25;
+}
+.button:disabled:hover, .button:disabled:focus-within {
+  background-color: var(--primary);
+  cursor: default;
+}
+
+.button:disabled:hover .svg, .button:disabled:focus-within .svg{
+  fill: var(--on-background);
+  stroke: var(--on-background);
 }

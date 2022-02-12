@@ -1,6 +1,7 @@
 .root {
   overflow: hidden;
   display: block;
+  outline: none;
 }
 
 .svgContainer {

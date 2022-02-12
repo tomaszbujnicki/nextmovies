@@ -7,8 +7,6 @@
 .Poster {
 }
 
-
-
 .tagline {
   font-size: var(--fs-4);
   font-style: italic;
@@ -41,10 +39,11 @@
 }
 
 .external__link:focus {
-outline: none;
+  outline: none;
 }
 
-.external__link:hover > svg, .external__link:focus-visible > svg {
+.external__link:hover > svg,
+.external__link:focus-visible > svg {
   fill: var(--accent);
   stroke: var(--accent);
 }
@@ -67,8 +66,9 @@ outline: none;
   margin-bottom: max(0.5rem, 0.5vw);
 }
 
-.keyword:hover {
-  color: var(--accent)
+.keyword a:hover, .keyword a:focus-visible {
+  color: var(--accent);
+  outline: none;
 }
 
 .list {
@@ -91,6 +91,7 @@ outline: none;
   outline: none;
 }
 
-.link:hover, .link:focus-visible {
+.link:hover,
+.link:focus-visible {
   color: var(--accent);
 }
