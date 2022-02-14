@@ -2,13 +2,13 @@
   display: flex;
   width: 100%;
   overflow: auto;
-  padding: max(1rem, 1vw);
+  padding: max(0.75rem, 1vw);
 }
 
 .button {
   font-size: var(--fs-4);
   color: var(--primary);
-  margin: max(1rem, 1vw)
+  margin: max(0.75rem, 1vw)
 }
 
 .button:hover {

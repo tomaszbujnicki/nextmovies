@@ -4,7 +4,7 @@
   position: relative;
   display: flex;
   align-items: flex-end;
-  padding: 0 0 max(5rem, 5vw) max(8rem, 8vw);
+  padding: 0 0 max(3.75rem, 5vw) max(6rem, 8vw);
 }
 
 .hide {

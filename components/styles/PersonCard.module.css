@@ -1,13 +1,13 @@
 /* default */
 
 .content {
-  border-radius: max(1rem, 1vw);
+  border-radius: max(0.75rem, 1vw);
   overflow: hidden;
   color: var(--white);
 }
 
 .body {
-  padding: max(0.75rem, 0.75vw);
+  padding: max(0.5625rem, 0.75vw);
   background-color: var(--primary-dark);
 }
 

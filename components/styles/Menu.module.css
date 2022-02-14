@@ -5,17 +5,16 @@
   align-items: center;
   position: fixed;
   left: 0;
-  top: max(2rem, 2vw);
+  top: max(1.5rem, 2vw);
   background-color: var(--background);
   opacity: 0.5;
-  border-radius: 0 max(1rem, 1vw) max(1rem, 1vw) 0;
+  border-radius: 0 max(0.75rem, 1vw) max(0.75rem, 1vw) 0;
   transition: opacity 0.5s, background-color 0.5s;
 }
 
 .root:hover,
 .root:focus-within {
   opacity: 1;
-  background-color: var(--primary);
 }
 
 .root:hover .svg,
@@ -25,11 +24,11 @@
 }
 
 .root > *:first-child {
-  border-radius: 0 max(1rem, 1vw) 0 0;
+  border-radius: 0 max(0.75rem, 1vw) 0 0;
 }
 
 .root > *:last-child {
-  border-radius: 0 0 max(1rem, 1vw) 0;
+  border-radius: 0 0 max(0.75rem, 1vw) 0;
 }
 
 .svg {
@@ -41,9 +40,9 @@
 }
 
 .button {
-  height: max(3.5rem, 3.5vw);
-  width: max(3.5rem, 3.5vw);
-  padding: max(1rem, 1vw) max(0.5rem, 0.5vw);
+  height: max(2.625rem, 3.5vw);
+  width: max(2.625rem, 3.5vw);
+  padding: max(0.75rem, 1vw) max(0.375rem, 0.5vw);
   cursor: pointer;
   transition: background-color 0.5s;
   outline: none;

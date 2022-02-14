@@ -2,25 +2,25 @@
   display: flex;
   width: 100%;
   position: relative;
-  padding: max(4rem, 4vw) max(8rem, 8vw);
+  padding: max(0.75rem, 1vw) max(1.5rem, 2vw) max(0.75rem, 1vw) max(3rem, 4vw);
 }
 
 .sideContainer {
-  width: 22%;
+  width: max(15.625rem, 22%);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .mainContainer {
-  width: 78%;
-  padding-left: max(4rem, 4vw);
+  flex-grow: 1;
+  padding-left: max(0.75rem, 1vw);
 }
 
 .Poster {
-  border-radius: max(3rem, 3vw);
-  width: max(17.5rem, 17.5vw);
-  margin-bottom: max(2rem, 2vw);
+  border-radius: max(2.25rem, 3vw);
+  width: max(13.125rem, 17.5vw);
+  margin-bottom: max(1.5rem, 2vw);
 }
 
 .PersonalInfo {
@@ -35,20 +35,20 @@
   color: var(--primary);
 }
 .PersonalInfoList > dd {
-  margin-bottom: max(1.5rem, 1.5vw);
+  margin-bottom: max(1.125rem, 1.5vw);
 }
 
 .header {
-  padding-bottom: max(2rem, 2vw);
+  padding-bottom: max(1.5rem, 2vw);
 }
 
 .section {
-  padding-bottom: max(2rem, 2vw);
+  padding-bottom: max(1.5rem, 2vw);
 }
 
 .title {
   font-size: var(--fs-2);
-  letter-spacing: max(0.2rem, 0.2vw);
+  letter-spacing: max(0.15rem, 0.2vw);
   position: relative;
   color: var(--primary);
   font-weight: 700;
@@ -62,10 +62,10 @@
 .heading {
   font-size: var(--fs-3);
   color: var(--primary);
-  margin-bottom: max(1rem, 1vw);
+  margin-bottom: max(0.75rem, 1vw);
 }
 
 .Image {
-  border-radius: max(2.5rem, 2.5vw);
+  border-radius: max(1.875rem, 2.5vw);
   overflow: hidden;
 }

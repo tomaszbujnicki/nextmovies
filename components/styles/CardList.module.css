@@ -3,11 +3,11 @@
 
 .button {
   position: absolute;
-  right: max(-3rem, -3vw);
+  right: min(-2.25rem, -3vw);
   top: 0;
   height: 100%;
-  padding: 0 max(0.5rem, 0.5vw);
-  width: max(3rem, 3vw);
+  padding: 0 max(0.375rem, 0.5vw);
+  width: max(2.25rem, 3vw);
   background-color: transparent;
   border-radius: 0;
   transform: none;
@@ -15,11 +15,11 @@
 
 /* overwrite default*/
 .button:focus-visible {
-  outline: max(0.125rem, 0.125vw) solid var(--accent);
+  outline: max(0.09375rem, 0.125vw) solid var(--accent);
 }
 
 .buttonLeft {
-  left: max(-3rem, -3vw);
+  left: min(-2.25rem, -3vw);
 }
 
 .button:not([disabled]):hover .svg {

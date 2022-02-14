@@ -33,7 +33,12 @@ const Search = (props) => {
   return (
     <>
       <Head title={props.query} />
-      <div ref={ref} className={styles.root}>
+
+      <h1 ref={ref} className={styles.title}>
+        Results for: {props.query}
+      </h1>
+
+      <div className={styles.root}>
         <div className={styles.sideContainer}>
           <div className={styles.buttonList}>
             <button
@@ -95,7 +100,7 @@ export default Search;
 
 const Content = ({ data, media_type }) => {
   return (
-    <div className={styles.content} tabIndex="-1">
+    <div tabIndex="-1">
       {data?.results?.length > 0 && (
         <ul className={styles.list}>
           {data.results.map((item) => (

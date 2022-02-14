@@ -7,40 +7,40 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: max(3rem, 3vw);
+  height: max(2.25rem, 3vw);
   position: relative;
 }
 
 .input {
   font-size: var(--fs-6);
-  padding: 0 max(1rem, 1vw);
+  padding: 0 max(0.75rem, 1vw);
   flex-grow: 1;
   color: var(--white);
   background: var(--primary-dark);
 }
 
 .button {
-  padding: max(0.35rem, 0.35vw) max(1rem, 1vw);
+  padding: max(0.2625rem, 0.35vw) max(0.75rem, 1vw);
 }
 
 .input,
 .button {
   border: none;
   height: 100%;
-  border-radius: max(1rem, 1vw);
-  outline: solid max(0.125rem, 0.125vw) transparent;
+  border-radius: max(0.75rem, 1vw);
+  outline: solid max(0.09375rem, 0.125vw) transparent;
   transition: background-color 0.5s, outline 0.5s, fill 0.5s;
 }
 
 .input:focus-visible,
 .button:focus-visible {
-  outline: max(0.125rem, 0.125vw) solid var(--accent);
+  outline: max(0.09375rem, 0.125vw) solid var(--accent);
 }
 
 .svg {
-  height: max(1.5rem, 1.5vw);
+  height: max(1.125rem, 1.5vw);
   fill: var(--white);
-  margin-top: max(0.25rem, 0.25vw);
+  margin-top: max(0.1875rem, 0.25vw);
 }
 
 .button:hover .svg {
@@ -49,8 +49,7 @@
 
 .content {
   left: 8%;
-  top: max(3rem, 3vw);
-  top: 5.5rem;
+  top: max(2.25rem, 3vw);
   z-index: 9998;
 }
 
@@ -60,6 +59,6 @@
 }
 
 .noResults {
-  padding: max(2rem, 2vw);
+  padding: max(1.5rem, 2vw);
   font-size: var(--fs-3);
 }

@@ -9,9 +9,9 @@
 }
 
 .root > button:first-child {
-  border-radius: max(0.75rem, 0.75vw) 0 0 max(0.75rem, 0.75vw);
+  border-radius: max(0.5625rem, 0.75vw) 0 0 max(0.5625rem, 0.75vw);
 }
 
 .root > button:last-child {
-  border-radius: 0 max(0.75rem, 0.75vw) max(0.75rem, 0.75vw) 0;
+  border-radius: 0 max(0.5625rem, 0.75vw) max(0.5625rem, 0.75vw) 0;
 }

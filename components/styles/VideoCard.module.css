@@ -5,11 +5,11 @@
 
 .svg {
   position: absolute;
-  width: max(3rem, 3vw);
-  height: max(3rem, 3vw);
+  width: max(2.25rem, 3vw);
+  height: max(2.25rem, 3vw);
   top: 50%;
   left: 50%;
-  transform: translate(max(-1.5rem, -1.5vw), max(-1.5rem, -1.5vw));
+  transform: translate(min(-1.125rem, -1.5vw), min(-1.125rem, -1.5vw));
   opacity: 0;
   transition: opacity 0.5s;
 }

@@ -16,7 +16,7 @@
 }
 
 .svg {
-  width: max(3rem, 3vw); 
+  width: max(2.25rem, 3vw); 
   opacity: 0;
   transition: opacity 0.5s;
   fill: var(--accent);

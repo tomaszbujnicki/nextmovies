@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import Head from '../../components/Head';
 import SearchItem from '../../components/SearchItem';
 import styles from './TvShows.module.css';
@@ -58,7 +57,6 @@ const getParam = (key, value) => {
 
 const TvShows = ({ data }) => {
   const router = useRouter();
-  const ref = useRef(null);
 
   const query = router.query;
 
@@ -87,13 +85,15 @@ const TvShows = ({ data }) => {
   return (
     <>
       <Head title="Tv-Shows" />
-      <div ref={ref} className={styles.root}>
+
+      <h1 className={styles.title}>Tv-Shows</h1>
+
+      <div className={styles.root}>
         <aside className={styles.sideContainer}>
           <FilterForm handleSubmit={searchData} query={query} />
         </aside>
 
         <div className={styles.mainContainer}>
-          <h1 className={styles.title}>Tv-Shows</h1>
           <Content data={data} />
           <Pagination
             total_pages={total_pages}
@@ -110,7 +110,7 @@ export default TvShows;
 
 const Content = ({ data }) => {
   return (
-    <div className={styles.content} tabIndex="-1">
+    <div tabIndex="-1">
       {data?.results?.length > 0 && (
         <ul className={styles.list}>
           {data.results.map((item) => (

@@ -1,29 +1,29 @@
 .root {
   display: flex;
-  width: max(13rem, 13vw);
+  width: max(9.75rem, 13vw);
   justify-content: space-around;
 }
 
 .root > svg {
-  height: max(2rem, 2vw);
-  width: max(2rem, 2vw);
+  height: max(1.5rem, 2vw);
+  width: max(1.5rem, 2vw);
 }
 
 .md {
-  width: max(9.75rem, 9.75vw);
+  width: max(7.3125rem, 9.75vw);
 }
 
 .md > svg {
-  height: max(1.5rem, 1.5vw);
-  width: max(1.5rem, 1.5vw);
+  height: max(1.125rem, 1.5vw);
+  width: max(1.125rem, 1.5vw);
 }
 
 
 .sm {
-  width: max(6.5rem, 6.5vw);
+  width: max(4.875rem, 6.5vw);
 }
 
 .sm > svg {
-  height: max(1rem, 1vw);
-  width: max(1rem, 1vw);
+  height: max(0.75rem, 1vw);
+  width: max(0.75rem, 1vw);
 }

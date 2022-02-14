@@ -11,15 +11,15 @@
 
 .main {
   position: absolute;
-  border: max(0.125rem, 0.125vw) solid var(--primary);
+  border: max(0.09375rem, 0.125vw) solid var(--primary);
   background-color: var(--background);
-  border-radius: max(2rem, 2vw) max(5rem, 5vw) max(2rem, 2vw) max(2rem, 2vw);
-  padding: max(2rem, 2vw);
+  border-radius: max(1.5rem, 2vw) max(3.75rem, 5vw) max(1.5rem, 2vw) max(1.5rem, 2vw);
+  padding: max(1.5rem, 2vw);
   animation-name: translateY;
   width: 84%;
   left: 8%;
-  top: max(4rem, 4vw);
-  bottom: max(1rem, 1vw);
+  top: max(3rem, 4vw);
+  bottom: max(0.75rem, 1vw);
 }
 
 .overlay,
@@ -87,8 +87,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  height: max(3rem, 3vw);
-  width: max(3rem, 3vw);
+  height: max(2.25rem, 3vw);
+  width: max(2.25rem, 3vw);
   z-index: 100;
   stroke: var(--primary);
 }
@@ -105,7 +105,7 @@
   height: 100%;
   width: 100%;
   position: relative;
-  padding: max(1rem, 1vw);
+  padding: max(0.75rem, 1vw);
   overflow: scroll;
 }
 
@@ -114,5 +114,5 @@
   animation-name: translateY;
   width: 84%;
   left: 8%;
-  top: max(0.5rem, 0.5vw);
+  top: max(0.375rem, 0.5vw);
 }

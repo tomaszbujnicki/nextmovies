@@ -2,7 +2,7 @@
   display: flex;
   width: 100%;
   position: relative;
-  padding: max(4rem, 4vw) max(8rem, 8vw);
+  padding: max(0.75rem, 1vw) max(1.5rem, 2vw) max(0.75rem, 1vw) max(3rem, 4vw);
 }
 
 .title {
@@ -11,21 +11,15 @@
 }
 
 .sideContainer {
-  width: 22%;
+  width: max(15.625rem, 22%);
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
 }
 
 .mainContainer {
-  width: 78%;
-  padding-left: max(4rem, 4vw);
-}
-
-.content {
-  left: 8%;
-  top: max(3rem, 3vw);
-  top: 5.5rem;
-  z-index: 9998;
+  flex-grow: 1;
+  padding-left: max(0.75rem, 1vw);
 }
 
 .list {
@@ -34,7 +28,7 @@
 }
 
 .noResults {
-  padding: max(2rem, 2vw);
+  padding: max(1.5rem, 2vw);
   font-size: var(--fs-3);
 }
 
@@ -45,8 +39,8 @@
 }
 
 .Pagination__element {
-  width: max(2rem, 2vw);
-  height: max(2rem, 2vw);
+  width: max(1.5rem, 2vw);
+  height: max(1.5rem, 2vw);
   font-size: var(--fs-7);
   display: flex;
   justify-content: center;
@@ -60,16 +54,16 @@
 }
 
 .Pagination__element:focus-visible {
-  outline: max(0.125rem, 0.125vw) solid var(--accent);
+  outline: max(0.09375rem, 0.125vw) solid var(--accent);
 }
 
 .li {
   display: flex;
-  margin-right: max(0.25rem, 0.25vw);
+  margin-right: max(0.1875rem, 0.25vw);
 }
 
 .dots {
   font-size: var(--fs-7);
-  padding: 0 max(0.25rem, 0.25vw);
+  padding: 0 max(0.1875rem, 0.25vw);
 }
 

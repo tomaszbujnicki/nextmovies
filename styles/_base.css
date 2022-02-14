@@ -1,5 +1,6 @@
 :root {
   color-scheme: dark;
+  font-size: 16px;
 }
 
 *,
@@ -47,7 +48,7 @@ main {
 }
 
 *::-webkit-scrollbar {
-  width: max(0.5rem, 0.5vw);
+  width: max(0.375rem, 0.5vw);
   background-color: var(--background);
 }
 
@@ -57,7 +58,7 @@ main {
 
 *::-webkit-scrollbar-thumb {
   background-color: var(--primary-dark);
-  border-radius: max(0.25rem, 0.25vw);
+  border-radius: max(0.1875rem, 0.25vw);
 }
 
 *::-webkit-scrollbar-thumb:hover {

@@ -5,7 +5,7 @@
 
 .subtitle {
   font-size: var(--fs-4);
-  margin-bottom: max(2rem, 2vw);
+  margin-bottom: max(1.5rem, 2vw);
 }
 
 .hide {

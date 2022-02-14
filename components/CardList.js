@@ -11,23 +11,23 @@ import styles from './styles/CardList.module.css';
 const cards = {
   person: {
     Card: PersonCard,
-    width: 'max(10rem, 10vw)',
-    gap: '1rem',
+    width: 'max(7.5rem, 10vw)',
+    gap: 'max(0.75rem, 1vw)',
   },
   movie: {
     Card: MovieCard,
-    width: 'max(10rem, 10vw)',
+    width: 'max(7.5rem, 10vw)',
     gap: '0',
   },
   tv: {
     Card: TvCard,
-    width: 'max(10rem, 10vw)',
+    width: 'max(7.5rem, 10vw)',
     gap: '0',
   },
   video: {
     Card: VideoCard,
-    width: 'max(25rem, 25vw)',
-    gap: '1rem',
+    width: 'max(18.75rem, 25vw)',
+    gap: 'max(0.75rem, 1vw)',
   },
   review: {
     Card: ReviweCard,

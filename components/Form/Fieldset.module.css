@@ -1,11 +1,11 @@
 .root {
-  padding: max(1rem, 1vw);
-  margin-bottom: max(1rem, 1vw);
-  border:solid max(0.0625rem, 0.0625vw) var(--primary);
-  border-radius: max(1rem, 1vw);
+  padding: max(0.75rem, 1vw);
+  margin-bottom: max(0.75rem, 1vw);
+  border:solid max(0.046875rem, 0.0625vw) var(--primary);
+  border-radius: max(0.75rem, 1vw);
 }
 
 .title {
-  padding: 0 max(1rem, 1vw);
+  padding: 0 max(0.75rem, 1vw);
   font-size: var(--fs-5);
 }

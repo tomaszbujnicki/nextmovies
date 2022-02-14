@@ -19,6 +19,7 @@
   --on-background: rgb(153, 153, 153);
 
   --background-highlight: rgb(8, 8, 8);
+  --background-highlight: rgb(40, 40, 40);
 
   --primary: rgb(59, 24, 95);
   --primary-dark: rgb(42, 9, 68);
@@ -30,14 +31,14 @@
   --accent: rgb(254, 194, 96);
   --on-accent: rgb(0, 0, 0);
 
-  --fs-1: max(4rem, 4vw);
-  --fs-2: max(3rem, 3vw);
-  --fs-3: max(2rem, 2vw);
-  --fs-4: max(1.5rem, 1.5vw);
-  --fs-5: max(1.25rem, 1.25vw);
-  --fs-6: max(1.125rem, 1.125vw);
-  --fs-7: max(1rem, 1vw);
-  --fs-8: max(0.875rem, 0.875vw);
+  --fs-1: max(3rem, 4vw);
+  --fs-2: max(2.25rem, 3vw);
+  --fs-3: max(1.5rem, 2vw);
+  --fs-4: max(1.125rem, 1.5vw);
+  --fs-5: max(0.9375rem, 1.25vw);
+  --fs-6: max(0.84375rem, 1.125vw);
+  --fs-7: max(0.75rem, 1vw);
+  --fs-8: max(0.65625rem, 0.875vw);
 
-  --size-1: max(4rem, 4vw);
+  --size-1: max(3rem, 4vw);
 }

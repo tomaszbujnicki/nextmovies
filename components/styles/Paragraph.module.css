@@ -2,7 +2,7 @@
   font-family: Montserrat, sans-serif;
   color: var(--on-background);
   font-size: var(--fs-5);
-  margin-bottom: max(1rem, 1vw);
+  margin-bottom: max(0.75rem, 1vw);
 }
 
 .button {

@@ -1,5 +1,5 @@
 .heading {
-  padding: max(5rem, 5vw) max(4vw, 4rem);
+  padding: max(3.75rem, 5vw) max(4vw, 4rem);
   font-size: var(--fs-1);
   text-align: center;
 }

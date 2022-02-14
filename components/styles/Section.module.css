@@ -1,15 +1,15 @@
 .root {
-  padding: max(4rem, 4vw) max(8rem, 8vw) max(5rem, 5vw) max(8rem, 8vw);
+  padding: max(3rem, 4vw) max(6rem, 8vw) max(3.75rem, 5vw) max(6rem, 8vw);
 }
 
 .root:not(:last-child) {
-  border-bottom: solid max(0.0625rem, 0.0625vw) var(--primary);
+  border-bottom: solid max(0.046875rem, 0.0625vw) var(--primary);
 }
 
 .heading {
   font-size: var(--fs-2);
-  letter-spacing: max(0.2rem, 0.2vw);
+  letter-spacing: max(0.15rem, 0.2vw);
   color: var(--on-background);
   font-weight: 700;
-  margin: 0 0 max(3rem, 3vw) max(3rem, 3vw);
+  margin: 0 0 max(2.25rem, 3vw) max(2.25rem, 3vw);
 }
