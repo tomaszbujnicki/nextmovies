@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import Head from '../../components/Head';
+import Wrapper from '../../components/Wrapper';
 import SearchItem from '../../components/SearchItem';
 import useFetch from '../../hooks/useFetch';
 import styles from './Search.module.css';
@@ -31,12 +32,10 @@ const Search = (props) => {
   };
 
   return (
-    <>
+    <Wrapper>
       <Head title={props.query} />
 
-      <h1 ref={ref} className={styles.title}>
-        Results for: {props.query}
-      </h1>
+      <h1 className={styles.title}>Results for: {props.query}</h1>
 
       <div className={styles.root}>
         <div className={styles.sideContainer}>
@@ -83,7 +82,7 @@ const Search = (props) => {
           </div>
         </div>
 
-        <div className={styles.mainContainer}>
+        <div ref={ref} className={styles.mainContainer}>
           <Content data={data} media_type={state.media_type} />
           <Pagination
             page={state.page}
@@ -92,7 +91,7 @@ const Search = (props) => {
           />
         </div>
       </div>
-    </>
+    </Wrapper>
   );
 };
 

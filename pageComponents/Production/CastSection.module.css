@@ -11,3 +11,7 @@
 .hide {
   display: none;
 }
+
+.button {
+  margin: max(2.25rem, 3vw) 0 0 max(2.25rem, 3vw);
+}

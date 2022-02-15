@@ -1,77 +1,32 @@
 import Head from '../../components/Head';
 import SearchItem from '../../components/SearchItem';
+import Wrapper from '../../components/Wrapper';
 import styles from './TvShows.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import FilterForm from './FilterForm';
-
-const getParam = (key, value) => {
-  switch (key) {
-    case 'with_genres':
-      if (value?.length > 0) {
-        return 'with_genres=' + value + '&';
-      }
-      return '';
-
-    case 'with_keywords':
-      if (value?.length > 0) {
-        const keywords = value.map((keyword) => keyword.id);
-        return 'with_keywords=' + keywords + '&';
-      }
-      return '';
-
-    case 'certification':
-      if (value?.length > 0) {
-        return 'certification=' + value + '&certification_country=US&';
-      }
-      return '';
-
-    case 'primary_release_date_gte':
-      if (value?.length === 4) {
-        return 'primary_release_date.gte=' + value + '-01-01&';
-      }
-      return '';
-
-    case 'primary_release_date_lte':
-      if (value?.length === 4) {
-        return 'primary_release_date.lte=' + value + '-12-31&';
-      }
-      return '';
-
-    case 'vote_average_gte':
-      if (parseFloat(value) <= 10) {
-        return 'vote_average.gte=' + value + '&';
-      }
-      return '';
-
-    case 'vote_average_lte':
-      if (parseFloat(value) >= 1 && parseFloat(value) < 10) {
-        return 'vote_average.lte=' + value + '&';
-      }
-      return '';
-
-    default:
-      return '';
-  }
-};
+import { useRef, useEffect } from 'react';
 
 const TvShows = ({ data }) => {
   const router = useRouter();
+  const ref = useRef(null);
 
   const query = router.query;
+
+  useEffect(() => {
+    if (query.page > 1) {
+      ref.current.scrollIntoView();
+    }
+  });
 
   const queryString = router.asPath
     .replace(/\/movies\??/, '')
     .replace(/&?page=\d*/, '');
 
   const searchData = (values) => {
-    console.log(values);
-
     let params = '';
 
     for (const [key, value] of Object.entries(values)) {
-      console.log(`${key}: ${value}`);
-
       params += getParam(key, value);
     }
 
@@ -83,7 +38,7 @@ const TvShows = ({ data }) => {
   const total_pages = data.total_pages < 500 ? data.total_pages : 500;
 
   return (
-    <>
+    <Wrapper>
       <Head title="Tv-Shows" />
 
       <h1 className={styles.title}>Tv-Shows</h1>
@@ -93,7 +48,7 @@ const TvShows = ({ data }) => {
           <FilterForm handleSubmit={searchData} query={query} />
         </aside>
 
-        <div className={styles.mainContainer}>
+        <div ref={ref} className={styles.mainContainer}>
           <Content data={data} />
           <Pagination
             total_pages={total_pages}
@@ -102,7 +57,7 @@ const TvShows = ({ data }) => {
           />
         </div>
       </div>
-    </>
+    </Wrapper>
   );
 };
 
@@ -177,4 +132,54 @@ const Pagination = ({ total_pages, query, page }) => {
   }
 
   return <ul className={styles.Pagination}>{buttons}</ul>;
+};
+
+const getParam = (key, value) => {
+  switch (key) {
+    case 'with_genres':
+      if (value?.length > 0) {
+        return 'with_genres=' + value + '&';
+      }
+      return '';
+
+    case 'with_keywords':
+      if (value?.length > 0) {
+        const keywords = value.map((keyword) => keyword.id);
+        return 'with_keywords=' + keywords + '&';
+      }
+      return '';
+
+    case 'certification':
+      if (value?.length > 0) {
+        return 'certification=' + value + '&certification_country=US&';
+      }
+      return '';
+
+    case 'primary_release_date_gte':
+      if (value?.length === 4) {
+        return 'primary_release_date.gte=' + value + '-01-01&';
+      }
+      return '';
+
+    case 'primary_release_date_lte':
+      if (value?.length === 4) {
+        return 'primary_release_date.lte=' + value + '-12-31&';
+      }
+      return '';
+
+    case 'vote_average_gte':
+      if (parseFloat(value) <= 10) {
+        return 'vote_average.gte=' + value + '&';
+      }
+      return '';
+
+    case 'vote_average_lte':
+      if (parseFloat(value) >= 1 && parseFloat(value) < 10) {
+        return 'vote_average.lte=' + value + '&';
+      }
+      return '';
+
+    default:
+      return '';
+  }
 };

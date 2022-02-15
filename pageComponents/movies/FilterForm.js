@@ -23,8 +23,6 @@ const emptyValues = {
 };
 
 const FilterForm = ({ handleSubmit, query }) => {
-  console.log('FilterForm');
-
   const initialValues = {};
 
   if (query.with_genres) {
@@ -122,26 +120,30 @@ const FilterForm = ({ handleSubmit, query }) => {
 
             <Fieldset title="Year">
               <div className={styles.year}>
-                <label className={styles.yearLabel}>From:</label>
-                <Field
-                  className={styles.yearInput}
-                  type="text"
-                  name="primary_release_date_gte"
-                  minLength="4"
-                  maxLength="4"
-                  pattern="[0-9]{4}"
-                  autoComplete="off"
-                />
-                <label className={styles.yearLabel}>To:</label>
-                <Field
-                  className={styles.yearInput}
-                  type="text"
-                  name="primary_release_date_lte"
-                  minLength="4"
-                  maxLength="4"
-                  pattern="[0-9]{4}"
-                  autoComplete="off"
-                />
+                <div className={styles.yearItem}>
+                  <label className={styles.yearLabel}>From:</label>
+                  <Field
+                    className={styles.yearInput}
+                    type="text"
+                    name="primary_release_date_gte"
+                    minLength="4"
+                    maxLength="4"
+                    pattern="[0-9]{4}"
+                    autoComplete="off"
+                  />
+                </div>
+                <div className={styles.yearItem}>
+                  <label className={styles.yearLabel}>To:</label>
+                  <Field
+                    className={styles.yearInput}
+                    type="text"
+                    name="primary_release_date_lte"
+                    minLength="4"
+                    maxLength="4"
+                    pattern="[0-9]{4}"
+                    autoComplete="off"
+                  />{' '}
+                </div>
               </div>
             </Fieldset>
 

@@ -2,12 +2,12 @@
   display: flex;
   width: 100%;
   position: relative;
-  padding: max(0.75rem, 1vw) max(1.5rem, 2vw) max(0.75rem, 1vw) max(3rem, 4vw);
 }
 
 .title {
-  text-align: center;
   font-size: var(--fs-2);
+  line-height: 1;
+  margin-bottom: max(1.5rem, 2vw);
 }
 
 .sideContainer {
@@ -15,11 +15,13 @@
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  margin-bottom: max(1.5rem, 2vw);
 }
 
 .mainContainer {
   flex-grow: 1;
   padding-left: max(0.75rem, 1vw);
+  min-width: 0;
 }
 
 .list {
@@ -95,4 +97,22 @@
 .button:focus {
   background: var(--primary-dark);
   color: var(--accent);
+}
+
+@media (max-width: 899px) {
+  .root {
+    flex-direction: column;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .mainContainer {
+    padding-left: 0;
+  }
+
+  .sideContainer {
+    width: 100%;
+  }
 }

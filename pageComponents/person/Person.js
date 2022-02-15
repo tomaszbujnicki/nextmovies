@@ -3,6 +3,7 @@ import Image from '../../components/Image';
 import styles from './Person.module.css';
 import Paragraph from '../../components/Paragraph';
 import CardList from '../../components/CardList';
+import Wrapper from '../../components/Wrapper';
 
 const Person = ({ data }) => {
   console.log(data);
@@ -17,7 +18,7 @@ const Person = ({ data }) => {
   );
 
   return (
-    <>
+    <Wrapper>
       <Head title={data.name} />
 
       <div className={styles.root}>
@@ -54,7 +55,7 @@ const Person = ({ data }) => {
           )}
         </div>
       </div>
-    </>
+    </Wrapper>
   );
 };
 

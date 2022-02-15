@@ -5,7 +5,7 @@ import TvCard from './TvCard';
 import VideoCard from './VideoCard';
 import ReviweCard from './ReviewCard';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import { RightButton } from './Button';
+import { RightButton, LeftButton } from './Button';
 import styles from './styles/CardList.module.css';
 
 const cards = {
@@ -112,7 +112,7 @@ const MyExtension = (Splide, Components, options) => {
 const Controls = () => {
   return (
     <div className="splide__arrows">
-      <RightButton
+      <LeftButton
         className={`splide__arrow splide__arrow--prev ${styles.button} ${styles.buttonLeft}`}
         classNameInner={styles.svg}
       />

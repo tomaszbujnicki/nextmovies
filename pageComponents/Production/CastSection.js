@@ -53,7 +53,7 @@ const CastSection__Modal = ({ cast, crew }) => {
     <>
       <PrimaryButton
         onClick={() => setIsModalOpen(true)}
-        style={{ marginTop: 'max(0.75rem, 1vw)' }}
+        className={styles.button}
       >
         View full Cast & Crew
       </PrimaryButton>

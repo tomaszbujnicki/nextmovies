@@ -52,3 +52,18 @@
 .checkboxItemInput:focus-visible {
   border-color: var(--accent);
 }
+
+@media (max-width: 899px) {
+  .root {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .checkboxItemLabel {
+    margin: 0 1rem 0.5rem 0;
+  }
+
+  .checkboxItemSpan {
+    margin-left: 0.375rem;
+  }
+}

@@ -19,17 +19,23 @@ const Button = ({ children, active, className, ...rest }) => {
 
 export default Button;
 
-export const PrimaryButton = ({ children, size, ...rest }) => {
+export const PrimaryButton = ({ children, size, className, ...rest }) => {
   return (
-    <Button className={styles.PrimaryButton + ' ' + styles[size]} {...rest}>
+    <Button
+      className={styles.PrimaryButton + ' ' + styles[size] + ' ' + className}
+      {...rest}
+    >
       {children}
     </Button>
   );
 };
 
-export const SecondaryButton = ({ children, size, ...rest }) => {
+export const SecondaryButton = ({ children, size, className, ...rest }) => {
   return (
-    <Button className={styles.SecondaryButton + ' ' + styles[size]} {...rest}>
+    <Button
+      className={styles.SecondaryButton + ' ' + styles[size] + ' ' + className}
+      {...rest}
+    >
       {children}
     </Button>
   );

@@ -2,7 +2,6 @@
   display: flex;
   width: 100%;
   position: relative;
-  padding: max(0.75rem, 1vw) max(1.5rem, 2vw) max(0.75rem, 1vw) max(3rem, 4vw);
 }
 
 .sideContainer {
@@ -15,6 +14,7 @@
 .mainContainer {
   flex-grow: 1;
   padding-left: max(0.75rem, 1vw);
+  min-width: 0;
 }
 
 .Poster {

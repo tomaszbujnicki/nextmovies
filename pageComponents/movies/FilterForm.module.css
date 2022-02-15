@@ -7,10 +7,16 @@
 .year {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.yearItem {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: max(0.75rem, 1vw);
 }
 
 .yearInput {
-  margin-bottom: max(0.75rem, 1vw);
   border-radius: max(0.375rem, 0.5vw);
   border: solid max(0.046875rem, 0.0625vw) var(--primary);
   font-size: var(--fs-6);
@@ -29,4 +35,18 @@
 
 .yearLabel {
   font-size: var(--fs-7);
+  margin-right: max(0.75rem, 1vw);
+  margin-bottom: max(0.75rem, 1vw);
+}
+
+@media (max-width: 899px) {
+  .year {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .yearItem {
+    align-items: center;
+    margin: 0.75rem;
+  }
 }

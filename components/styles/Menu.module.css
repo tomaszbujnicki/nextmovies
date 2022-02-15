@@ -62,12 +62,27 @@
 .button:disabled .svg {
   opacity: 0.25;
 }
-.button:disabled:hover, .button:disabled:focus-within {
+.button:disabled:hover,
+.button:disabled:focus-within {
   background-color: var(--primary);
   cursor: default;
 }
 
-.button:disabled:hover .svg, .button:disabled:focus-within .svg{
+.button:disabled:hover .svg,
+.button:disabled:focus-within .svg {
   fill: var(--on-background);
   stroke: var(--on-background);
+}
+
+@media (max-width: 639px) {
+  .root {
+    flex-direction: row;
+    left: 1.5rem;
+    top: 0;
+    border-radius: 0 0 max(0.75rem, 1vw) max(0.75rem, 1vw);
+  }
+
+  .root > *:first-child {
+    border-radius: 0 0 0 max(0.75rem, 1vw);
+  }
 }

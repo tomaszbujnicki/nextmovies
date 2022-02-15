@@ -23,7 +23,7 @@ export const MinMaxRating = () => {
   }, [min, max]);
 
   return (
-    <>
+    <div className={styles.root}>
       <div className={styles.ratingContainer}>
         <label htmlFor="rating" className={styles.ratingLabel}>
           Minimum Stars
@@ -77,6 +77,6 @@ export const MinMaxRating = () => {
         />
         <Rating rating={max} />
       </div>
-    </>
+    </div>
   );
 };

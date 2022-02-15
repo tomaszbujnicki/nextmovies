@@ -1,3 +1,9 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
 .ratingContainer {
   display: flex;
   flex-direction: column;
@@ -69,4 +75,15 @@
 }
 .ratingInput:focus-visible::-webkit-slider-runnable-track {
   outline: max(0.046875rem, 0.0625vw) solid var(--accent);
+}
+
+@media (max-width: 899px) {
+  .root {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .ratingContainer {
+    margin: 0.75rem;
+  }
 }

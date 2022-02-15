@@ -1,25 +1,10 @@
 :root {
-  --black: rgb(0, 0, 0);
   --white: rgb(255, 255, 255);
-  --purple: rgb(42, 9, 68);
-  --violet: rgb(59, 24, 95);
-  --magenta: rgb(161, 37, 104);
-  --orange: rgb(254, 194, 96);
-  --red: rgb(255, 0, 0);
-
-  --black-opacity: rgba(0, 0, 0, 0.6);
-  --white-opacity: rgba(255, 255, 255, 0.6);
-  --purple-opacity: rgba(42, 9, 68, 0.6);
-  --violet-opacity: rgba(59, 24, 95, 0.6);
-  --magenta-opacity: rgba(161, 37, 104, 0.6);
-  --orange-opacity: rgba(254, 194, 96, 0.6);
-  --red-opacity: rgba(255, 0, 0, 0.6);
 
   --background: rgb(0, 0, 0);
   --on-background: rgb(153, 153, 153);
 
-  --background-highlight: rgb(8, 8, 8);
-  --background-highlight: rgb(40, 40, 40);
+  --background-highlight: rgb(18, 18, 18);
 
   --primary: rgb(59, 24, 95);
   --primary-dark: rgb(42, 9, 68);
@@ -39,6 +24,4 @@
   --fs-6: max(0.84375rem, 1.125vw);
   --fs-7: max(0.75rem, 1vw);
   --fs-8: max(0.65625rem, 0.875vw);
-
-  --size-1: max(3rem, 4vw);
 }
