@@ -74,6 +74,7 @@ const Image = ({
   return (
     <div style={{ fontSize: 0 }} className={className}>
       <NextImage
+        unoptimized="false"
         src={src}
         onError={errorHandler}
         alt={alt}

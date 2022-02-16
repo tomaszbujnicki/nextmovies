@@ -26,6 +26,7 @@ const Background = ({ path, low, high = 'original' }) => {
     <div className={styles.root}>
       <div className={styles.inner}>
         <Image
+          unoptimized="false"
           priority
           layout="fill"
           objectFit="cover"
@@ -40,6 +41,7 @@ const Background = ({ path, low, high = 'original' }) => {
           className={isLowLoaded ? styles.show : styles.hide}
         />
         <Image
+          unoptimized="false"
           priority
           layout="fill"
           objectFit="cover"
