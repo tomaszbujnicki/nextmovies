@@ -15,8 +15,6 @@ export const MinMaxRating = () => {
   const { value: max } = metaMax;
   const { setValue: setMax } = helpersMax;
 
-  console.log(min, max);
-
   useEffect(() => {
     refMin.current.value = min;
     refMax.current.value = max;

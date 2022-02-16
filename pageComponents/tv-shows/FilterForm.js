@@ -23,8 +23,6 @@ const emptyValues = {
 };
 
 const FilterForm = ({ handleSubmit, query }) => {
-  console.log('FilterForm');
-
   const initialValues = {};
 
   if (query.with_genres) {
@@ -62,8 +60,6 @@ const FilterForm = ({ handleSubmit, query }) => {
     initialValues.primary_release_date_lte = toYear.slice(0, 4);
   }
 
-  console.log(query);
-
   return (
     <div>
       <Formik
@@ -71,7 +67,6 @@ const FilterForm = ({ handleSubmit, query }) => {
         onSubmit={(values, { setSubmitting }) => {
           handleSubmit(values);
           setSubmitting(false);
-          console.log(values);
         }}
       >
         {({

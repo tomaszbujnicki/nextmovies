@@ -30,6 +30,10 @@ const TvShows = ({ data }) => {
       params += getParam(key, value);
     }
 
+    if (params[0] === '&') {
+      params = params.substring(1);
+    }
+
     router.push(`/tv-shows?${params}`);
   };
 
@@ -138,44 +142,44 @@ const getParam = (key, value) => {
   switch (key) {
     case 'with_genres':
       if (value?.length > 0) {
-        return 'with_genres=' + value + '&';
+        return '&with_genres=' + value;
       }
       return '';
 
     case 'with_keywords':
       if (value?.length > 0) {
         const keywords = value.map((keyword) => keyword.id);
-        return 'with_keywords=' + keywords + '&';
+        return '&with_keywords=' + keywords;
       }
       return '';
 
     case 'certification':
       if (value?.length > 0) {
-        return 'certification=' + value + '&certification_country=US&';
+        return '&certification=' + value + '&certification_country=US';
       }
       return '';
 
     case 'primary_release_date_gte':
       if (value?.length === 4) {
-        return 'primary_release_date.gte=' + value + '-01-01&';
+        return '&primary_release_date.gte=' + value + '-01-01';
       }
       return '';
 
     case 'primary_release_date_lte':
       if (value?.length === 4) {
-        return 'primary_release_date.lte=' + value + '-12-31&';
+        return '&primary_release_date.lte=' + value + '-12-31';
       }
       return '';
 
     case 'vote_average_gte':
       if (parseFloat(value) <= 10) {
-        return 'vote_average.gte=' + value + '&';
+        return '&vote_average.gte=' + value;
       }
       return '';
 
     case 'vote_average_lte':
       if (parseFloat(value) >= 1 && parseFloat(value) < 10) {
-        return 'vote_average.lte=' + value + '&';
+        return '&vote_average.lte=' + value;
       }
       return '';
 

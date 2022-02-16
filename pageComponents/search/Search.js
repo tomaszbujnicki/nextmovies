@@ -35,7 +35,9 @@ const Search = (props) => {
     <Wrapper>
       <Head title={props.query} />
 
-      <h1 className={styles.title}>Results for: {props.query}</h1>
+      <h1 ref={ref} className={styles.title}>
+        Results for: {props.query}
+      </h1>
 
       <div className={styles.root}>
         <div className={styles.sideContainer}>
@@ -50,7 +52,7 @@ const Search = (props) => {
                 setState({ media_type: 'movie', query: null, page: 1 });
               }}
             >
-              <span>Movie</span>
+              <span>Movies</span>
               <span>{props.movie.total_results}</span>
             </button>
             <button
@@ -82,7 +84,7 @@ const Search = (props) => {
           </div>
         </div>
 
-        <div ref={ref} className={styles.mainContainer}>
+        <div className={styles.mainContainer}>
           <Content data={data} media_type={state.media_type} />
           <Pagination
             page={state.page}
