@@ -29,6 +29,7 @@ const PersonCard = ({
           height={278}
           layout="responsive"
           media="tmdb"
+          alt=""
         />
         <div className={classNameBody}>
           <div className={styles.name}>{name}</div>

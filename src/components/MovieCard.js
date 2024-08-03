@@ -20,6 +20,7 @@ const MovieCard = ({
         width={horizontal ? 780 : 185}
         height={horizontal ? 439 : 278}
         id={horizontal ? backdrop_path : poster_path}
+        alt=""
       />
     </CardLink>
   );

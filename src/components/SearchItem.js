@@ -30,7 +30,7 @@ const SearchItem = ({
         <Image
           id={poster_path || profile_path}
           placeholder={
-            media_type === 'person' ? `profile${gender}.svg` : 'production.js'
+            media_type === 'person' ? `profile${gender}.svg` : 'production.svg'
           }
           size="w185"
           width={92}
